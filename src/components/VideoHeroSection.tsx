@@ -47,11 +47,13 @@ const VideoHeroSection = () => {
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <img
-                  className="size-full object-cover transition-all duration-300 group-hover:scale-105"
-                  src={hoveredProject === project.id ? project.gif : project.thumbnail}
-                  alt={project.name}
-                />
+                <div className="aspect-[4/3] w-full">
+                  <img
+                    className="size-full object-cover transition-all duration-300 group-hover:scale-105"
+                    src={hoveredProject === project.id ? project.gif : project.thumbnail}
+                    alt={project.name}
+                  />
+                </div>
                 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
