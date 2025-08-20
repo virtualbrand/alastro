@@ -12,9 +12,10 @@ import { Play } from "lucide-react"
 // Using placeholder image for all gallery items
 const PLACEHOLDER_IMAGE = "/lovable-uploads/eeab632a-6132-4c98-b778-bad4098d0323.png"
 
-const IMAGES_1 = Array(4).fill(PLACEHOLDER_IMAGE)
-const IMAGES_2 = Array(4).fill(PLACEHOLDER_IMAGE)
-const IMAGES_3 = Array(4).fill(PLACEHOLDER_IMAGE)
+const IMAGES_1 = Array(2).fill(PLACEHOLDER_IMAGE)
+const IMAGES_2 = Array(2).fill(PLACEHOLDER_IMAGE)
+const IMAGES_3 = Array(2).fill(PLACEHOLDER_IMAGE)
+const IMAGES_4 = Array(2).fill(PLACEHOLDER_IMAGE)
 
 const WorksGallerySection = () => {
   return (
@@ -77,7 +78,7 @@ const WorksGallerySection = () => {
                   key={index}
                   className="block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
                   src={imageUrl}
-                  alt={`Trabalho audiovisual ${index + 5}`}
+                  alt={`Trabalho audiovisual ${index + 3}`}
                 />
               ))}
             </GalleryCol>
@@ -87,7 +88,17 @@ const WorksGallerySection = () => {
                   key={index}
                   className="block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
                   src={imageUrl}
-                  alt={`Trabalho audiovisual ${index + 9}`}
+                  alt={`Trabalho audiovisual ${index + 5}`}
+                />
+              ))}
+            </GalleryCol>
+            <GalleryCol className="mt-[-25%]" yRange={["10%", "3%"]}>
+              {IMAGES_4.map((imageUrl, index) => (
+                <img
+                  key={index}
+                  className="block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
+                  src={imageUrl}
+                  alt={`Trabalho audiovisual ${index + 7}`}
                 />
               ))}
             </GalleryCol>
