@@ -34,10 +34,10 @@ const VideoHeroSection = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
   return (
-    <ContainerScroll className="h-[350vh]">
+    <ContainerScroll className="h-[350vh] relative z-0">
       <BentoGrid
         variant="fourCells"
-        className="sticky left-0 top-0 h-screen w-full p-4"
+        className="sticky left-0 top-0 h-screen w-full p-4 z-0"
       >
         {PROJECTS.map((project, index) => (
           <Dialog key={index}>
@@ -83,7 +83,7 @@ const VideoHeroSection = () => {
         ))}
       </BentoGrid>
       
-      <ContainerScale className="relative z-10 text-center">
+      <ContainerScale className="relative z-5 text-center">
         <h1 className="max-w-xl text-5xl font-bold tracking-tighter text-foreground">
           Galeria de Vídeos Animada
         </h1>

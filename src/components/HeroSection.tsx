@@ -24,17 +24,17 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 overflow-hidden z-10">
       {/* Pixelated Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         {generatePixelPattern()}
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
+      <div className="relative z-20 flex items-center justify-center min-h-screen px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight text-center">
               REGISTRANDO
               <br />
               HISTÓRIAS QUE
@@ -54,7 +54,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white">
+      <div className="absolute bottom-0 left-0 right-0 bg-white z-20">
         <div className="flex flex-col md:flex-row items-center min-h-[400px]">
           {/* Left side - Text */}
           <div className="flex-1 p-8 md:p-16">
@@ -69,11 +69,11 @@ const HeroSection = () => {
             </h2>
           </div>
           
-          {/* Right side - Video/Image placeholder */}
+          {/* Right side - Sand placeholder */}
           <div className="flex-1 h-full">
-            <div className="w-full h-[400px] bg-gray-900 flex items-center justify-center">
-              <div className="text-white text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+            <div className="w-full h-[400px] bg-yellow-100 flex items-center justify-center">
+              <div className="text-yellow-800 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-yellow-200/50 rounded-full flex items-center justify-center">
                   <svg 
                     className="w-8 h-8" 
                     fill="currentColor" 
