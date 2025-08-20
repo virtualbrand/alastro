@@ -2,39 +2,21 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  // Generate pixelated background pattern
-  const generatePixelPattern = () => {
-    const pixels = [];
-    for (let i = 0; i < 200; i++) {
-      pixels.push(
-        <div
-          key={i}
-          className="absolute bg-gradient-to-br from-green-400 to-green-600 opacity-60"
-          style={{
-            width: `${Math.random() * 20 + 5}px`,
-            height: `${Math.random() * 20 + 5}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            transform: `rotate(${Math.random() * 360}deg)`,
-          }}
-        />
-      );
-    }
-    return pixels;
-  };
-
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 overflow-hidden z-10">
-      {/* Pixelated Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        {generatePixelPattern()}
-      </div>
-
+    <div 
+      className="relative min-h-screen overflow-hidden z-10"
+      style={{
+        backgroundImage: `url('/lovable-uploads/3c25f351-39dd-452e-a053-63792ffd2aca.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Hero Content */}
-      <div className="relative z-20 flex items-center justify-center min-h-screen px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative z-20 flex items-center min-h-screen px-6">
+        <div className="max-w-4xl">
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-amplitude font-bold text-white leading-tight text-center">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-amplitude font-bold text-white leading-tight uppercase">
               REGISTRANDO
               <br />
               HISTÓRIAS QUE
@@ -69,7 +51,7 @@ const HeroSection = () => {
           
           {/* Right side - Text */}
           <div className="flex-1 p-8 md:p-16">
-            <h2 className="text-2xl md:text-4xl font-amplitude font-bold text-gray-900 leading-tight">
+            <h2 className="text-2xl md:text-4xl font-amplitude font-bold text-gray-900 leading-tight uppercase">
               SOMOS UMA PRODUTORA
               <br />
               AUDIOVISUAL APAIXONADA
