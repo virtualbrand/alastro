@@ -2,46 +2,20 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  // Generate pixelated background pattern
-  const generatePixelPattern = () => {
-    const pixels = [];
-    for (let i = 0; i < 200; i++) {
-      pixels.push(
-        <div
-          key={i}
-          className="absolute bg-gradient-to-br from-green-400 to-green-600 opacity-60"
-          style={{
-            width: `${Math.random() * 20 + 5}px`,
-            height: `${Math.random() * 20 + 5}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            transform: `rotate(${Math.random() * 360}deg)`,
-          }}
-        />
-      );
-    }
-    return pixels;
-  };
-
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 overflow-hidden z-10">
-      {/* Pixelated Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        {generatePixelPattern()}
-      </div>
-
+    <div className="relative min-h-screen bg-yellow-100 overflow-hidden z-10">
       {/* Hero Content */}
-      <div className="relative z-20 flex items-center justify-center min-h-screen px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative z-20 flex items-center min-h-screen px-6">
+        <div className="max-w-4xl">
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight text-center">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-tight text-left">
               REGISTRANDO
               <br />
               HISTÓRIAS QUE
               <br />
-              <span className="text-green-400">CONECTAM</span>
+              <span className="text-green-600">CONECTAM</span>
               <br />
-              E <span className="text-green-400">IMPACTAM</span>
+              E <span className="text-green-600">IMPACTAM</span>
             </h1>
             
             <Button 
