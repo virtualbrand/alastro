@@ -30,10 +30,11 @@ const bentoGridVariants = cva(
           [&>*:first-child]:col-span-2
       `,
         fourCells: `
-        grid-cols-3 grid-rows-2
-        [&>*:first-child]:col-span-1
-        [&>*:nth-child(2)]:col-span-2
-        [&>*:nth-child(3)]:col-span-2
+        grid-cols-2 grid-rows-2 gap-4
+        [&>*:first-child]:col-span-1 [&>*:first-child]:row-span-1
+        [&>*:nth-child(2)]:col-span-1 [&>*:nth-child(2)]:row-span-1
+        [&>*:nth-child(3)]:col-span-1 [&>*:nth-child(3)]:row-span-1
+        [&>*:nth-child(4)]:col-span-1 [&>*:nth-child(4)]:row-span-1
       `,
       },
     },

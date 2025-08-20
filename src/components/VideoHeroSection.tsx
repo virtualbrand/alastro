@@ -47,9 +47,9 @@ const VideoHeroSection = () => {
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <div className="aspect-[4/3] w-full">
+                <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
-                    className="size-full object-cover transition-all duration-300 group-hover:scale-105"
+                    className="size-full object-cover object-center transition-all duration-300 group-hover:scale-105"
                     src={hoveredProject === project.id ? project.gif : project.thumbnail}
                     alt={project.name}
                   />
