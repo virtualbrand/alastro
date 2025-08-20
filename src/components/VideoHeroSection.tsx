@@ -83,8 +83,9 @@ const VideoHeroSection = () => {
         ))}
       </BentoGrid>
       
-      <ContainerScale className="absolute inset-0 z-20 flex items-center justify-center">
-        <div className="text-center bg-black/50 backdrop-blur-sm rounded-lg p-8">
+      {/* Texto centralizado sobre os vídeos */}
+      <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
+        <div className="text-center bg-black/50 backdrop-blur-sm rounded-lg p-8 pointer-events-auto">
           <h1 className="max-w-xl text-5xl font-bold tracking-tighter text-white">
             Galeria de Vídeos Animada
           </h1>
@@ -93,7 +94,7 @@ const VideoHeroSection = () => {
             em uma grade responsiva com efeitos visuais.
           </p>
         </div>
-      </ContainerScale>
+      </div>
     </ContainerScroll>
   )
 }
