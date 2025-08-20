@@ -59,8 +59,8 @@ const WorksGallerySection = () => {
         }}
       />
 
-      <ContainerScroll className="relative h-[350vh]">
-        <ContainerSticky className="h-svh">
+      <ContainerScroll className="relative h-[200vh]">
+        <ContainerSticky className="h-[60vh]">
           <GalleryContainer className="">
             <GalleryCol yRange={["-10%", "2%"]} className="-mt-2">
               {IMAGES_1.map((imageUrl, index) => (
