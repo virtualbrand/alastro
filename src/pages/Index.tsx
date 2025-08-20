@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import VideoHeroSection from "@/components/VideoHeroSection";
 import WorksGallerySection from "@/components/WorksGallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   const navItems = [
@@ -19,6 +20,7 @@ const Index = () => {
       <VideoHeroSection />
       <WorksGallerySection />
       <TestimonialsSection />
+      <ContactSection />
     </div>
   );
 };
