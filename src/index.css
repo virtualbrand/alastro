@@ -36,6 +36,12 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
+    /* Brand colors for audiovisual producer */
+    --brand-green: 96 67% 58%;
+    --brand-green-dark: 96 67% 45%;
+    --brand-gray: 45 4% 47%;
+    --brand-dark: 222.2 84% 4.9%;
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
