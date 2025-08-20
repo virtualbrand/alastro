@@ -65,7 +65,7 @@ const WorksGallerySection = () => {
               {IMAGES_1.map((imageUrl, index) => (
                 <img
                   key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
+                  className="block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
                   src={imageUrl}
                   alt={`Trabalho audiovisual ${index + 1}`}
                 />
@@ -75,7 +75,7 @@ const WorksGallerySection = () => {
               {IMAGES_2.map((imageUrl, index) => (
                 <img
                   key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
+                  className="block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
                   src={imageUrl}
                   alt={`Trabalho audiovisual ${index + 5}`}
                 />
@@ -85,7 +85,7 @@ const WorksGallerySection = () => {
               {IMAGES_3.map((imageUrl, index) => (
                 <img
                   key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
+                  className="block h-auto max-h-full w-full rounded-md object-cover shadow-lg"
                   src={imageUrl}
                   alt={`Trabalho audiovisual ${index + 9}`}
                 />
