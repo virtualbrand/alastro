@@ -89,7 +89,7 @@ const VideoHeroSection = () => {
         <h1 className="max-w-xl text-5xl font-amplitude font-bold tracking-tighter text-foreground">
           Galeria de Vídeos Animada
         </h1>
-        <p className="my-6 max-w-xl text-sm text-muted-foreground md:text-base">
+        <p className="my-6 max-w-xl text-sm font-amplitude font-normal text-muted-foreground md:text-base">
           Uma seção hero com animações de scroll que apresenta vídeos do YouTube
           em uma grade responsiva com efeitos visuais.
         </p>
