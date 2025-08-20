@@ -57,10 +57,10 @@ export const FloatingNav = ({
         <div className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-foreground">
+            <h1 className="text-2xl font-amplitude font-bold text-foreground">
               ALASTRO
             </h1>
-            <span className="text-sm text-muted-foreground ml-2">
+            <span className="text-sm font-amplitude font-bold text-muted-foreground ml-2">
               PRODUTORA AUDIOVISUAL
             </span>
           </div>
@@ -72,7 +72,7 @@ export const FloatingNav = ({
                 key={`link-${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "relative text-foreground hover:text-primary transition-colors duration-200 text-sm font-medium"
+                  "relative text-foreground hover:text-primary transition-colors duration-200 text-sm font-amplitude font-bold"
                 )}
               >
                 <span className="block">{navItem.name}</span>
