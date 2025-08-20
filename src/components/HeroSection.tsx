@@ -21,13 +21,13 @@ const HeroSection = () => {
               <br />
               HISTÓRIAS QUE
               <br />
-              <span className="text-green-400">CONECTAM</span>
+              <span className="text-primary">CONECTAM</span>
               <br />
-              E <span className="text-green-400">IMPACTAM</span>
+              E <span className="text-primary">IMPACTAM</span>
             </h1>
             
             <Button 
-              className="bg-green-500 hover:bg-green-600 text-black font-semibold px-8 py-3 text-lg rounded-none"
+              className="bg-primary hover:bg-primary/80 text-primary-foreground font-semibold px-8 py-3 text-lg rounded-none"
             >
               SABER MAIS
             </Button>
@@ -51,7 +51,7 @@ const HeroSection = () => {
           
           {/* Right side - Text */}
           <div className="flex-1 p-8 md:p-16">
-            <h2 className="text-2xl md:text-4xl font-amplitude font-bold text-gray-900 leading-tight uppercase">
+            <h2 className="text-2xl md:text-4xl font-amplitude font-bold text-foreground leading-tight uppercase">
               SOMOS UMA PRODUTORA
               <br />
               AUDIOVISUAL APAIXONADA
