@@ -34,7 +34,7 @@ const HeroSection = () => {
       <div className="relative z-20 flex items-center justify-center min-h-screen px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight text-center">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-amplitude font-bold text-white leading-tight text-center">
               REGISTRANDO
               <br />
               HISTÓRIAS QUE
@@ -69,7 +69,7 @@ const HeroSection = () => {
           
           {/* Right side - Text */}
           <div className="flex-1 p-8 md:p-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-2xl md:text-4xl font-amplitude font-bold text-gray-900 leading-tight">
               SOMOS UMA PRODUTORA
               <br />
               AUDIOVISUAL APAIXONADA

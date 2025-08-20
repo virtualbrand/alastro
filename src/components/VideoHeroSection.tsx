@@ -63,7 +63,7 @@ const VideoHeroSection = () => {
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30">
                     <Play className="h-8 w-8 fill-white text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">{project.name}</h3>
+                  <h3 className="text-xl font-amplitude font-semibold text-white">{project.name}</h3>
                 </div>
               </BentoCell>
             </DialogTrigger>
@@ -86,7 +86,7 @@ const VideoHeroSection = () => {
       </BentoGrid>
       
       <ContainerScale className="relative z-5 text-center">
-        <h1 className="max-w-xl text-5xl font-bold tracking-tighter text-foreground">
+        <h1 className="max-w-xl text-5xl font-amplitude font-bold tracking-tighter text-foreground">
           Galeria de Vídeos Animada
         </h1>
         <p className="my-6 max-w-xl text-sm text-muted-foreground md:text-base">
