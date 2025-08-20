@@ -56,7 +56,18 @@ const HeroSection = () => {
       {/* Bottom Section */}
       <div className="absolute bottom-0 left-0 right-0 bg-white z-20">
         <div className="flex flex-col md:flex-row items-center min-h-[400px]">
-          {/* Left side - Text */}
+          {/* Left side - Image */}
+          <div className="flex-1 h-full">
+            <div className="w-full h-[400px] overflow-hidden">
+              <img 
+                src="/lovable-uploads/0456ca9b-29a0-4fbe-9dfb-eb99c3e37944.png" 
+                alt="Retrato artístico em preto e branco" 
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+          
+          {/* Right side - Text */}
           <div className="flex-1 p-8 md:p-16">
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight">
               SOMOS UMA PRODUTORA
@@ -67,24 +78,6 @@ const HeroSection = () => {
               <br />
               EM MOVIMENTO.
             </h2>
-          </div>
-          
-          {/* Right side - Sand placeholder */}
-          <div className="flex-1 h-full">
-            <div className="w-full h-[400px] bg-yellow-100 flex items-center justify-center">
-              <div className="text-yellow-800 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-yellow-200/50 rounded-full flex items-center justify-center">
-                  <svg 
-                    className="w-8 h-8" 
-                    fill="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <p className="text-sm opacity-80">Video Preview</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
