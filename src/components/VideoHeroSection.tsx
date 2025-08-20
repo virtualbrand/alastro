@@ -83,15 +83,17 @@ const VideoHeroSection = () => {
         ))}
       </BentoGrid>
       
-      <div className="relative z-5 text-center py-16 bg-background">
-        <h1 className="max-w-xl mx-auto text-5xl font-bold tracking-tighter text-foreground">
-          Galeria de Vídeos Animada
-        </h1>
-        <p className="my-6 max-w-xl mx-auto text-sm text-muted-foreground md:text-base">
-          Uma seção hero com animações de scroll que apresenta vídeos do YouTube
-          em uma grade responsiva com efeitos visuais.
-        </p>
-      </div>
+      <ContainerScale className="absolute inset-0 z-20 flex items-center justify-center">
+        <div className="text-center bg-black/50 backdrop-blur-sm rounded-lg p-8">
+          <h1 className="max-w-xl text-5xl font-bold tracking-tighter text-white">
+            Galeria de Vídeos Animada
+          </h1>
+          <p className="my-6 max-w-xl text-sm text-white/80 md:text-base">
+            Uma seção hero com animações de scroll que apresenta vídeos do YouTube
+            em uma grade responsiva com efeitos visuais.
+          </p>
+        </div>
+      </ContainerScale>
     </ContainerScroll>
   )
 }
