@@ -4,6 +4,7 @@ import VideoHeroSection from "@/components/VideoHeroSection";
 import WorksGallerySection from "@/components/WorksGallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   const navItems = [
@@ -21,6 +22,7 @@ const Index = () => {
       <WorksGallerySection />
       <TestimonialsSection />
       <ContactSection />
+      <Footer />
     </div>
   );
 };
