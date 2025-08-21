@@ -1,6 +1,7 @@
 import { FloatingNav } from "@/components/ui/floating-nav";
 import HeroSection from "@/components/HeroSection";
 import VideoHeroSection from "@/components/VideoHeroSection";
+import ManifestoSection from "@/components/ManifestoSection";
 import WorksGallerySection from "@/components/WorksGallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
@@ -19,6 +20,7 @@ const Index = () => {
       <FloatingNav navItems={navItems} />
       <HeroSection />
       <VideoHeroSection />
+      <ManifestoSection />
       <WorksGallerySection />
       <TestimonialsSection />
       <ContactSection />
