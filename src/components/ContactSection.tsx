@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Instagram, Linkedin, Facebook } from "lucide-react";
 
 interface AppInputProps {
   label?: string;
@@ -20,9 +19,12 @@ interface AppInputProps {
   register?: any;
   error?: string;
   className?: string;
+  touched?: boolean; // Added touched property
 }
 
-const AppInput = ({ label, placeholder, type = "text", register, error, className = "" }: AppInputProps) => {
+const AppInput = ({
+  label, placeholder, type = "text", register, error, className = "", value, onChange, onBlur, ...rest
+}: AppInputProps & { value?: string, onChange?: any, onBlur?: any }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -36,20 +38,22 @@ const AppInput = ({ label, placeholder, type = "text", register, error, classNam
 
   return (
     <div className="w-full min-w-[200px] relative">
-      {label && (
-        <label className="block mb-2 text-sm text-[var(--color-text-primary)]">
-          {label}
-        </label>
-      )}
+      <label className="block mb-1 text-xs font-bold text-[var(--color-text-primary)]">
+        {label}
+      </label>
       <div className="relative w-full">
         <input
           type={type}
-          className={`peer relative z-10 border-2 border-[var(--color-border)] h-12 w-full rounded-md bg-[var(--color-surface)] px-4 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-[var(--color-bg)] placeholder:font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] ${className}`}
+          className={`relative z-10 border-2 border-[var(--color-border-form)] h-12 w-full rounded-md bg-[var(--color-surface)] px-4 outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-[var(--color-bg)] placeholder:font-normal text-sm lg:text-base font-normal text-[var(--color-text-primary)] placeholder:text-[var(--color-text-primary)] ${className}`}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
-          {...register}
+          {...(value === undefined && register ? register : {})}
+          {...rest}
         />
         {isHovering && (
           <>
@@ -68,14 +72,12 @@ const AppInput = ({ label, placeholder, type = "text", register, error, classNam
           </>
         )}
       </div>
-      {error && (
-        <p className="text-sm text-red-400 mt-1">{error}</p>
-      )}
+      {error && <p className="text-sm text-red-400 mt-1">{error}</p>}
     </div>
   );
 };
 
-const AppTextarea = ({ label, placeholder, register, error, rows = 4 }: any) => {
+const AppTextarea = ({ label, placeholder, register, error, rows = 4, touched }: any) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -90,14 +92,14 @@ const AppTextarea = ({ label, placeholder, register, error, rows = 4 }: any) => 
   return (
     <div className="w-full min-w-[200px] relative">
       {label && (
-        <label className="block mb-2 text-sm text-[var(--color-text-primary)]">
+        <label className="block mb-1 text-xs font-bold text-[var(--color-text-primary)]">
           {label}
         </label>
       )}
       <div className="relative w-full">
         <textarea
           rows={rows}
-          className="peer relative z-10 border-2 border-[var(--color-border)] w-full rounded-md bg-[var(--color-surface)] px-4 py-3 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-[var(--color-bg)] placeholder:font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] resize-none"
+          className="relative z-10 border-2 border-[var(--color-border-form)] w-full rounded-md bg-[var(--color-surface)] px-4 py-3 outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-[var(--color-bg)] placeholder:font-normal text-sm lg:text-base font-normal text-[var(--color-text-primary)] placeholder:text-[var(--color-text-primary)] resize-none"
           placeholder={placeholder}
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setIsHovering(true)}
@@ -121,7 +123,7 @@ const AppTextarea = ({ label, placeholder, register, error, rows = 4 }: any) => 
           </>
         )}
       </div>
-      {error && (
+      {error && touched && (
         <p className="text-sm text-red-400 mt-1">{error}</p>
       )}
     </div>
@@ -141,7 +143,11 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<ContactFormData>();
+  const [phoneValue, setPhoneValue] = useState("");
+  const { register, handleSubmit, reset, setValue, control, formState: { errors, touchedFields } } = useForm<ContactFormData>({
+    mode: "onTouched",
+    defaultValues: { phone: "" }
+  });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -153,10 +159,10 @@ const ContactSection = () => {
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    const leftSection = e.currentTarget.getBoundingClientRect();
+    const section = e.currentTarget.getBoundingClientRect();
     setMousePosition({
-      x: e.clientX - leftSection.left,
-      y: e.clientY - leftSection.top
+      x: e.clientX - section.left,
+      y: e.clientY - section.top
     });
   };
 
@@ -168,114 +174,141 @@ const ContactSection = () => {
     setIsHovering(false);
   };
 
-  const socialIcons = [
-    {
-      icon: <Instagram className="w-5 h-5" />,
-      href: '#',
-    },
-    {
-      icon: <Linkedin className="w-5 h-5" />,
-      href: '#',
-    },
-    {
-      icon: <Facebook className="w-5 h-5" />,
-      href: '#',
+  function formatPhone(value: string) {
+    value = value.replace(/\D/g, "");
+    if (value.length <= 10) {
+      // Formato para 8 dígitos: (99) 9999-9999
+      return value.replace(/^(\d{0,2})(\d{0,4})(\d{0,4}).*/, function (_, a, b, c) {
+        let out = "";
+        if (a) out += `(${a}`;
+        if (a && a.length === 2) out += ") ";
+        if (b) out += b;
+        if (b && b.length === 4) out += "-";
+        if (c) out += c;
+        return out;
+      });
+    } else {
+      // Formato para 9 dígitos: (99) 99999-9999
+      return value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4}).*/, function (_, a, b, c) {
+        let out = "";
+        if (a) out += `(${a}`;
+        if (a && a.length === 2) out += ") ";
+        if (b) out += b;
+        if (b && b.length === 5) out += "-";
+        if (c) out += c;
+        return out;
+      });
     }
-  ];
+  }
 
   return (
-    <section id="contato" className="min-h-screen flex">
-      {/* Left side - Form */}
-      <div 
-        className="flex-1 bg-[var(--color-bg)] flex items-center justify-center p-8 lg:p-16 relative overflow-hidden"
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div
-          className={`absolute pointer-events-none w-[500px] h-[500px] bg-gradient-to-r from-emerald-400/20 via-green-400/20 to-teal-400/20 rounded-full blur-3xl transition-opacity duration-200 ${
-            isHovering ? 'opacity-100' : 'opacity-0'
-          }`}
+    <section
+      id="contato"
+      className="min-h-screen flex flex-col md:flex-row-reverse relative overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Image - Top on mobile, Right on desktop */}
+      <div className="w-full h-[400px] md:w-1/2 md:h-auto relative">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            transform: `translate(${mousePosition.x - 250}px, ${mousePosition.y - 250}px)`,
-            transition: 'transform 0.1s ease-out'
+            backgroundImage: `url('images/time-alastro.jpg')`
+          }}
+        >
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/10"></div>
+        </div>
+      </div>
+
+      {/* Form - Bottom on mobile, Left on desktop */}
+      <div 
+        className="w-full md:w-1/2 bg-[var(--color-bg)] flex items-center justify-center px-8 py-16 lg:p-16 relative overflow-hidden"
+      >
+        {/* Gradiente só no form */}
+        <div
+          className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-200 ${isHovering ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            background: `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(212, 236, 142, 0.50) 0%, transparent 90%)`,
+            transition: 'opacity 0.2s'
           }}
         />
-        
-        <div className="w-full max-w-md space-y-8 relative z-10">
+        <div className="w-full max-w-md space-y-8 relative z-20">
           {/* Header */}
           <div className="text-center space-y-4">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[var(--color-heading)]">
+            <h2 className="text-3xl lg:text-4xl font-amplitude font-bold text-[var(--color-heading)]">
               Vamos construir algo incrível juntos?
             </h2>
-            <p className="text-[var(--color-text-secondary)] text-sm lg:text-base leading-relaxed">
+            <p className="text-[var(--color-text-primary)] font-amplitude text-base leading-normal">
               Toda grande história começa com uma conversa. Estamos ansiosos para conhecer seus
               sonhos e descobrir como podemos fazer parte da sua jornada.
             </p>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex justify-center space-x-4">
-            {socialIcons.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                className="w-12 h-12 bg-[var(--color-surface)] rounded-full flex justify-center items-center relative z-[1] border-2 border-[var(--color-border)] overflow-hidden group hover:border-[var(--color-accent-green)] transition-colors duration-300"
-              >
-                <div className="absolute inset-0 w-full h-full bg-[var(--color-accent-green)]/10 scale-y-0 origin-bottom transition-transform duration-500 ease-in-out group-hover:scale-y-100" />
-                <span className="text-[var(--color-text-primary)] transition-all duration-500 ease-in-out z-[2] group-hover:text-[var(--color-accent-green)]">
-                  {social.icon}
-                </span>
-              </a>
-            ))}
-          </div>
-
-          <div className="text-center text-sm text-[var(--color-text-secondary)]">
-            ou use nosso formulário
-          </div>
-
           {/* Form */}
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-[var(--color-heading)] text-center">
-              Conte-nos sobre seu projeto
-            </h3>
             
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-4 font-amplitude"
+            >
               <AppInput
-                label="Nome"
-                placeholder="Seu nome"
+                label="Nome *"
+                placeholder="Digite seu nome"
                 register={register("name", { required: "Nome é obrigatório" })}
                 error={errors.name?.message}
+                touched={touchedFields.name}
               />
 
               <AppInput
-                label="Email"
-                type="email"
+                label="E-mail *"
                 placeholder="seu@email.com"
+                type="email"
                 register={register("email", { 
-                  required: "Email é obrigatório",
+                  required: "E-mail é obrigatório",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Email inválido"
+                    message: "E-mail inválido"
                   }
                 })}
                 error={errors.email?.message}
               />
 
-              <AppInput
-                label="Telefone"
-                placeholder="(11) 99999-9999"
-                register={register("phone")}
+              <Controller
+                name="phone"
+                control={control}
+                rules={{ required: "Telefone é obrigatório" }}
+                render={({ field, fieldState }) => (
+                  <AppInput
+                    label="Telefone *"
+                    placeholder="(21) 99999-9999"
+                    value={phoneValue}
+                    onChange={e => {
+                      const formatted = formatPhone(e.target.value);
+                      setPhoneValue(formatted);
+                      field.onChange(formatted);
+                    }}
+                    onBlur={field.onBlur} // <-- repasse o onBlur do RHF
+                    error={fieldState.error?.message}
+                    touched={fieldState.isTouched}
+                  />
+                )}
               />
 
               <AppInput
-                label="Empresa/Projeto"
+                label="Empresa/Projeto *"
                 placeholder="Nome da empresa ou projeto"
-                register={register("company")}
+                register={register("company", { required: "Empresa/Projeto é obrigatório" })}
+                error={errors.company?.message}
+                touched={touchedFields.company}
               />
 
+              {/* Tipo de serviço
               <div className="space-y-2">
-                <label className="block text-sm text-[var(--color-text-primary)]">Tipo de serviço</label>
+                <label className="block text-xs font-bold text-[var(--color-text-primary)]">
+                  Tipo de serviço
+                </label>
                 <Select onValueChange={(value) => setValue("service", value)}>
                   <SelectTrigger className="bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-text-primary)]">
                     <SelectValue placeholder="Selecione um serviço" />
@@ -289,53 +322,30 @@ const ContactSection = () => {
                     <SelectItem value="outro" className="text-[var(--color-text-primary)] hover:bg-[var(--color-muted-surface)]">Outro</SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
+              </div> */}
 
               <AppTextarea
-                label="Conte-nos mais sobre sua ideia"
-                placeholder="Descreva seu projeto, objetivos e qualquer detalhe que considere importante..."
+                label="Conte mais sobre seu projeto"
+                placeholder="Descreva sua ideia, objetivos e qualquer detalhe que considere importante..."
                 rows={4}
                 register={register("message", { required: "Mensagem é obrigatória" })}
                 error={errors.message?.message}
+                touched={touchedFields.message}
               />
 
               <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="group/button relative inline-flex justify-center items-center overflow-hidden rounded-md bg-[var(--color-accent-green)] px-6 py-3 w-full text-sm font-medium text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-[var(--color-accent-green)]/25 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group/button relative inline-flex justify-center items-center overflow-hidden rounded-md bg-[var(--color-accent-green)] px-6 py-3 w-full text-sm font-bold text-[var(--color-text-secondary)] uppercase transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-[var(--color-accent-green)]/25 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="text-sm px-2 py-1">
-                  {isSubmitting ? "Enviando..." : "Iniciar conversa"}
+                  {isSubmitting ? "ENVIANDO..." : "ENVIAR MENSAGEM"}
                 </span>
                 <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
                   <div className="relative h-full w-8 bg-white/20" />
                 </div>
               </button>
             </form>
-          </div>
-        </div>
-      </div>
-
-      {/* Right side - Image */}
-      <div className="flex-1 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
-          }}
-        >
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-        
-        {/* Content overlay */}
-        <div className="absolute inset-0 flex items-center justify-center p-8">
-          <div className="text-center text-white space-y-4 max-w-md">
-            <h3 className="text-2xl font-bold">Prontos para inovar?</h3>
-            <p className="text-white/90 text-sm leading-relaxed">
-              Cada pixel, cada linha de código, cada decisão de design é pensada 
-              para criar experiências que conectam pessoas e transformam negócios.
-            </p>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    scroll-behavior: smooth;
     /* Pantone-based color palette */
     /* Pantone 426 C - Dark Gray */
     --background: 0 0% 100%;
@@ -94,8 +95,16 @@
   * {
     @apply border-border;
   }
-  body {
+  html, body {
     @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    position: relative;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
@@ -106,30 +115,36 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Contact form fluorescent effect variables */
 :root {
-  --color-bg: #101214;
+  --color-bg: #25282a;
   --color-surface: #161A1D;
-  --color-muted-surface: #1D2125;
-  --color-border: #2C333A;
-  --color-text-secondary: #596773;
-  --color-text-primary: #C7D1DB;
-  --color-heading: #DEE4EA;
+  --color-muted-surface: #25282a;
+  --color-border: #25282a;
+  --color-border-form: #414140;
+  --color-text-secondary: #25282a;
+  --color-text-primary: #d9d9d6;
+  --color-heading: #d9d9d6;
   --spacing-6: 1.5rem;
   --rounded-lg: 0.5rem;
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
   --color-text-primary-rgb: 199, 209, 219;
-  --color-bg-2: #C7D1DB;
-  --color-accent-green: #10b981;
+  --color-bg-2: #d9d9d6;
+  --color-bg-3: #999179;
+  --color-accent-green: #d4ec8e;
+  --color-menu-hover: #7f8d55;
 }
 
 .dark {
-  --color-bg: #101214;
+  --color-bg: #25282a;
   --color-surface: #161A1D;
-  --color-muted-surface: #1D2125;
-  --color-border: #2C333A;
-  --color-text-secondary: #596773;
-  --color-text-primary: #C7D1DB;
+  --color-muted-surface: #25282a;
+  --color-border: #25282a;
+  --color-border-form: #414140;
+  --color-text-secondary: #25282a;
+  --color-text-primary: #d9d9d6;
   --color-heading: #DEE4EA;
-  --color-bg-2: #C7D1DB;
+  --color-bg-2: #d9d9d6;
+  --color-bg-3: #999179;
   --color-text-primary-rgb: 199, 209, 219;
-  --color-accent-green: #10b981;
+  --color-accent-green: #d4ec8e;
+  --color-menu-hover: #7f8d55;
 }

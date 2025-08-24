@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+# Alastro - Produtora Audiovisual
 
-## Project info
+Site institucional da Alastro, uma produtora audiovisual focada em criar conteúdo de qualidade e impacto.
 
-**URL**: https://lovable.dev/projects/70d93b45-f077-4bbe-96eb-b42f46fdfc85
+## Tecnologias
 
-## How can I edit this code?
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Radix UI
+- Framer Motion
 
-There are several ways of editing your application.
+## Como desenvolver
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/70d93b45-f077-4bbe-96eb-b42f46fdfc85) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Para desenvolver localmente, você precisa ter Node.js & npm instalados - [instale com nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Instalar dependências
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Iniciar servidor de desenvolvimento
 npm run dev
+
+# Construir para produção
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## Estrutura do Projeto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+  ├── components/     # Componentes React reutilizáveis
+  ├── hooks/         # Custom hooks
+  ├── lib/          # Utilitários e funções auxiliares
+  ├── pages/        # Páginas da aplicação
+  └── styles/       # Estilos e configurações CSS
+```
 
-**Use GitHub Codespaces**
+## Considerações de Performance
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Otimização de imagens com formato WebP
+- Lazy loading de componentes
+- Animações otimizadas com Framer Motion
 
-## What technologies are used for this project?
+## Deploy
 
-This project is built with:
+Para fazer o deploy do projeto:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```sh
+# Construir o projeto
+npm run build
 
-## How can I deploy this project?
+# Testar a build localmente
+npm run preview
+```
 
-Simply open [Lovable](https://lovable.dev/projects/70d93b45-f077-4bbe-96eb-b42f46fdfc85) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+O projeto pode ser hospedado em qualquer plataforma que suporte aplicações estáticas como:
+- Vercel
+- Netlify
+- GitHub Pages
+- Amazon S3
+- Google Cloud Storage

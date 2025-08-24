@@ -72,7 +72,7 @@ export const FloatingNav = ({
                 key={`link-${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "relative text-foreground hover:text-primary transition-colors duration-200 text-sm font-amplitude font-bold"
+                  "relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-sm font-amplitude font-bold"
                 )}
               >
                 <span className="block">{navItem.name}</span>
