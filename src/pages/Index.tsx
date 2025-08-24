@@ -2,10 +2,12 @@ import { FloatingNav } from "@/components/ui/floating-nav";
 import HeroSection from "@/components/HeroSection";
 import VideoHeroSection from "@/components/VideoHeroSection";
 import ManifestoSection from "@/components/ManifestoSection";
-import WorksGallerySection from "@/components/WorksGallerySection";
+import ClientsSection from "@/components/ClientsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import BottomHeroSection from "@/components/BottomHeroSection";
+import TeamSection from "@/components/TeamSection";
 
 const Index = () => {
   const navItems = [
@@ -19,10 +21,12 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <FloatingNav navItems={navItems} />
       <HeroSection />
-      <VideoHeroSection />
+      <BottomHeroSection />
       <ManifestoSection />
-      <WorksGallerySection />
+      <VideoHeroSection />
+      <ClientsSection />
       <TestimonialsSection />
+      <TeamSection/>
       <ContactSection />
       <Footer />
     </div>

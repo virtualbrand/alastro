@@ -5,6 +5,7 @@ import {
   ReviewStars,
 } from "@/components/ui/animated-cards-stack"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 const TESTIMONIALS = [
   {
@@ -49,74 +50,56 @@ const TESTIMONIALS = [
   },
 ]
 
+const TESTIMONIALS_ANIMATED = [
+  {
+    quote: "O trabalho realizado superou todas as nossas expectativas. A qualidade audiovisual e o profissionalismo da equipe foram excepcionais.",
+    name: "Maria Silva",
+    designation: "Diretora de Marketing",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+  },
+  {
+    quote: "Colaboração incrível do início ao fim. Entregaram exatamente o que precisávamos para nossa campanha institucional.",
+    name: "João Santos",
+    designation: "CEO",
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+  },
+  {
+    quote: "A atenção aos detalhes e a criatividade da equipe transformaram nossa visão em uma realidade audiovisual impressionante.",
+    name: "Ana Costa",
+    designation: "Produtora",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+  },
+  {
+    quote: "Profissionalismo exemplar e resultados de alta qualidade. Recomendo fortemente para qualquer projeto audiovisual.",
+    name: "Carlos Oliveira",
+    designation: "Diretor Criativo",
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+  },
+];
+
 const TestimonialsSection = () => {
   return (
-    <section className="bg-accent px-8 py-12">
-      <div className="text-center mb-8">
+    <section className="bg-[var(--color-bg-2)] px-8 pt-24 pb-72 relative overflow-hidden z-[1] shadow-[0_-25px_40px_-15px_rgba(0,0,0,0.3)]">
+      <div className="text-center mb-12 md:mb-24">
         <h2 className="font-amplitude text-4xl font-bold text-foreground md:text-5xl uppercase mb-4">
           O QUE NOSSOS{" "}
-          <span className="font-amplitude font-bold text-primary">
+          <span className="font-amplitude font-bold text-foreground">
             CLIENTES
           </span>{" "}
           DIZEM
         </h2>
-        <p className="mx-auto max-w-lg text-muted-foreground">
+        <p className="mx-auto max-w-lg text-foreground font-amplitude text-base leading-normal">
           Conheça os depoimentos de quem já trabalhou conosco e descobriu
           <br />
           a diferença que fazemos em cada projeto audiovisual.
         </p>
       </div>
-      <ContainerScroll className="container h-[300vh]">
-        <div className="sticky left-0 top-0 h-svh w-full py-12">
-          <CardsContainer className="mx-auto size-full h-[450px] w-[350px]">
-            {TESTIMONIALS.map((testimonial, index) => (
-              <CardTransformed
-                arrayLength={TESTIMONIALS.length}
-                key={testimonial.id}
-                variant="light"
-                index={index + 2}
-                role="article"
-                aria-labelledby={`card-${testimonial.id}-title`}
-                aria-describedby={`card-${testimonial.id}-content`}
-              >
-                <div className="flex flex-col items-center space-y-4 text-center">
-                  <ReviewStars
-                    className="text-primary"
-                    rating={testimonial.rating}
-                  />
-                  <div className="mx-auto w-4/5 text-lg text-foreground">
-                    <blockquote cite="#">"{testimonial.description}"</blockquote>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Avatar className="!size-12 border border-border">
-                    <AvatarImage
-                      src={testimonial.avatarUrl}
-                      alt={`Foto de ${testimonial.name}`}
-                    />
-                    <AvatarFallback>
-                      {testimonial.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <span className="block text-lg font-semibold tracking-tight md:text-xl text-foreground">
-                      {testimonial.name}
-                    </span>
-                    <span className="block text-sm text-muted-foreground">
-                      {testimonial.profession}
-                    </span>
-                  </div>
-                </div>
-              </CardTransformed>
-            ))}
-          </CardsContainer>
-        </div>
-      </ContainerScroll>
+      <div className="relative">
+        <AnimatedTestimonials testimonials={TESTIMONIALS_ANIMATED} />
+      </div>
     </section>
   )
 }
 
 export default TestimonialsSection
+

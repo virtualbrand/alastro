@@ -90,7 +90,7 @@ export const CardsContainer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       ref={containerRef}
-      className={cn("relative", className)}
+      className={cn("relative z-[1]", className)}
       style={{ perspective: "1000px", ...props.style }}
       {...props}
     >
@@ -148,7 +148,7 @@ export const CardTransformed = React.forwardRef<
       top: index * incrementY,
       transform,
       backfaceVisibility: "hidden" as const,
-      zIndex: (arrayLength - index) * incrementZ,
+      zIndex: arrayLength - index,
       filter,
       ...style,
     }
