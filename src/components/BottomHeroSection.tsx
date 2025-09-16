@@ -2,26 +2,27 @@ import React from "react";
 
 const BottomHeroSection = () => {
   return (
-    <div className="relative bg-[var(--color-bg-2)] w-full">
-      <div className="flex flex-col md:flex-row items-center">
-        {/* Left side - Image */}
-        <div className="w-full md:w-1/2">
-          <div className="h-[400px] w-screen md:w-full overflow-hidden">
-            <img 
-              src="/lovable-uploads/0456ca9b-29a0-4fbe-9dfb-eb99c3e37944.png" 
-              alt="Retrato artístico em preto e branco" 
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
+  <div id="sobre" className="relative bg-[var(--color-bg-2)] w-full mt-[-5px]">
+      <div className="flex flex-col lg:flex-row items-stretch">
+        {/* Imagem: 100% em mobile/tablet, 50% em desktop */}
+        <div className="w-full lg:w-1/2">
+          <img 
+            src="/images/nosso-time.jpg" 
+            alt="Retrato artístico em preto e branco" 
+            className="w-full h-full lg:h-full object-cover object-center filter grayscale"
+            style={{ aspectRatio: '16/9', maxHeight: '100%' }}
+          />
         </div>
-        
-        {/* Right side - Text */}
-        <div className="w-full md:w-1/2 px-8 py-16 md:p-16 bg-[var(--color-bg-2)]">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-amplitude font-bold text-foreground leading-tight uppercase max-w-[800px]">
-            <span className="block">SOMOS UMA PRODUTORA AUDIOVISUAL</span>
-            <span className="block">APAIXONADA PELO PODER</span>
-            <span className="block">DAS IMAGENS EM MOVIMENTO.</span>
-          </h2>
+        {/* Texto: 100% em mobile/tablet, 50% em desktop */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-4 sm:px-8 py-10 md:py-16 bg-[var(--color-bg-2)]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-amplitude font-bold text-foreground leading-tight uppercase max-w-[800px]">
+            <span className="block">SOMOS UMA PRODUTORA AUDIOVISUAL
+            APAIXONADA PELO PODER
+            DAS IMAGENS EM MOVIMENTO.</span>
+          </h1>
+          <p className="mt-6 text-base sm:text-lg md:text-xl font-amplitude text-foreground/80 max-w-[800px]">
+            Ao longo dos anos, conquistamos a confiança de clientes de diversos setores, trabalhando em projetos que vão desde comerciais e vídeos corporativos até produções cinematográficas e conteúdo para redes sociais.
+          </p>
         </div>
       </div>
     </div>

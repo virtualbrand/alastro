@@ -30,7 +30,7 @@ const TeamSection = () => {
               </span>
             </motion.h2>
             <motion.p
-              className="text-foreground font-amplitude text-base leading-normal"
+              className="text-foreground font-amplitude sm:text-lg md:text-xl leading-normal"
               {...useScrollAnimation({ direction: 'right', once: true })}
             >
               Nossa equipe é formada por profissionais apaixonados por audiovisual,

@@ -54,12 +54,15 @@ export const FloatingNav = ({
           className
         )}
       >
-        <div className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+        <div className="flex justify-between items-center w-full px-2 md:px-8 py-4 max-w-[1400px] mx-auto">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-amplitude font-bold text-foreground">
-              ALASTRO
-            </h1>
+            <img 
+              src="/images/logo.svg" 
+              alt="Alastro" 
+              className="h-9 w-auto"
+              style={{ fill: 'currentColor' }}
+            />
             <span className="text-sm font-amplitude font-bold text-muted-foreground ml-2">
               PRODUTORA AUDIOVISUAL
             </span>

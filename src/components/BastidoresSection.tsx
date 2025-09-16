@@ -6,44 +6,32 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 const PROJECTS = [
 	{
-		id: "93dXSj2pe9k",
-		name: "Manu Cit - Ironman",
+		id: "YBikDJ05mvM",
+		name: "Alastro & Manu Cit Iron",
 		thumbnail: "/images/projeto-4.jpg",
 		// gif: "...",
 	},
 	{
-		id: "oZ0T3nDdUM0",
-		name: "Vini Jr - Jantar 2024",
+		id: "YBikDJ05mvM",
+		name: "Doc - Alastro & Vini Day",
 		thumbnail: "/images/projeto-1.jpg",
 		// gif: "...",
 	},
 	{
-		id: "5CY-4ckG4pU",
-		name: "7 anos Gracie Kore",
+		id: "YBikDJ05mvM",
+		name: "Gracie Kore",
 		thumbnail: "/images/projeto-3.jpg",
 		// gif: "...",
 	},
 	{
-		id: "0XbzQkktOGw",
-		name: "Tributo Sp - Guudrun",
+		id: "XtZJCqIBz4o",
+		name: "Alastro & Guudrun SP",
 		thumbnail: "/images/projeto-2.jpg",
-		// gif: "...",
-	},
-	{
-		id: "A8jmn_VofMA",
-		name: "Veigh RS",
-		thumbnail: "/images/projeto-5.jpg",
-		// gif: "...",
-	},
-	{
-		id: "A8jmn_VofMA",
-		name: "Xamã",
-		thumbnail: "/images/projeto-6.jpg",
 		// gif: "...",
 	},
 ]
 
-const VideoHeroSection = () => {
+const BastidoresSection = () => {
 	const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
 		return (
@@ -52,28 +40,28 @@ const VideoHeroSection = () => {
           className="w-full py-6 md:py-5 lg:pt-24 text-3xl md:text-4xl lg:text-5xl font-amplitude font-bold tracking-tighter text-foreground text-center"
           {...useScrollAnimation({ direction: 'fade', once: true })}
 				>
-					Nossos trabalhos em ação
+					Por trás das Câmeras
 	</motion.h3>
 	<motion.p
 		className="w-full max-w-lg mx-auto text-foreground font-amplitude sm:text-lg md:text-xl leading-normal text-center mb-8"
 		{...useScrollAnimation({ direction: 'fade', once: true })}
 	>
-		Confira a seleção de alguns projetos audiovisuais, desde eventos corporativos até produções cinematográficas que conectam e impactam.
+		Descubra como transformamos ideias em experiências audiovisuais memoráveis. Veja o processo criativo e a paixão da nossa equipe em cada projeto.
 	</motion.p>
 	<div className="w-screen max-w-full" style={{overflow: 'hidden'}}>
-	  <div className="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 w-full">
+	<div className="grid grid-cols-2 grid-rows-2 w-full">
 		{PROJECTS.map((project, index) => (
 		  <Dialog key={index}>
 			<DialogTrigger asChild>
 			  <motion.div 
                 className="relative w-full h-full flex items-center justify-center"
-                {...useScrollAnimation({ 
-                  direction: index % 2 === 0 ? 'left' : 'right',
-                  amount: 0.2,
-                  once: true
-                })}
+								{...useScrollAnimation({ 
+									direction: 'fade',
+									amount: 0.4,
+									once: true
+								})}
               >
-                <div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden"
+				<div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden transition-transform duration-500 ease-in-out"
 				  onMouseEnter={() => setHoveredProject(project.id)}
 				  onMouseLeave={() => setHoveredProject(null)}>
 									<img
@@ -117,4 +105,4 @@ const VideoHeroSection = () => {
 	)
 }
 
-export default VideoHeroSection
+export default BastidoresSection

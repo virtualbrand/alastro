@@ -8,6 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import BottomHeroSection from "@/components/BottomHeroSection";
 import TeamSection from "@/components/TeamSection";
+import BastidoresSection from "@/components/BastidoresSection";
 
 const Index = () => {
   const navItems = [
@@ -24,6 +25,7 @@ const Index = () => {
       <BottomHeroSection />
       <ManifestoSection />
       <VideoHeroSection />
+      <BastidoresSection />
       <ClientsSection />
       <TestimonialsSection />
       <TeamSection/>

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { CheckCircle2 } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -149,6 +151,7 @@ const ContactSection = () => {
     defaultValues: { phone: "" }
   });
 
+  const { toast } = useToast();
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     // Simulate form submission
@@ -156,6 +159,17 @@ const ContactSection = () => {
     console.log("Form data:", data);
     reset();
     setIsSubmitting(false);
+    toast({
+      title: "Recebemos seu contato!",
+      description: (
+        <span className="flex items-center gap-2">
+          <span>Responderemos sua mensagem o mais breve possível</span>
+          <CheckCircle2 className="text-green-500 w-5 h-5 ml-2" />
+        </span>
+      ),
+      variant: "default",
+      className: "border border-green-400 bg-green-50"
+    });
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -177,24 +191,24 @@ const ContactSection = () => {
   function formatPhone(value: string) {
     value = value.replace(/\D/g, "");
     if (value.length <= 10) {
-      // Formato para 8 dígitos: (99) 9999-9999
+      // (99) 9999-9999
       return value.replace(/^(\d{0,2})(\d{0,4})(\d{0,4}).*/, function (_, a, b, c) {
         let out = "";
         if (a) out += `(${a}`;
         if (a && a.length === 2) out += ") ";
         if (b) out += b;
-        if (b && b.length === 4) out += "-";
+        if (b && b.length === 4 && c) out += "-";
         if (c) out += c;
         return out;
       });
     } else {
-      // Formato para 9 dígitos: (99) 99999-9999
+      // (99) 99999-9999
       return value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4}).*/, function (_, a, b, c) {
         let out = "";
         if (a) out += `(${a}`;
         if (a && a.length === 2) out += ") ";
         if (b) out += b;
-        if (b && b.length === 5) out += "-";
+        if (b && b.length === 5 && c) out += "-";
         if (c) out += c;
         return out;
       });
@@ -240,7 +254,7 @@ const ContactSection = () => {
             <h2 className="text-3xl lg:text-4xl font-amplitude font-bold text-[var(--color-heading)]">
               Vamos construir algo incrível juntos?
             </h2>
-            <p className="text-[var(--color-text-primary)] font-amplitude text-base leading-normal">
+            <p className="text-[var(--color-text-primary)] font-amplitude sm:text-lg md:text-xl leading-normal">
               Toda grande história começa com uma conversa. Estamos ansiosos para conhecer seus
               sonhos e descobrir como podemos fazer parte da sua jornada.
             </p>
@@ -303,26 +317,6 @@ const ContactSection = () => {
                 error={errors.company?.message}
                 touched={touchedFields.company}
               />
-
-              {/* Tipo de serviço
-              <div className="space-y-2">
-                <label className="block text-xs font-bold text-[var(--color-text-primary)]">
-                  Tipo de serviço
-                </label>
-                <Select onValueChange={(value) => setValue("service", value)}>
-                  <SelectTrigger className="bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-text-primary)]">
-                    <SelectValue placeholder="Selecione um serviço" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-[var(--color-surface)] border-[var(--color-border)]">
-                    <SelectItem value="website" className="text-[var(--color-text-primary)] hover:bg-[var(--color-muted-surface)]">Website</SelectItem>
-                    <SelectItem value="ecommerce" className="text-[var(--color-text-primary)] hover:bg-[var(--color-muted-surface)]">E-commerce</SelectItem>
-                    <SelectItem value="app" className="text-[var(--color-text-primary)] hover:bg-[var(--color-muted-surface)]">Aplicativo</SelectItem>
-                    <SelectItem value="branding" className="text-[var(--color-text-primary)] hover:bg-[var(--color-muted-surface)]">Branding</SelectItem>
-                    <SelectItem value="consultoria" className="text-[var(--color-text-primary)] hover:bg-[var(--color-muted-surface)]">Consultoria</SelectItem>
-                    <SelectItem value="outro" className="text-[var(--color-text-primary)] hover:bg-[var(--color-muted-surface)]">Outro</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div> */}
 
               <AppTextarea
                 label="Conte mais sobre seu projeto"

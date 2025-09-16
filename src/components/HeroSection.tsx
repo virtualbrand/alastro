@@ -4,17 +4,17 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section 
-      className="relative h-[65vh] md:h-[65vh] bg-cover bg-center bg-no-repeat bg-[url('/images/hero-bg-mobile.webp')] md:bg-[url('/images/hero-bg.webp')] before:content-[''] before:block before:absolute before:inset-0 before:bg-black/10"
+      className="relative min-h-[calc(100vh)] h-[calc(100vh)] bg-cover bg-center bg-no-repeat bg-[url('/images/hero-bg-mobile.webp')] md:bg-[url('/images/hero-bg.webp')] before:content-[''] before:block before:absolute before:inset-0 before:bg-black/10 pt-16"
     >
       {/* Hero Content */}
       <div className="relative z-20 h-full flex items-center mx-auto px-4 sm:px-6 md:px-8 container">
         <div className="w-full">
           <div className="space-y-4 md:space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-amplitude font-bold text-foreground leading-tight uppercase max-w-[800px]">
+            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-amplitude font-bold text-foreground leading-tight uppercase max-w-[800px]">
               <span className="block">REGISTRANDO HISTÓRIAS</span>
               <span className="block">QUE CONECTAM</span>
               <span className="block">E IMPACTAM</span>
-            </h1>
+            </h2>
             
             <Button 
               className="group/button relative inline-flex justify-center items-center overflow-hidden rounded-md bg-[var(--color-accent-green)] px-6 py-3 text-sm font-amplitude font-bold text-[var(--color-text-secondary)] uppercase transition-all duration-300 ease-in-out hover:bg-[var(--color-accent-green)]/80 hover:shadow-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"

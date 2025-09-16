@@ -7,73 +7,30 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
-const TESTIMONIALS = [
-  {
-    id: "testimonial-1",
-    name: "Maria Silva",
-    profession: "Diretora de Marketing",
-    rating: 5,
-    description:
-      "O trabalho realizado superou todas as nossas expectativas. A qualidade audiovisual e o profissionalismo da equipe foram excepcionais.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
-  },
-  {
-    id: "testimonial-2",
-    name: "João Santos",
-    profession: "CEO",
-    rating: 4.8,
-    description:
-      "Colaboração incrível do início ao fim. Entregaram exatamente o que precisávamos para nossa campanha institucional.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
-  },
-  {
-    id: "testimonial-3",
-    name: "Ana Costa",
-    profession: "Produtora",
-    rating: 5,
-    description:
-      "A atenção aos detalhes e a criatividade da equipe transformaram nossa visão em uma realidade audiovisual impressionante.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
-  },
-  {
-    id: "testimonial-4",
-    name: "Carlos Oliveira",
-    profession: "Diretor Criativo",
-    rating: 4.9,
-    description:
-      "Profissionalismo exemplar e resultados de alta qualidade. Recomendo fortemente para qualquer projeto audiovisual.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
-  },
-]
-
 const TESTIMONIALS_ANIMATED = [
   {
-    quote: "O trabalho realizado superou todas as nossas expectativas. A qualidade audiovisual e o profissionalismo da equipe foram excepcionais.",
-    name: "Maria Silva",
-    designation: "Diretora de Marketing",
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+    quote: "Conheci o Bruno e o Ramon durante uma participação no podcast da Kyra e a conexão foi instantânea. Na época estava interessado em montar um podcast também e acho que por isso trocamos contato. Quando me aprofundei um pouco mais no trabalho deles fiquei encantado com a entrega e começamos a fazer alguns trabalhos juntos. O tempo foi passando, os trabalhos foram acontecendo, as entregas só melhoravam e gosto de brincar e falar pra todo mundo que importamos os meninos de Santa Catarina, trouxemos pro Rio de Janeiro e adotamos eles. Hoje a Alastro está em todos os nossos projetos, muito pela entrega de muita qualidade, claro, mas acho que principalmente pelo profissionalismo, pela relação, pelo carinho com a gente e com os nossos clientes. Essa pra mim é a grande chave, o grande diferencial. O saber chegar e o saber ficar. O que era um trabalho virou uma amizade, mas sem perder, em nenhum momento, o lado profissional da coisa. Acompanho e vibro com as vitórias deles com outros clientes. E sou extremante satisfeito com o que eles me entregam de conteúdo, como se desdobram para atender, entendem quando realmente preciso de ajuda. Sou #TeamAlastro.",
+    name: "Camilo Coelho",
+    designation: "",
+    src: "/images/camilo.webp",
   },
   {
-    quote: "Colaboração incrível do início ao fim. Entregaram exatamente o que precisávamos para nossa campanha institucional.",
-    name: "João Santos",
-    designation: "CEO",
-    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+    quote: "Já são 3 anos de parceria com a Alastro e a gente fica muito feliz com essa caminhada. Foram 3 anos construindo histórias, contando bastante sobre a nossa trajetória, e nesse tempo conseguimos criar uma conexão e uma sinergia muito forte.\nPra gente, o fundamental é trabalhar com profissionais de bom caráter, honestos e que compartilham valores semelhantes aos nossos, e isso encontramos em vocês.\nEstou muito feliz, sigo muito satisfeito e espero que essa parceria continue por muito tempo.",
+    name: "Malvino Salvador",
+    designation: "",
+    src: "/images/malvino-salvador.webp",
   },
   {
-    quote: "A atenção aos detalhes e a criatividade da equipe transformaram nossa visão em uma realidade audiovisual impressionante.",
-    name: "Ana Costa",
-    designation: "Produtora",
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+    quote: "Trabalhar com a Alastro nesses últimos 3 anos tem sido fundamental. Nos nossos eventos, onde tudo acontece ao mesmo tempo, eu preciso de uma equipe em quem confio para não perder nenhum momento especial, e eles entregam isso com muita qualidade.\nMais do que profissionais, são parceiros que cresceram junto com a gente e seguem evoluindo a cada projeto. Essa parceria só se fortalece.",
+    name: "Kyra Gracie",
+    designation: "",
+    src: "/images/kyra-gracie.webp",
   },
   {
-    quote: "Profissionalismo exemplar e resultados de alta qualidade. Recomendo fortemente para qualquer projeto audiovisual.",
-    name: "Carlos Oliveira",
-    designation: "Diretor Criativo",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0",
+    quote: "O projeto foi concluído com muito sucesso. Foi uma prova maravilhosa, muito bem coberta, mesmo com as dificuldades de não ter facilidades como moto. Respeitamos tudo isso e, ainda assim, o resultado ficou impecável. Fiquei muito feliz.\nÉ muito bom estar com uma equipe que leva tudo tão a sério e realmente preza pela máxima qualidade, e dentro do que é possível, fazem sempre o melhor.\nEstou muito feliz e só tenho a agradecer por esse dia maravilhoso.",
+    name: "Manu Cit",
+    designation: "",
+    src: "/images/manu-cit.webp",
   },
 ];
 
@@ -88,9 +45,8 @@ const TestimonialsSection = () => {
           </span>{" "}
           DIZEM
         </h2>
-        <p className="mx-auto max-w-lg text-foreground font-amplitude text-base leading-normal">
+        <p className="mx-auto max-w-lg text-foreground font-amplitude sm:text-lg md:text-xl leading-normal">
           Conheça os depoimentos de quem já trabalhou conosco e descobriu
-          <br />
           a diferença que fazemos em cada projeto audiovisual.
         </p>
       </div>
