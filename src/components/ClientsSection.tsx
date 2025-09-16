@@ -2,85 +2,52 @@ import ChromaGrid from "@/components/ui/chroma-grid"
 import { motion } from "framer-motion"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
-const CLIENTS = [
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 1",
-    subtitle: "Projeto 1",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 2",
-    subtitle: "Projeto 2",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 3",
-    subtitle: "Projeto 3",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 4",
-    subtitle: "Projeto 4",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 5",
-    subtitle: "Projeto 5",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 6",
-    subtitle: "Projeto 6",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 7",
-    subtitle: "Projeto 7",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 8",
-    subtitle: "Projeto 8",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 9",
-    subtitle: "Projeto 9",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 10",
-    subtitle: "Projeto 10",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 11",
-    subtitle: "Projeto 11",
-    url: "#"
-  },
-  {
-    image: "/images/cliente.png",
-    title: "Cliente 12",
-    subtitle: "Projeto 12",
-    url: "#"
-  }
-]
+const mockImages = [
+  "/images/malvino-salvador.webp",
+  "/images/kyra-gracie.webp",
+  "/images/camilo.webp",
+  "/images/manu-cit.webp",
+  "/images/victor.webp"
+];
+
+const PERSONALIDADES = [
+  { title: "Inst. Vini Jr", image: mockImages[0] },
+  { title: "Inst. Felipe Neto", image: mockImages[1] },
+  { title: "Manu Cit", image: mockImages[2] },
+  { title: "Malvino Salvador", image: mockImages[3] },
+  { title: "Kyra Gracie", image: mockImages[4] },
+  { title: "Gabriela Prioli", image: mockImages[1] },
+  { title: "Natalia Guitler", image: mockImages[2] },
+  { title: "Inst. Paulinho", image: mockImages[3] },
+];
+
+const ARTISTAS = [
+  { title: "Xamã", image: mockImages[2] },
+  { title: "Veigh", image: mockImages[3] },
+  { title: "Gabriel O Pensador", image: mockImages[4] },
+  { title: "L7NNON", image: mockImages[0] },
+  { title: "Djonga", image: mockImages[1] },
+  { title: "Mc Daniel", image: mockImages[2] },
+  { title: "Maria Gadú", image: mockImages[3] },
+  { title: "Elba Ramalho", image: mockImages[4] },
+];
+
+const MARCAS = [
+  { title: "Adidas", image: mockImages[4] },
+  { title: "Gocase", image: mockImages[3] },
+  { title: "Nestlé", image: mockImages[2] },
+  { title: "Corona", image: mockImages[1] },
+  { title: "WSL", image: mockImages[0] },
+  { title: "Allegra", image: mockImages[1] },
+  { title: "Bold", image: mockImages[2] },
+  { title: "Dux", image: mockImages[3] },
+];
 
 const ClientsSection = () => {
   return (
     <section className="px-8 pt-24 pb-60 relative overflow-hidden bg-[var(--color-bg-2)] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/picture-wall-bg.webp')" }}>
-      <div className="text-center mb-8">
+      <div className="absolute inset-0 bg-white/20 pointer-events-none z-0" />
+  <div className="relative z-10 text-center mb-8">
         <motion.h3 
           className="font-amplitude text-3xl md:text-4xl lg:text-5xl font-bold text-foreground uppercase mb-4"
           {...useScrollAnimation({ direction: 'fade', once: true })}
@@ -91,43 +58,71 @@ const ClientsSection = () => {
           </span>
         </motion.h3>
         <motion.p 
-          className="mx-auto max-w-lg font-amplitude text-foreground"
+          className="mx-auto max-w-lg font-amplitude text-foreground sm:text-lg md:text-xl"
           {...useScrollAnimation({ direction: 'fade', once: true })}
         >
-          Empresas que confiam em nossa expertise para transformar suas histórias em experiências audiovisuais memoráveis.
+          Personalidades, Artistas e Marcas que confiam em nossa expertise para transformar suas histórias em experiências audiovisuais memoráveis.
         </motion.p>
       </div>
 
       <motion.div 
-          className="container mx-auto"
-          {...useScrollAnimation({ direction: 'fade', once: true })}
-        >
-        <ChromaGrid 
-          items={CLIENTS.map((client, index) => ({
-            ...client,
-            render: (
-              <motion.div
-                {...useScrollAnimation({ 
-                  direction: 'fade',
-                  once: true,
-                  amount: 0.2
-                })}
-                style={{ width: '100%', height: '100%' }}
-              >
-                <img
-                  src={client.image}
-                  alt={client.title}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            )
-          }))}
-          className="gap-3"
-          radius={400}
-          damping={0.5}
-          fadeOut={0.8}
-          ease="power4.out"
-        />
+        className="relative z-10 container mx-auto space-y-12"
+        {...useScrollAnimation({ direction: 'fade', once: true })}
+      >
+        {/* Personalidades */}
+        <div>
+          <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Personalidades</h4>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+            {PERSONALIDADES.map((item) => (
+              <div key={item.title} className="flex flex-col items-center">
+                <div className="aspect-square w-full max-w-[130px] sm:max-w-[110px] md:max-w-[120px] lg:max-w-[140px] rounded overflow-hidden bg-gray-800 mb-2">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="font-amplitude text-xs md:text-sm text-center text-foreground font-semibold uppercase">{item.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Artistas */}
+        <div>
+          <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Artistas</h4>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+            {ARTISTAS.map((item) => (
+              <div key={item.title} className="flex flex-col items-center">
+                <div className="aspect-square w-full max-w-[90px] sm:max-w-[110px] md:max-w-[120px] lg:max-w-[140px] rounded overflow-hidden bg-gray-800 mb-2">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="font-amplitude text-xs md:text-sm text-center text-foreground font-bold uppercase">{item.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Marcas */}
+        <div>
+          <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Marcas</h4>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+            {MARCAS.map((item) => (
+              <div key={item.title} className="flex flex-col items-center">
+                <div className="aspect-square w-full max-w-[90px] sm:max-w-[110px] md:max-w-[120px] lg:max-w-[140px] rounded overflow-hidden bg-gray-800 mb-2">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="font-amplitude text-xs md:text-sm text-center text-foreground font-bold uppercase">{item.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </section>
   )
