@@ -8,26 +8,26 @@ const PROJECTS = [
 	{
 		id: "YBikDJ05mvM",
 		name: "Alastro & Manu Cit Iron",
-		thumbnail: "/images/projeto-4.jpg",
-		// gif: "...",
+		thumbnail: "/images/capas/bastidores-ironman-manu-cit.webp",
+		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
 	},
 	{
 		id: "YBikDJ05mvM",
 		name: "Doc - Alastro & Vini Day",
-		thumbnail: "/images/projeto-1.jpg",
+		thumbnail: "/images/capas/bastidores-vinijr.webp",
 		// gif: "...",
 	},
 	{
 		id: "YBikDJ05mvM",
 		name: "Gracie Kore",
-		thumbnail: "/images/projeto-3.jpg",
-		// gif: "...",
+		thumbnail: "/images/capas/bastidores-gracie-kore.webp",
+		gif: "/videos/bastidores/bastidores-alastro-gracie-kore.mp4",
 	},
 	{
 		id: "XtZJCqIBz4o",
 		name: "Alastro & Guudrun SP",
-		thumbnail: "/images/projeto-2.jpg",
-		// gif: "...",
+		thumbnail: "/images/capas/bastidores-guudrun.webp",
+		gif: "/videos/bastidores/bastidores-alastro-guudrun.mp4",
 	},
 ]
 
@@ -64,12 +64,24 @@ const BastidoresSection = () => {
 				<div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden transition-transform duration-500 ease-in-out"
 				  onMouseEnter={() => setHoveredProject(project.id)}
 				  onMouseLeave={() => setHoveredProject(null)}>
-									<img
-										className="w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105"
-										src={project.thumbnail}
-										alt={project.name}
-										draggable={false}
-									/>
+					{/* Thumbnail image */}
+					<img
+						className={`w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105 ${hoveredProject === project.id && project.gif ? 'opacity-0' : 'opacity-100'}`}
+						src={project.thumbnail}
+						alt={project.name}
+						draggable={false}
+					/>
+					{/* Video "gif" on hover - only if gif exists */}
+					{project.gif && (
+						<video
+							className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'}`}
+							src={project.gif}
+							autoPlay
+							muted
+							loop
+							playsInline
+						/>
+					)}
 				  {/* Hover overlay */}
 				  <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
 				  {/* Play button and project name */}

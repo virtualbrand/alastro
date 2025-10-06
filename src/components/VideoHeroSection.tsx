@@ -9,37 +9,37 @@ const PROJECTS = [
 		id: "93dXSj2pe9k",
 		name: "Manu Cit - Ironman",
 		thumbnail: "/images/projeto-4.jpg",
-		// gif: "...",
+		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
 	},
 	{
 		id: "oZ0T3nDdUM0",
 		name: "Vini Jr - Jantar 2024",
-		thumbnail: "/images/projeto-1.jpg",
-		// gif: "...",
+		thumbnail: "/images/capas/cover-vinijr.webp",
+		gif: "/videos/trabalhos/instituto-vini-jr-jantar.mp4",
 	},
 	{
 		id: "5CY-4ckG4pU",
 		name: "7 anos Gracie Kore",
 		thumbnail: "/images/projeto-3.jpg",
-		// gif: "...",
+		gif: "/videos/trabalhos/7-anos-gracie-kore.mp4",
 	},
 	{
 		id: "0XbzQkktOGw",
 		name: "Tributo Sp - Guudrun",
 		thumbnail: "/images/projeto-2.jpg",
-		// gif: "...",
+		gif: "/videos/trabalhos/tributo-sp-guudrun.mp4",
 	},
 	{
 		id: "A8jmn_VofMA",
 		name: "Veigh RS",
-		thumbnail: "/images/projeto-5.jpg",
-		// gif: "...",
+		thumbnail: "/images/capas/cover-veigh.webp",
+		// gif: "...", (não há vídeo correspondente)
 	},
 	{
-		id: "A8jmn_VofMA",
+		id: "wCE9eu8HzVo",
 		name: "Xamã",
-		thumbnail: "/images/projeto-6.jpg",
-		// gif: "...",
+		thumbnail: "/images/capas/cover-xama.webp",
+		// gif: "...", (não há vídeo correspondente)
 	},
 ]
 
@@ -76,12 +76,24 @@ const VideoHeroSection = () => {
                 <div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden"
 				  onMouseEnter={() => setHoveredProject(project.id)}
 				  onMouseLeave={() => setHoveredProject(null)}>
-									<img
-										className="w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105"
-										src={project.thumbnail}
-										alt={project.name}
-										draggable={false}
-									/>
+					{/* Thumbnail image */}
+					<img
+						className={`w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105 ${hoveredProject === project.id && project.gif ? 'opacity-0' : 'opacity-100'}`}
+						src={project.thumbnail}
+						alt={project.name}
+						draggable={false}
+					/>
+					{/* Video "gif" on hover - only if gif exists */}
+					{project.gif && (
+						<video
+							className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'}`}
+							src={project.gif}
+							autoPlay
+							muted
+							loop
+							playsInline
+						/>
+					)}
 				  {/* Hover overlay */}
 				  <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
 				  {/* Play button and project name */}

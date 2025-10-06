@@ -2,45 +2,37 @@ import ChromaGrid from "@/components/ui/chroma-grid"
 import { motion } from "framer-motion"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
-const mockImages = [
-  "/images/malvino-salvador.webp",
-  "/images/kyra-gracie.webp",
-  "/images/camilo.webp",
-  "/images/manu-cit.webp",
-  "/images/victor.webp"
-];
-
 const PERSONALIDADES = [
-  { title: "Inst. Vini Jr", image: mockImages[0] },
-  { title: "Inst. Felipe Neto", image: mockImages[1] },
-  { title: "Manu Cit", image: mockImages[2] },
-  { title: "Malvino Salvador", image: mockImages[3] },
-  { title: "Kyra Gracie", image: mockImages[4] },
-  { title: "Gabriela Prioli", image: mockImages[1] },
-  { title: "Natalia Guitler", image: mockImages[2] },
-  { title: "Inst. Paulinho", image: mockImages[3] },
+  { title: "Inst. Vini Jr", image: "/images/personalidades/vini-jr.webp" },
+  { title: "Inst. Felipe Neto", image: "/images/personalidades/felipe-neto.webp" },
+  { title: "Manu Cit", image: "/images/personalidades/manu-cit.webp" },
+  { title: "Malvino Salvador", image: "/images/personalidades/malvino-salvador.webp" },
+  { title: "Kyra Gracie", image: "/images/personalidades/kyra-gracie.webp" },
+  { title: "Gabriela Prioli", image: "/images/personalidades/gabriela-prioli.webp" },
+  { title: "Natalia Guitler", image: "/images/personalidades/natalia-guitler.webp" },
+  { title: "Inst. Paulinho", image: "/images/personalidades/instituto-paulinho.webp" },
 ];
 
 const ARTISTAS = [
-  { title: "Xamã", image: mockImages[2] },
-  { title: "Veigh", image: mockImages[3] },
-  { title: "Gabriel O Pensador", image: mockImages[4] },
-  { title: "L7NNON", image: mockImages[0] },
-  { title: "Djonga", image: mockImages[1] },
-  { title: "Mc Daniel", image: mockImages[2] },
-  { title: "Maria Gadú", image: mockImages[3] },
-  { title: "Elba Ramalho", image: mockImages[4] },
+  { title: "Xamã", image: "/images/artistas/xama.webp" },
+  { title: "Veigh", image: "/images/artistas/veigh.webp" },
+  { title: "Gabriel O Pensador", image: "/images/artistas/gabriel-o-pensador.webp" },
+  { title: "L7NNON", image: "/images/artistas/l7nnon.webp" },
+  { title: "Djonga", image: "/images/artistas/djonga.webp" },
+  { title: "Mc Daniel", image: "/images/artistas/mc-daniel.webp" },
+  { title: "Maria Gadú", image: "/images/artistas/maria-gadu.webp" },
+  { title: "Elba Ramalho", image: "/images/artistas/elba-ramalho.webp" },
 ];
 
 const MARCAS = [
-  { title: "Adidas", image: mockImages[4] },
-  { title: "Gocase", image: mockImages[3] },
-  { title: "Nestlé", image: mockImages[2] },
-  { title: "Corona", image: mockImages[1] },
-  { title: "WSL", image: mockImages[0] },
-  { title: "Allegra", image: mockImages[1] },
-  { title: "Bold", image: mockImages[2] },
-  { title: "Dux", image: mockImages[3] },
+  { title: "Adidas", image: "/images/marcas/adidas.webp" },
+  { title: "Gocase", image: "/images/marcas/gocase.webp" },
+  { title: "Nestlé", image: "/images/marcas/nestle.webp" },
+  { title: "Corona", image: "/images/marcas/corona.webp" },
+  { title: "WSL", image: "/images/marcas/wsl.webp" },
+  { title: "Allegra", image: "/images/marcas/allegra.webp" },
+  { title: "Bold", image: "/images/marcas/bold.webp" },
+  { title: "Dux", image: "/images/marcas/dux.webp" },
 ];
 
 const ClientsSection = () => {
