@@ -25,13 +25,13 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
     <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
       <div
         className={
-          "sticky top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]"
+          "sticky top-0 mx-auto flex h-[50%] max-w-4xl flex-col items-center justify-center bg-transparent px-[1rem] py-[5rem]"
         }
       >
         <p
           ref={targetRef}
           className={
-            "flex flex-wrap p-5 text-3xl md:text-4xl lg:text-5xl font-bold text-black/20 dark:text-white/20 md:p-8 lg:p-10"
+            "flex flex-wrap justify-center p-5 text-center text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-black/20 dark:text-white/20 md:p-8 lg:p-4"
           }
         >
           {words.map((word, i) => {
@@ -44,6 +44,15 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
             );
           })}
         </p>
+        
+        {/* Logo Alastro */}
+        <div className="mt-6 md:mt-10 flex justify-center">
+          <img 
+            src="/images/logo.svg" 
+            alt="Alastro" 
+            className="h-12 md:h-16 lg:h-20 w-auto"
+          />
+        </div>
       </div>
     </div>
   );

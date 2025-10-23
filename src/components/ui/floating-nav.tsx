@@ -50,7 +50,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-full fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-md border-b border-border",
+          "flex max-w-full fixed top-0 inset-x-0 z-50 bg-white/40 backdrop-blur-md border-b border-border/30",
           className
         )}
       >
@@ -75,7 +75,7 @@ export const FloatingNav = ({
                 key={`link-${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-sm font-amplitude font-bold"
+                  "relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
                 )}
               >
                 <span className="block">{navItem.name}</span>

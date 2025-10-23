@@ -47,11 +47,30 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
 
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
   return (
   <div className={cn("max-w-4xl md:max-w-7xl mx-auto px-4 md:px-8 lg:px-12", className)}>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-48 md:gap-20">
         <div>
-          <div className="relative h-80 w-full">
+          <motion.div 
+            className="relative h-80 w-full"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
+
+              if (swipe < -swipeConfidenceThreshold) {
+                handleNext();
+              } else if (swipe > swipeConfidenceThreshold) {
+                handlePrev();
+              }
+            }}
+          >
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -96,9 +115,23 @@ export const AnimatedTestimonials = ({
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
-        <div className="flex justify-between flex-col py-4">
+        <motion.div 
+          className="flex justify-between flex-col py-4"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipe = swipePower(offset.x, velocity.x);
+
+            if (swipe < -swipeConfidenceThreshold) {
+              handleNext();
+            } else if (swipe > swipeConfidenceThreshold) {
+              handlePrev();
+            }
+          }}
+        >
           <motion.div
             key={active}
             initial={{
@@ -124,30 +157,22 @@ export const AnimatedTestimonials = ({
                         <p className="sm:text-lg md:text-xl font-amplitude text-muted-foreground leading-normal">
               {testimonials[active].designation}
             </p>
-            <motion.p className="sm:text-lg md:text-xl font-amplitude text-muted-secondary mt-4 leading-normal">
-              {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
+            <motion.p 
+              className="sm:text-lg md:text-xl font-amplitude text-muted-secondary mt-4 leading-normal"
+              initial={{
+                opacity: 0,
+                y: 10,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+            >
+              {testimonials[active].quote}
             </motion.p>
           </motion.div>
           <div className="flex gap-4 pt-5 md:pt-8">
@@ -164,7 +189,7 @@ export const AnimatedTestimonials = ({
               <IconArrowRight className="h-5 w-5 text-foreground group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

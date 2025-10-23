@@ -1,5 +1,3 @@
-import ChromaGrid from "@/components/ui/chroma-grid"
-import { motion } from "framer-motion"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 const PERSONALIDADES = [
@@ -36,34 +34,26 @@ const MARCAS = [
 ];
 
 const ClientsSection = () => {
+  useScrollAnimation();
+  
   return (
     <section className="px-8 pt-24 pb-60 relative overflow-hidden bg-[var(--color-bg-2)] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/picture-wall-bg.webp')" }}>
       <div className="absolute inset-0 bg-white/20 pointer-events-none z-0" />
-  <div className="relative z-10 text-center mb-8">
-        <motion.h3 
-          className="font-amplitude text-3xl md:text-4xl lg:text-5xl font-bold text-foreground uppercase mb-4"
-          {...useScrollAnimation({ direction: 'fade', once: true })}
-        >
-          NOSSOS{" "}
-          <span className="font-amplitude font-bold text-foreground">
-            CLIENTES
-          </span>
-        </motion.h3>
-        <motion.p 
-          className="mx-auto max-w-lg font-amplitude text-foreground sm:text-lg md:text-xl"
-          {...useScrollAnimation({ direction: 'fade', once: true })}
-        >
+      
+      {/* Section Header */}
+      <div className="relative z-10 container mx-auto mb-8 md:mb-12 space-y-1.5">
+        <h3 className="fade-in text-3xl md:text-4xl lg:text-5xl font-amplitude font-bold text-foreground uppercase text-center">
+          NOSSOS <span className="font-amplitude font-bold text-foreground">CLIENTES</span>
+        </h3>
+        <p className="fade-in max-w-3xl mx-auto font-amplitude text-foreground text-base sm:text-lg md:text-xl leading-normal text-center">
           Personalidades, Artistas e Marcas que confiam em nossa expertise para transformar suas histórias em experiências audiovisuais memoráveis.
-        </motion.p>
+        </p>
       </div>
 
-      <motion.div 
-        className="relative z-10 container mx-auto space-y-12"
-        {...useScrollAnimation({ direction: 'fade', once: true })}
-      >
+      <div className="relative z-10 container mx-auto space-y-12">
         {/* Personalidades */}
         <div>
-          <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Personalidades</h4>
+          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Personalidades</h4> */}
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
             {PERSONALIDADES.map((item) => (
               <div key={item.title} className="flex flex-col items-center">
@@ -81,7 +71,7 @@ const ClientsSection = () => {
         </div>
         {/* Artistas */}
         <div>
-          <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Artistas</h4>
+          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Artistas</h4> */}
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
             {ARTISTAS.map((item) => (
               <div key={item.title} className="flex flex-col items-center">
@@ -99,7 +89,7 @@ const ClientsSection = () => {
         </div>
         {/* Marcas */}
         <div>
-          <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Marcas</h4>
+          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Marcas</h4> */}
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
             {MARCAS.map((item) => (
               <div key={item.title} className="flex flex-col items-center">
@@ -115,7 +105,7 @@ const ClientsSection = () => {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

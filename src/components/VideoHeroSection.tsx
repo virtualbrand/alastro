@@ -1,7 +1,6 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Play } from "lucide-react"
 import { useState } from "react"
-import { motion } from "framer-motion"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 const PROJECTS = [
@@ -13,7 +12,7 @@ const PROJECTS = [
 	},
 	{
 		id: "oZ0T3nDdUM0",
-		name: "Vini Jr - Jantar 2024",
+		name: "Instituto Vini Jr - Jantar Beneficente",
 		thumbnail: "/images/capas/cover-vinijr.webp",
 		gif: "/videos/trabalhos/instituto-vini-jr-jantar.mp4",
 	},
@@ -45,33 +44,31 @@ const PROJECTS = [
 
 const VideoHeroSection = () => {
 	const [hoveredProject, setHoveredProject] = useState<string | null>(null)
+	useScrollAnimation()
 
 		return (
-		<div id="cases" className="w-screen flex flex-col items-center justify-center bg-[var(--color-bg-2)] overflow-x-hidden pt-12 md:pt-16 lg:pt-24">
-	<motion.h3
-          className="w-full py-6 md:py-5 lg:pt-24 text-3xl md:text-4xl lg:text-5xl font-amplitude font-bold tracking-tighter text-foreground text-center"
-          {...useScrollAnimation({ direction: 'fade', once: true })}
-				>
+		<section 
+			id="portfolio" 
+			className="relative w-screen bg-[var(--color-bg-2)] overflow-x-hidden pt-12 md:pt-16 lg:pt-24 z-10 shadow-[0_-10px_30px_-5px_rgba(0,0,0,0.2)]"
+		>
+			{/* Section Header */}
+			<div className="container mx-auto px-4 mb-8 md:mb-12 space-y-1.5">
+				<h3 className="fade-in text-3xl md:text-4xl font-amplitude font-bold tracking-tighter text-foreground text-center">
 					Nossos trabalhos em ação
-	</motion.h3>
-	<motion.p
-		className="w-full max-w-lg mx-auto text-foreground font-amplitude sm:text-lg md:text-xl leading-normal text-center mb-8"
-		{...useScrollAnimation({ direction: 'fade', once: true })}
-	>
-		Confira a seleção de alguns projetos audiovisuais, desde eventos corporativos até produções cinematográficas que conectam e impactam.
-	</motion.p>
-	<div className="w-screen max-w-full" style={{overflow: 'hidden'}}>
-	  <div className="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 w-full">
+				</h3>
+				<p className="fade-in max-w-3xl mx-auto text-foreground font-amplitude text-base sm:text-xl leading-normal text-center">
+					Confira a seleção de alguns projetos audiovisuais, desde eventos corporativos até produções cinematográficas que conectam e impactam.
+				</p>
+			</div>
+
+			{/* Projects Grid */}
+			<div className="w-screen max-w-full overflow-hidden">
+				<div className="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 w-full">
 		{PROJECTS.map((project, index) => (
 		  <Dialog key={index}>
 			<DialogTrigger asChild>
-			  <motion.div 
-                className="relative w-full h-full flex items-center justify-center"
-                {...useScrollAnimation({ 
-                  direction: index % 2 === 0 ? 'left' : 'right',
-                  amount: 0.2,
-                  once: true
-                })}
+			  <div 
+                className={`relative w-full h-full flex items-center justify-center ${index % 2 === 0 ? 'scroll-left' : 'scroll-right'}`}
               >
                 <div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden"
 				  onMouseEnter={() => setHoveredProject(project.id)}
@@ -106,7 +103,7 @@ const VideoHeroSection = () => {
 					</h3>
 				  </div>
 				</div>
-			  </motion.div>
+			  </div>
 			</DialogTrigger>
 			<DialogContent className="max-w-4xl p-0">
 			  <div className="aspect-video w-full">
@@ -125,7 +122,7 @@ const VideoHeroSection = () => {
 		))}
 	  </div>
 	</div>
-  </div>
+  </section>
 	)
 }
 

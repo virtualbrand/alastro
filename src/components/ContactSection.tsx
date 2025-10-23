@@ -238,13 +238,13 @@ const ContactSection = () => {
 
       {/* Form - Bottom on mobile, Left on desktop */}
       <div 
-        className="w-full md:w-1/2 bg-[var(--color-bg)] flex items-center justify-center px-8 py-16 lg:p-16 relative overflow-hidden"
+        className="w-full md:w-1/2 bg-[var(--color-bg)] flex items-center justify-center px-4 py-16 lg:px-4 lg:py-16 relative overflow-hidden"
       >
         {/* Gradiente só no form */}
         <div
           className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-200 ${isHovering ? 'opacity-100' : 'opacity-0'}`}
           style={{
-            background: `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(212, 236, 142, 0.50) 0%, transparent 90%)`,
+            background: `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(212, 236, 142, 0.20) 0%, transparent 90%)`,
             transition: 'opacity 0.2s'
           }}
         />

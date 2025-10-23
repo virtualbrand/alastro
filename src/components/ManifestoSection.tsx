@@ -47,7 +47,7 @@ const ManifestoSection = () => {
     <section
       id="manifesto"
       ref={sectionRef}
-      className="bg-background flex justify-center items-center"
+      className="bg-background relative flex justify-center items-center"
       style={{
         backgroundImage: "url('/images/manifesto-bg.webp')",
         backgroundRepeat: "no-repeat",
@@ -59,12 +59,10 @@ const ManifestoSection = () => {
         opacity: bgOpacity,
       }}
     >
-      <div className="w-full flex justify-center items-center">
-        <TextRevealByWord
-          className="uppercase text-center font-amplitude max-w-5xl flex justify-center items-center"
-          text="Espalhar ou propagar, Encher ou invadir, Pôr lastro em, Carregar com lastro"
-        />
-      </div>
+      <TextRevealByWord
+        className="uppercase text-center font-amplitude max-w-5xl"
+        text="Espalhar ou propagar, Encher ou invadir, Pôr lastro em, Carregar com lastro"
+      />
     </section>
   );
 };

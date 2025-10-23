@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Desabilita scroll nativo para dar lugar ao Lenis */
     /* Pantone-based color palette */
     /* Pantone 426 C - Dark Gray */
     --background: 0 0% 100%;
@@ -131,6 +131,27 @@ h1, h2, h3, h4, h5, h6 {
   --color-bg-3: #999179;
   --color-accent-green: #d4ec8e;
   --color-menu-hover: #7f8d55;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 .dark {

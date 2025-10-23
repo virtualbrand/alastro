@@ -1,48 +1,54 @@
-import { useRef } from 'react'
-import { useInView } from 'framer-motion'
-import { type Variants } from 'framer-motion'
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-type AnimationDirection = 'bottom' | 'left' | 'right' | 'top' | 'fade'
+gsap.registerPlugin(ScrollTrigger);
 
-interface UseScrollAnimationProps {
-  direction?: AnimationDirection
-  once?: boolean
-  amount?: number
-}
+export const useScrollAnimation = () => {
+  useEffect(() => {
+    // Aguardar o DOM estar pronto
+    const timer = setTimeout(() => {
+      const animations = [
+        { selector: ".scroll-bottom", props: { y: 50 } },
+        { selector: ".scroll-left", props: { x: -80 } },
+        { selector: ".scroll-right", props: { x: 80 } },
+        { selector: ".scroll-top", props: { y: -80 } },
+        { selector: ".fade-in", props: { y: 0 } }
+      ];
 
-export const useScrollAnimation = ({
-  direction = 'bottom',
-  once = true,
-  amount = 0.3
-}: UseScrollAnimationProps = {}) => {
-  const ref = useRef<any>(null)
-  const isInView = useInView(ref, { once, amount })
+      animations.forEach(animation => {
+        document.querySelectorAll(animation.selector).forEach(element => {
+          gsap.fromTo(element, 
+            {
+              opacity: 0,
+              filter: "blur(10px)",
+              ...animation.props,
+            },
+            {
+              opacity: 1,
+              filter: "blur(0px)",
+              y: 0,
+              x: 0,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: element,
+                start: "top 90%",
+                end: "top 65%",
+                scrub: 1,
+                toggleActions: "play reverse play reverse",
+              }
+            }
+          );
+        });
+      });
 
-  const variants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: direction === 'bottom' ? 50 : direction === 'top' ? -80 : 0,
-      x: direction === 'left' ? -80 : direction === 'right' ? 80 : 0,
-      filter: 'blur(10px)',
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.8,
-        ease: [0.17, 0.55, 0.55, 1]
-      }
-    }
-  }
+      ScrollTrigger.refresh();
+    }, 100);
 
-  const animate = isInView ? 'visible' : 'hidden'
-
-  return {
-    ref,
-    variants,
-    initial: 'hidden',
-    animate,
-  }
-}
+    // Cleanup
+    return () => {
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+};
