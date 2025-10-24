@@ -47,18 +47,25 @@ const ManifestoSection = () => {
     <section
       id="manifesto"
       ref={sectionRef}
-      className="bg-background relative flex justify-center items-center"
+      className="bg-background relative flex justify-center items-center manifesto-section"
       style={{
         backgroundImage: "url('/images/manifesto-bg.webp')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "auto",
-        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
         minHeight: "400px",
         transition: "background 0.3s, opacity 0.3s",
         opacity: bgOpacity,
       }}
     >
+      <style>{`
+        @media (min-width: 1024px) {
+          .manifesto-section {
+            background-attachment: fixed !important;
+            background-size: auto !important;
+          }
+        }
+      `}</style>
       <TextRevealByWord
         className="uppercase text-center font-amplitude max-w-5xl"
         text="Espalhar ou propagar, Encher ou invadir, Pôr lastro em, Carregar com lastro"
