@@ -53,11 +53,11 @@ const ClientsSection = () => {
       <div className="relative z-10 container mx-auto space-y-12">
         {/* Personalidades */}
         <div>
-          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Personalidades</h4> */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Personalidades</h4> */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {PERSONALIDADES.map((item) => (
-              <div key={item.title} className="flex flex-col items-center">
-                <div className="aspect-square w-full max-w-[130px] sm:max-w-[110px] md:max-w-[120px] lg:max-w-[140px] rounded overflow-hidden bg-gray-800 mb-2">
+              <div key={item.title} className="fade-in flex flex-col items-center">
+                <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -71,11 +71,11 @@ const ClientsSection = () => {
         </div>
         {/* Artistas */}
         <div>
-          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Artistas</h4> */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Artistas</h4> */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {ARTISTAS.map((item) => (
-              <div key={item.title} className="flex flex-col items-center">
-                <div className="aspect-square w-full max-w-[90px] sm:max-w-[110px] md:max-w-[120px] lg:max-w-[140px] rounded overflow-hidden bg-gray-800 mb-2">
+              <div key={item.title} className="fade-in flex flex-col items-center">
+                <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -89,11 +89,11 @@ const ClientsSection = () => {
         </div>
         {/* Marcas */}
         <div>
-          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-4">Marcas</h4> */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+          {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Marcas</h4> */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {MARCAS.map((item) => (
-              <div key={item.title} className="flex flex-col items-center">
-                <div className="aspect-square w-full max-w-[90px] sm:max-w-[110px] md:max-w-[120px] lg:max-w-[140px] rounded overflow-hidden bg-gray-800 mb-2">
+              <div key={item.title} className="fade-in flex flex-col items-center">
+                <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
                   <img
                     src={item.image}
                     alt={item.title}

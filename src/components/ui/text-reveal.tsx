@@ -46,11 +46,11 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
         </p>
         
         {/* Logo Alastro */}
-        <div className="mt-6 md:mt-10 flex justify-center">
+        <div className="fade-in mt-6 md:mt-10 flex justify-center">
           <img 
             src="/images/logo.svg" 
             alt="Alastro" 
-            className="h-12 md:h-16 lg:h-20 w-auto"
+            className="h-12 md:h-16 lg:h-18 w-auto"
           />
         </div>
       </div>
