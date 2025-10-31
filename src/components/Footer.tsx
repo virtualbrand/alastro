@@ -28,6 +28,12 @@ function Footer() {
               PORTFÓLIO
             </a>
             <a 
+              href="/trabalhe-conosco" 
+              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+            >
+              TRABALHE CONOSCO
+            </a>
+            <a 
               href="#contato" 
               onClick={(e) => handleAnchorClick(e, "#contato")}
               className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
