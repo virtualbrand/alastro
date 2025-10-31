@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button"
-import { Instagram, Youtube } from "lucide-react" // Remove unused imports
+import { Instagram, Youtube } from "lucide-react"
+import { useSmoothScroll } from "@/hooks/useSmoothScroll"
 
 function Footer() {
+  const { handleAnchorClick } = useSmoothScroll();
+  
   return (
     <footer className="bg-[var(--color-bg-2)] text-[var(--color-text-primary)] py-12">
       <div className="container mx-auto px-4 md:px-6">
@@ -10,16 +13,25 @@ function Footer() {
             <img src="/images/icon-footer.svg" alt="Logo" className="w-full h-full object-contain" />
           </div>
           <nav className="mb-8 flex flex-wrap justify-center gap-8">
-            <a href="#sobre" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
+            <a 
+              href="#sobre" 
+              onClick={(e) => handleAnchorClick(e, "#sobre")}
+              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+            >
               SOBRE NÓS
             </a>
-            <a href="#portfolio" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
+            <a 
+              href="#portfolio" 
+              onClick={(e) => handleAnchorClick(e, "#portfolio")}
+              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+            >
               PORTFÓLIO
             </a>
-            <a href="/trabalhe-conosco" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
-              TRABALHE CONOSCO
-            </a>
-            <a href="#contato" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
+            <a 
+              href="#contato" 
+              onClick={(e) => handleAnchorClick(e, "#contato")}
+              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+            >
               CONTATO
             </a>
           </nav>

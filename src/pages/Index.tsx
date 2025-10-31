@@ -13,7 +13,6 @@ const Index = () => {
   const navItems = [
     { name: "SOBRE NÓS", link: "#sobre" },
     { name: "PORTFÓLIO", link: "#portfolio" },
-    { name: "TRABALHE CONOSCO", link: "/trabalhe-conosco" },
     { name: "CONTATO", link: "#contato" },
   ];
 

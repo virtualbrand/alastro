@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 export const FloatingNav = ({
   navItems,
@@ -17,6 +18,8 @@ export const FloatingNav = ({
 }) => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { handleAnchorClick } = useSmoothScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +37,21 @@ export const FloatingNav = ({
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  // Fechar menu mobile ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (mobileMenuOpen && !target.closest('[data-mobile-menu]')) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <AnimatePresence mode="wait">
@@ -53,6 +71,7 @@ export const FloatingNav = ({
           "flex max-w-full fixed top-0 inset-x-0 z-50 bg-white/40 backdrop-blur-md border-b border-border/30",
           className
         )}
+        data-mobile-menu
       >
         <div className="flex justify-between items-center w-full px-2 md:px-8 py-4 max-w-[1400px] mx-auto">
           {/* Logo */}
@@ -74,6 +93,7 @@ export const FloatingNav = ({
               <a
                 key={`link-${idx}`}
                 href={navItem.link}
+                onClick={(e) => handleAnchorClick(e, navItem.link)}
                 className={cn(
                   "relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
                 )}
@@ -84,7 +104,10 @@ export const FloatingNav = ({
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-foreground">
+          <button 
+            className="md:hidden text-foreground"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -95,11 +118,40 @@ export const FloatingNav = ({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
+                d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
               />
             </svg>
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden bg-white/95 backdrop-blur-md border-t border-border/30"
+            >
+              <nav className="flex flex-col py-4">
+                {navItems.map((navItem, idx) => (
+                  <a
+                    key={`mobile-link-${idx}`}
+                    href={navItem.link}
+                    onClick={(e) => {
+                      handleAnchorClick(e, navItem.link);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="px-8 py-3 text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold hover:bg-gray-50/50"
+                  >
+                    {navItem.name}
+                  </a>
+                ))}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </AnimatePresence>
   );

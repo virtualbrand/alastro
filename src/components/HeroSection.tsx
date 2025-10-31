@@ -1,9 +1,11 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import CursorDitherTrail from "@/components/ui/cursor-dither-trail";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const HeroSection = () => {
   const sectionRef = React.useRef<HTMLElement>(null);
+  const { scrollToElement } = useSmoothScroll();
 
   return (
     <section 
@@ -30,9 +32,10 @@ const HeroSection = () => {
             </h2>
             
             <Button 
+              onClick={() => scrollToElement('sobre')}
               className="group/button relative inline-flex justify-center items-center overflow-hidden rounded-md bg-[var(--color-accent-green)] px-8 py-6 text-lg font-amplitude font-bold text-[var(--color-text-secondary)] uppercase transition-all duration-300 ease-in-out hover:bg-[var(--color-accent-green)]/80 hover:shadow-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span className="text-xl px-2 py-1 font-amplitude">SABER MAIS</span>
+              <span className="text-xl px-2 py-1 font-amplitude">SAIBA MAIS</span>
               <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
                 <div className="relative h-full w-8 bg-white/20" />
               </div>
