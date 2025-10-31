@@ -56,7 +56,7 @@ export const FloatingNav = ({
       >
         <div className="flex justify-between items-center w-full px-2 md:px-8 py-4 max-w-[1400px] mx-auto">
           {/* Logo */}
-          <div className="flex items-center">
+          <a href="/" className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
             <img 
               src="/images/logo.svg" 
               alt="Alastro" 
@@ -66,7 +66,7 @@ export const FloatingNav = ({
             <span className="text-sm font-amplitude font-bold text-muted-foreground ml-2">
               PRODUTORA AUDIOVISUAL
             </span>
-          </div>
+          </a>
 
           {/* Navigation Items */}
           <nav className="hidden md:flex items-center space-x-8">

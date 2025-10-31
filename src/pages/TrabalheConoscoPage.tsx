@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle2, ArrowLeft } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -261,15 +261,6 @@ const TrabalheConoscoPage = () => {
             }}
           />
           <div className="w-full max-w-md space-y-8 relative z-20">
-            {/* Back button */}
-            <a 
-              href="/" 
-              className="inline-flex items-center gap-2 text-[var(--color-text-primary)] hover:text-[var(--color-accent-green)] transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="font-amplitude text-sm">Voltar ao início</span>
-            </a>
-
             {/* Header */}
             <div className="text-center space-y-4">
               <h1 className="text-3xl lg:text-4xl font-amplitude font-bold text-[var(--color-heading)]">
