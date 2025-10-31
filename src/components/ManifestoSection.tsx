@@ -62,7 +62,7 @@ const ManifestoSection = () => {
         @media (min-width: 1024px) {
           .manifesto-section {
             background-attachment: fixed !important;
-            background-size: auto !important;
+            background-size: cover !important;
           }
         }
       `}</style>
