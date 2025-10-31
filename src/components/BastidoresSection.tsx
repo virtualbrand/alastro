@@ -6,19 +6,19 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 const PROJECTS = [
 	{
 		id: "YBikDJ05mvM",
-		name: "Alastro & Manu Cit Iron",
+		name: "Alastro & Manu Cit",
 		thumbnail: "/images/capas/bastidores-ironman-manu-cit.webp",
 		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
 	},
 	{
 		id: "YBikDJ05mvM",
-		name: "Doc - Alastro & Vini Day",
+		name: "Alastro & Instituto Vini Jr",
 		thumbnail: "/images/capas/bastidores-vinijr.webp",
 		// gif: "...",
 	},
 	{
 		id: "YBikDJ05mvM",
-		name: "Gracie Kore",
+		name: "Alastro & Gracie Kore",
 		thumbnail: "/images/capas/bastidores-gracie-kore.webp",
 		gif: "/videos/bastidores/bastidores-alastro-gracie-kore.mp4",
 	},

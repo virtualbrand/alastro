@@ -24,19 +24,19 @@ const PROJECTS = [
 	},
 	{
 		id: "0XbzQkktOGw",
-		name: "Tributo Sp - Guudrun",
+		name: "Guudrun SP",
 		thumbnail: "/images/projeto-2.jpg",
 		gif: "/videos/trabalhos/tributo-sp-guudrun.mp4",
 	},
 	{
 		id: "A8jmn_VofMA",
-		name: "Veigh RS",
+		name: "Documentário Veigh",
 		thumbnail: "/images/capas/cover-veigh.webp",
 		// gif: "...", (não há vídeo correspondente)
 	},
 	{
 		id: "wCE9eu8HzVo",
-		name: "Xamã",
+		name: "Documentário Xamã",
 		thumbnail: "/images/capas/cover-xama.webp",
 		// gif: "...", (não há vídeo correspondente)
 	},
