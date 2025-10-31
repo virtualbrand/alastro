@@ -16,7 +16,7 @@ function Footer() {
             <a href="#portfolio" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
               PORTFÓLIO
             </a>
-            <a href="#trabalhe" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
+            <a href="/trabalhe-conosco" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
               TRABALHE CONOSCO
             </a>
             <a href="#contato" className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium">
