@@ -48,9 +48,9 @@ const TESTIMONIALS_ANIMATED = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="bg-[var(--color-bg-2)] px-8 pt-24 pb-72 relative overflow-hidden z-[1] shadow-[0_-25px_40px_-15px_rgba(0,0,0,0.3)]">
+    <section className="bg-[var(--color-bg-2)] sm:px-8 pt-24 pb-72 relative overflow-hidden z-[1] shadow-[0_-25px_40px_-15px_rgba(0,0,0,0.3)]">
       {/* Section Header */}
-      <div className="container mx-auto mb-12 md:mb-24 space-y-1.5">
+      <div className="container mx-auto mb-12 md:mb-24 space-y-1.5 px-8 sm:px-0">
         <h2 className="font-amplitude text-3xl md:text-4xl lg:text-5xl font-bold text-foreground uppercase text-center">
           O QUE NOSSOS <span className="font-amplitude font-bold text-foreground">CLIENTES</span> DIZEM
         </h2>

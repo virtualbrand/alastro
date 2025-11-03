@@ -37,11 +37,11 @@ const ClientsSection = () => {
   useScrollAnimation();
   
   return (
-    <section className="px-8 pt-24 pb-60 relative overflow-hidden bg-[var(--color-bg-2)] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/picture-wall-bg.webp')" }}>
+    <section className="sm:px-8 pt-24 pb-60 relative overflow-hidden bg-[var(--color-bg-2)] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/picture-wall-bg.webp')" }}>
       <div className="absolute inset-0 bg-white/20 pointer-events-none z-0" />
       
       {/* Section Header */}
-      <div className="relative z-10 container mx-auto mb-8 md:mb-12 space-y-1.5">
+      <div className="relative z-10 container mx-auto mb-8 md:mb-12 space-y-1.5 px-8 sm:px-0">
         <h3 className="fade-in text-3xl md:text-4xl lg:text-5xl font-amplitude font-bold text-foreground uppercase text-center">
           NOSSOS <span className="font-amplitude font-bold text-foreground">CLIENTES</span>
         </h3>
@@ -50,7 +50,7 @@ const ClientsSection = () => {
         </p>
       </div>
 
-      <div className="relative z-10 container mx-auto space-y-12">
+      <div className="relative z-10 container mx-auto space-y-12 px-8 sm:px-0">
         {/* Personalidades */}
         <div>
           {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Personalidades</h4> */}
