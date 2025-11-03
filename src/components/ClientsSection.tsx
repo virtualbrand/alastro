@@ -1,36 +1,36 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 const PERSONALIDADES = [
-  { title: "Inst. Vini Jr", image: "/images/personalidades/vini-jr.webp" },
-  { title: "Inst. Felipe Neto", image: "/images/personalidades/felipe-neto.webp" },
-  { title: "Manu Cit", image: "/images/personalidades/manu-cit.webp" },
-  { title: "Malvino Salvador", image: "/images/personalidades/malvino-salvador.webp" },
-  { title: "Kyra Gracie", image: "/images/personalidades/kyra-gracie.webp" },
-  { title: "Gabriela Prioli", image: "/images/personalidades/gabriela-prioli.webp" },
-  { title: "Natalia Guitler", image: "/images/personalidades/natalia-guitler.webp" },
-  { title: "Inst. Paulinho", image: "/images/personalidades/instituto-paulinho.webp" },
+  { title: "Inst. Vini Jr", image: "/images/clientes/vini-jr.webp" },
+  { title: "Inst. Felipe Neto", image: "/images/clientes/felipe-neto.webp" },
+  { title: "Manu Cit", image: "/images/clientes/manu-cit.webp" },
+  { title: "Malvino Salvador", image: "/images/clientes/malvino-salvador.webp" },
+  { title: "Kyra Gracie", image: "/images/clientes/kyra-gracie.webp" },
+  { title: "Gabriela Prioli", image: "/images/clientes/gabriela-prioli.webp" },
+  { title: "Natalia Guitler", image: "/images/clientes/natalia-guitler.webp" },
+  { title: "Inst. Paulinho", image: "/images/clientes/instituto-paulinho.webp" },
 ];
 
 const ARTISTAS = [
-  { title: "Xamã", image: "/images/artistas/xama.webp" },
-  { title: "Veigh", image: "/images/artistas/veigh.webp" },
-  { title: "Gabriel O Pensador", image: "/images/artistas/gabriel-o-pensador.webp" },
-  { title: "L7NNON", image: "/images/artistas/l7nnon.webp" },
-  { title: "Djonga", image: "/images/artistas/djonga.webp" },
-  { title: "Mc Daniel", image: "/images/artistas/mc-daniel.webp" },
-  { title: "Maria Gadú", image: "/images/artistas/maria-gadu.webp" },
-  { title: "Elba Ramalho", image: "/images/artistas/elba-ramalho.webp" },
+  { title: "Xamã", image: "/images/clientes/xama.webp" },
+  { title: "Veigh", image: "/images/clientes/veigh.webp" },
+  { title: "Gabriel O Pensador", image: "/images/clientes/gabriel-pensador.webp" },
+  { title: "Manu Caiado", image: "/images/clientes/manu-caiado.webp" },
+  { title: "Vanessa Giacomo", image: "/images/clientes/vanessa-giacomo.webp" },
+  { title: "Zico", image: "/images/clientes/zico.webp" },
+  { title: "Maria Gadú", image: "/images/clientes/maria-gadu.webp" },
+  { title: "Elba Ramalho", image: "/images/clientes/elba-ramalho.webp" },
 ];
 
 const MARCAS = [
-  { title: "Adidas", image: "/images/marcas/adidas.webp" },
-  { title: "Gocase", image: "/images/marcas/gocase.webp" },
-  { title: "Nestlé", image: "/images/marcas/nestle.webp" },
-  { title: "Corona", image: "/images/marcas/corona.webp" },
-  { title: "WSL", image: "/images/marcas/wsl.webp" },
-  { title: "Allegra", image: "/images/marcas/allegra.webp" },
-  { title: "Bold", image: "/images/marcas/bold.webp" },
-  { title: "Dux", image: "/images/marcas/dux.webp" },
+  { title: "Adidas", image: "/images/clientes/adidas.webp" },
+  { title: "Gocase", image: "/images/clientes/gocase.webp" },
+  { title: "Nestlé", image: "/images/clientes/nestle.webp" },
+  { title: "X Coach", image: "/images/clientes/x-coach.webp" },
+  { title: "Gracie Kore", image: "/images/clientes/gracie-kore.webp" },
+  { title: "Allegra", image: "/images/clientes/allegra.webp" },
+  { title: "Bold", image: "/images/clientes/bold.webp" },
+  { title: "Dux", image: "/images/clientes/dux.webp" },
 ];
 
 const ClientsSection = () => {
@@ -92,7 +92,7 @@ const ClientsSection = () => {
           {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Marcas</h4> */}
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {MARCAS.map((item) => (
-              <div key={item.title} className="fade-in giflex flex-col items-center">
+              <div key={item.title} className="fade-in flex flex-col items-center">
                 <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
                   <img
                     src={item.image}
