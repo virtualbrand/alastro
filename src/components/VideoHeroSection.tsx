@@ -19,7 +19,7 @@ const PROJECTS = [
 	{
 		id: "5CY-4ckG4pU",
 		name: "7 anos Gracie Kore",
-		thumbnail: "/images/projeto-3.jpg",
+		thumbnail: "/images/capas/cover-gracie-kore.webp",
 		gif: "/videos/trabalhos/7-anos-gracie-kore.mp4",
 	},
 	{
