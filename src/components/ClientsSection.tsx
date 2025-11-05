@@ -16,7 +16,7 @@ const ARTISTAS = [
   { title: "Veigh", image: "/images/clientes/veigh.webp" },
   { title: "Gabriel O Pensador", image: "/images/clientes/gabriel-pensador.webp" },
   { title: "Manu Caiado", image: "/images/clientes/manu-caiado.webp" },
-  { title: "Vanessa Giacomo", image: "/images/clientes/vanessa-giacomo.webp" },
+  { title: "Vanessa Giácomo", image: "/images/clientes/vanessa-giacomo.webp" },
   { title: "Zico", image: "/images/clientes/zico.webp" },
   { title: "Maria Gadú", image: "/images/clientes/maria-gadu.webp" },
   { title: "Elba Ramalho", image: "/images/clientes/elba-ramalho.webp" },

@@ -7,7 +7,7 @@ const PROJECTS = [
 	{
 		id: "93dXSj2pe9k",
 		name: "Manu Cit - Ironman",
-		thumbnail: "/images/projeto-4.jpg",
+		thumbnail: "/images/capas/cover-manu-cit-2.webp",
 		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
 	},
 	{
@@ -32,13 +32,13 @@ const PROJECTS = [
 		id: "A8jmn_VofMA",
 		name: "Documentário Veigh",
 		thumbnail: "/images/capas/cover-veigh.webp",
-		// gif: "...", (não há vídeo correspondente)
+		gif: "/videos/trabalhos/documentario-veigh.mp4",
 	},
 	{
 		id: "wCE9eu8HzVo",
 		name: "Documentário Xamã",
 		thumbnail: "/images/capas/cover-xama.webp",
-		// gif: "...", (não há vídeo correspondente)
+		gif: "/videos/trabalhos/documentario-xama.mp4",
 	},
 ]
 
