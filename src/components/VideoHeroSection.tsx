@@ -8,7 +8,7 @@ const PROJECTS = [
 		id: "93dXSj2pe9k",
 		name: "Manu Cit - Ironman",
 		thumbnail: "/images/capas/cover-manu-cit-2.webp",
-		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
+		gif: "/videos/trabalhos/documentario-manu-cit-ironman.mp4",
 	},
 	{
 		id: "oZ0T3nDdUM0",

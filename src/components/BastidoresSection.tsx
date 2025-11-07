@@ -5,7 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 
 const PROJECTS = [
 	{
-		id: "YBikDJ05mvM",
+		id: "wxDT8wa4Lps",
 		name: "Alastro & Manu Cit",
 		thumbnail: "/images/capas/bastidores-ironman-manu-cit.webp",
 		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
