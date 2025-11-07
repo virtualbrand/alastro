@@ -11,10 +11,10 @@ const PROJECTS = [
 		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
 	},
 	{
-		id: "YBikDJ05mvM",
+		id: "QCfzASPKowo",
 		name: "Alastro & Instituto Vini Jr",
 		thumbnail: "/images/capas/bastidores-vinijr.webp",
-		// gif: "...",
+		gif: "/videos/bastidores/bastidores-alastro-viniday.mp4",
 	},
 	{
 		id: "YBikDJ05mvM",
