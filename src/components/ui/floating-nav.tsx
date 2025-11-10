@@ -68,7 +68,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-full fixed top-0 inset-x-0 z-50 bg-white/40 backdrop-blur-md border-b border-border/30",
+          "flex max-w-full fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur-md border-b border-border/30",
           className
         )}
         data-mobile-menu
