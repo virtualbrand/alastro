@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { sendEmail } from "@/services/emailService";
 
 interface AppInputProps {
   label?: string;
@@ -152,24 +153,49 @@ const ContactSection = () => {
   });
 
   const { toast } = useToast();
+  
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log("Form data:", data);
-    reset();
-    setIsSubmitting(false);
-    toast({
-      title: "Recebemos seu contato!",
-      description: (
-        <span className="flex items-center gap-2">
-          <span>Responderemos sua mensagem o mais breve possível</span>
-          <CheckCircle2 className="text-green-500 w-5 h-5 ml-2" />
-        </span>
-      ),
-      variant: "default",
-      className: "border border-green-400 bg-green-50"
-    });
+    
+    try {
+      await sendEmail({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        company: data.company,
+        message: data.message,
+        formType: 'trabalhe-conosco'
+      });
+      
+      reset();
+      setPhoneValue("");
+      
+      toast({
+        title: "Recebemos sua candidatura!",
+        description: (
+          <span className="flex items-center gap-2">
+            <span>Em breve entraremos em contato. Obrigado!</span>
+            <CheckCircle2 className="text-green-500 w-5 h-5 ml-2" />
+          </span>
+        ),
+        variant: "default",
+        className: "border border-green-400 bg-green-50"
+      });
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      toast({
+        title: "Erro ao enviar candidatura",
+        description: (
+          <span className="flex items-center gap-2">
+            <span>Por favor, tente novamente ou entre em contato diretamente</span>
+            <AlertCircle className="text-red-500 w-5 h-5 ml-2" />
+          </span>
+        ),
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
