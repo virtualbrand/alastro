@@ -1,7 +1,9 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import CursorDitherTrail from "@/components/ui/cursor-dither-trail";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+
+// Lazy load do efeito pesado - só carrega quando necessário
+const CursorDitherTrail = lazy(() => import("@/components/ui/cursor-dither-trail"));
 
 const HeroSection = () => {
   const sectionRef = React.useRef<HTMLElement>(null);
@@ -11,15 +13,18 @@ const HeroSection = () => {
     <section 
       ref={sectionRef}
       className="relative min-h-[calc(100vh)] h-[calc(100vh)] bg-cover bg-center bg-no-repeat bg-[url('/images/hero-bg.png')] before:content-[''] before:block before:absolute before:inset-0 before:bg-black/10 pt-16 overflow-hidden"
+      style={{ contentVisibility: 'auto' }}
     >
-      {/* Cursor Dither Trail Effect */}
-      <CursorDitherTrail
-        className="absolute inset-0 w-full h-full z-10"
-        trailColor="#d4ec8e"
-        dotSize={6}
-        fadeDuration={1000}
-        containerRef={sectionRef}
-      />
+      {/* Cursor Dither Trail Effect - Lazy loaded */}
+      <Suspense fallback={null}>
+        <CursorDitherTrail
+          className="absolute inset-0 w-full h-full z-10"
+          trailColor="#d4ec8e"
+          dotSize={6}
+          fadeDuration={1000}
+          containerRef={sectionRef}
+        />
+      </Suspense>
       
       {/* Hero Content */}
       <div className="relative z-20 h-full flex items-center mx-auto px-4 sm:px-6 md:px-8 container">

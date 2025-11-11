@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { TextRevealByWord } from "@/components/ui/text-reveal";
+import { throttle } from "@/lib/debounce";
 
 const ManifestoSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -38,9 +39,12 @@ const ManifestoSection = () => {
       setBgOpacity(progress);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Throttle para melhorar performance - executa no máximo a cada 16ms (~60fps)
+    const throttledScroll = throttle(handleScroll, 16);
+    
+    window.addEventListener("scroll", throttledScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", throttledScroll);
   }, []);
 
   return (

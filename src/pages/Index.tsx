@@ -1,15 +1,17 @@
 import { FloatingNav } from "@/components/ui/floating-nav";
 import HeroSection from "@/components/HeroSection";
-import VideoHeroSection from "@/components/VideoHeroSection";
-import ManifestoSection from "@/components/ManifestoSection";
-import ClientsSection from "@/components/ClientsSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
 import BottomHeroSection from "@/components/BottomHeroSection";
-import BastidoresSection from "@/components/BastidoresSection";
-import { useEffect } from "react";
+import { Footer } from "@/components/Footer";
+import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
+
+// Lazy load de componentes abaixo da dobra (below the fold)
+const ManifestoSection = lazy(() => import("@/components/ManifestoSection"));
+const VideoHeroSection = lazy(() => import("@/components/VideoHeroSection"));
+const BastidoresSection = lazy(() => import("@/components/BastidoresSection"));
+const ClientsSection = lazy(() => import("@/components/ClientsSection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 const Index = () => {
   const location = useLocation();
@@ -37,12 +39,14 @@ const Index = () => {
       <FloatingNav navItems={navItems} />
       <HeroSection />
       <BottomHeroSection />
-      <ManifestoSection />
-      <VideoHeroSection />
-      <BastidoresSection />
-      <ClientsSection />
-      <TestimonialsSection />
-      <ContactSection />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <ManifestoSection />
+        <VideoHeroSection />
+        <BastidoresSection />
+        <ClientsSection />
+        <TestimonialsSection />
+        <ContactSection />
+      </Suspense>
       <Footer />
     </div>
   );

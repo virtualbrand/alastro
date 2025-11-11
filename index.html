@@ -17,7 +17,17 @@
     <meta name="twitter:description" content="Somos uma Produtora Audiovisual apaixonada pelo poder das imagens em movimento" />
     <meta name="twitter:image" content="/images/time-alastro.jpg" />
     
-    <link rel="stylesheet" href="https://use.typekit.net/sip8wfz.css">
+    <!-- Preconnect para Adobe Fonts (TypeKit) - elimina lookup DNS -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="dns-prefetch" href="https://use.typekit.net">
+    
+    <!-- Preload da imagem hero crítica -->
+    <link rel="preload" href="/images/hero-bg.png" as="image" fetchpriority="high">
+    
+    <!-- Adobe Fonts com display swap para evitar FOIT (Flash of Invisible Text) -->
+    <link rel="stylesheet" href="https://use.typekit.net/sip8wfz.css" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="https://use.typekit.net/sip8wfz.css"></noscript>
+    
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="msapplication-TileImage" content="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />

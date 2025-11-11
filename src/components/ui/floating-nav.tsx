@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { throttle } from "@/lib/debounce";
 
 export const FloatingNav = ({
   navItems,
@@ -34,8 +35,11 @@ export const FloatingNav = ({
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Throttle para melhorar performance - executa no máximo a cada 100ms
+    const throttledScroll = throttle(handleScroll, 100);
+    
+    window.addEventListener("scroll", throttledScroll);
+    return () => window.removeEventListener("scroll", throttledScroll);
   }, [lastScrollY]);
 
   // Fechar menu mobile ao clicar fora

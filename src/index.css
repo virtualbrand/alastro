@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font optimization - evita FOIT (Flash of Invisible Text) */
+@supports (font-display: swap) {
+  @font-face {
+    font-family: 'amplitude';
+    font-display: swap;
+  }
+}
+
 @layer base {
   :root {
     scroll-behavior: auto; /* Desabilita scroll nativo para dar lugar ao Lenis */
