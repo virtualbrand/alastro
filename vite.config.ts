@@ -9,12 +9,20 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    react()
+    react(),
   ],
   build: {
     chunkSizeWarningLimit: 1000, // Aumenta o limite de aviso para 1000kb
+    cssCodeSplit: true, // Habilita code splitting de CSS
     rollupOptions: {
       output: {
+        // Separa CSS por chunk
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'ui-components': [
