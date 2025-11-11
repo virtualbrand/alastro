@@ -2,15 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font optimization - evita FOIT (Flash of Invisible Text) */
-@supports (font-display: swap) {
+@layer base {
+  /* 
+    Override TypeKit font-display de 'auto' para 'swap'
+    Isso previne FOIT (Flash of Invisible Text) e melhora performance
+  */
+  @font-face {
+    font-family: 'amplitude';
+    font-display: swap; /* Mostra fallback font imediatamente */
+    font-weight: 400;
+    font-style: normal;
+    src: local('amplitude');
+  }
+  
   @font-face {
     font-family: 'amplitude';
     font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    src: local('amplitude');
   }
-}
 
-@layer base {
   :root {
     scroll-behavior: auto; /* Desabilita scroll nativo para dar lugar ao Lenis */
     /* Pantone-based color palette */
