@@ -24,7 +24,7 @@ const TESTIMONIALS_ANIMATED = [
     quote: "Trabalhar com a Alastro nesses últimos 3 anos tem sido fundamental. Nos nossos eventos, onde tudo acontece ao mesmo tempo, eu preciso de uma equipe em quem confio para não perder nenhum momento especial, e eles entregam isso com muita qualidade.\nMais do que profissionais, são parceiros que cresceram junto com a gente e seguem evoluindo a cada projeto. Essa parceria só se fortalece.",
     name: "Kyra Gracie",
     designation: "",
-    src: "/images/kyra-gracie.webp",
+    src: "/images/depoimentos/kyra-gracie.webp",
   },
   {
     quote: "Conheci o Bruno e o Ramon durante uma participação no podcast da Kyra e a conexão foi instantânea. Na época estava interessado em montar um podcast também e acho que por isso trocamos contato. Quando me aprofundei um pouco mais no trabalho deles fiquei encantado com a entrega e começamos a fazer alguns trabalhos juntos. O tempo foi passando, os trabalhos foram acontecendo, as entregas só melhoravam e gosto de brincar e falar pra todo mundo que importamos os meninos de Santa Catarina, trouxemos pro Rio de Janeiro e adotamos eles. Hoje a Alastro está em todos os nossos projetos, muito pela entrega de muita qualidade, claro, mas acho que principalmente pelo profissionalismo, pela relação, pelo carinho com a gente e com os nossos clientes. Essa pra mim é a grande chave, o grande diferencial. O saber chegar e o saber ficar. O que era um trabalho virou uma amizade, mas sem perder, em nenhum momento, o lado profissional da coisa. Acompanho e vibro com as vitórias deles com outros clientes. E sou extremante satisfeito com o que eles me entregam de conteúdo, como se desdobram para atender, entendem quando realmente preciso de ajuda. Sou #TeamAlastro.",

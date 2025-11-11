@@ -7,7 +7,7 @@ const PROJECTS = [
 	{
 		id: "93dXSj2pe9k",
 		name: "Manu Cit - Ironman",
-		thumbnail: "/images/capas/cover-manu-cit-2.webp",
+		thumbnail: "/images/capas/cover-manu-cit.webp",
 		gif: "/videos/trabalhos/documentario-manu-cit-ironman.mp4",
 	},
 	{
@@ -25,7 +25,7 @@ const PROJECTS = [
 	{
 		id: "0XbzQkktOGw",
 		name: "Guudrun SP",
-		thumbnail: "/images/projeto-2.jpg",
+		thumbnail: "/images/capas/cover-guudrun-sp.webp",
 		gif: "/videos/trabalhos/tributo-sp-guudrun.mp4",
 	},
 	{
