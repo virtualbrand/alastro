@@ -1,4 +1,5 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 import { Play } from "lucide-react"
 import { useState } from "react"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
@@ -61,10 +62,11 @@ const BastidoresSection = () => {
 				<div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden transition-transform duration-500 ease-in-out"
 				  onMouseEnter={() => setHoveredProject(project.id)}
 				  onMouseLeave={() => setHoveredProject(null)}>
-					{/* Thumbnail image */}
-					<img
+					{/* Thumbnail image otimizada */}
+					<OptimizedImage
 						className={`w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105 ${hoveredProject === project.id && project.gif ? 'opacity-0' : 'opacity-100'}`}
 						src={project.thumbnail}
+						sizes="(max-width: 640px) 50vw, 50vw"
 						alt={project.name}
 						draggable={false}
 					/>
@@ -77,6 +79,7 @@ const BastidoresSection = () => {
 							muted
 							loop
 							playsInline
+							preload="none"
 						/>
 					)}
 				  {/* Hover overlay */}

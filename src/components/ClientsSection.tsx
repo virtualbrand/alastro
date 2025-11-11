@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 
 const PERSONALIDADES = [
   { title: "Inst. Vini Jr", image: "/images/clientes/vini-jr.webp" },
@@ -58,9 +59,10 @@ const ClientsSection = () => {
             {PERSONALIDADES.map((item) => (
               <div key={item.title} className="fade-in flex flex-col items-center">
                 <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
-                  <img
+                  <OptimizedImage
                     src={item.image}
                     alt={item.title}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 160px"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -76,9 +78,10 @@ const ClientsSection = () => {
             {ARTISTAS.map((item) => (
               <div key={item.title} className="fade-in flex flex-col items-center">
                 <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
-                  <img
+                  <OptimizedImage
                     src={item.image}
                     alt={item.title}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 160px"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -94,9 +97,10 @@ const ClientsSection = () => {
             {MARCAS.map((item) => (
               <div key={item.title} className="fade-in flex flex-col items-center">
                 <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
-                  <img
+                  <OptimizedImage
                     src={item.image}
                     alt={item.title}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 160px"
                     className="w-full h-full object-cover"
                   />
                 </div>

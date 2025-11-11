@@ -1,4 +1,5 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 import { Play } from "lucide-react"
 import { useState } from "react"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
@@ -46,7 +47,7 @@ const VideoHeroSection = () => {
 	const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 	useScrollAnimation()
 
-		return (
+	return (
 		<section 
 			id="portfolio" 
 			className="relative w-screen bg-[var(--color-bg-2)] overflow-x-hidden pt-12 md:pt-16 lg:pt-24 z-10 shadow-[0_-10px_30px_-5px_rgba(0,0,0,0.2)]"
@@ -64,65 +65,69 @@ const VideoHeroSection = () => {
 			{/* Projects Grid */}
 			<div className="w-screen max-w-full overflow-hidden">
 				<div className="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 w-full">
-		{PROJECTS.map((project, index) => (
-		  <Dialog key={index}>
-			<DialogTrigger asChild>
-			  <div 
-                className={`relative w-full h-full flex items-center justify-center ${index % 2 === 0 ? 'scroll-left' : 'scroll-right'}`}
-              >
-                <div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden"
-				  onMouseEnter={() => setHoveredProject(project.id)}
-				  onMouseLeave={() => setHoveredProject(null)}>
-					{/* Thumbnail image */}
-					<img
-						className={`w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105 ${hoveredProject === project.id && project.gif ? 'opacity-0' : 'opacity-100'}`}
-						src={project.thumbnail}
-						alt={project.name}
-						draggable={false}
-					/>
-					{/* Video "gif" on hover - only if gif exists */}
-					{project.gif && (
-						<video
-							className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'}`}
-							src={project.gif}
-							autoPlay
-							muted
-							loop
-							playsInline
-						/>
-					)}
-				  {/* Hover overlay */}
-				  <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
-				  {/* Play button and project name */}
-				  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100">
-					<div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30">
-					  <Play className="h-8 w-8 fill-white text-white" />
-					</div>
-					<h3 className="text-base font-amplitude font-semibold text-white leading-normal">
-					  {project.name}
-					</h3>
-				  </div>
+					{PROJECTS.map((project, index) => (
+						<Dialog key={index}>
+							<DialogTrigger asChild>
+								<div 
+									className={`relative w-full h-full flex items-center justify-center ${index % 2 === 0 ? 'scroll-left' : 'scroll-right'}`}
+								>
+									<div 
+										className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden"
+										onMouseEnter={() => setHoveredProject(project.id)}
+										onMouseLeave={() => setHoveredProject(null)}
+									>
+										{/* Responsive thumbnail otimizada automaticamente */}
+										<OptimizedImage
+											className={`w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105 ${hoveredProject === project.id && project.gif ? 'opacity-0' : 'opacity-100'}`}
+											src={project.thumbnail}
+											sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+											alt={project.name}
+											draggable={false}
+										/>
+										{/* Video "gif" on hover - lazy load */}
+										{project.gif && (
+											<video
+												className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'}`}
+												src={project.gif}
+												autoPlay
+												muted
+												loop
+												playsInline
+												preload="none"
+											/>
+										)}
+										{/* Hover overlay */}
+										<div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
+										{/* Play button and project name */}
+										<div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100">
+											<div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30">
+												<Play className="h-8 w-8 fill-white text-white" />
+											</div>
+											<h3 className="text-base font-amplitude font-semibold text-white leading-normal">
+												{project.name}
+											</h3>
+										</div>
+									</div>
+								</div>
+							</DialogTrigger>
+							<DialogContent className="max-w-4xl p-0">
+								<div className="aspect-video w-full">
+									<iframe
+										className="size-full rounded-lg"
+										src={`https://www.youtube.com/embed/${project.id}?autoplay=1&rel=0&modestbranding=1`}
+										title={project.name}
+										frameBorder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+										referrerPolicy="strict-origin-when-cross-origin"
+										allowFullScreen
+									/>
+								</div>
+							</DialogContent>
+						</Dialog>
+					))}
 				</div>
-			  </div>
-			</DialogTrigger>
-			<DialogContent className="max-w-4xl p-0">
-			  <div className="aspect-video w-full">
-				<iframe
-				  className="size-full rounded-lg"
-				  src={`https://www.youtube.com/embed/${project.id}?autoplay=1&rel=0&modestbranding=1`}
-				  title={project.name}
-				  frameBorder="0"
-				  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				  referrerPolicy="strict-origin-when-cross-origin"
-				  allowFullScreen
-				/>
-			  </div>
-			</DialogContent>
-		  </Dialog>
-		))}
-	  </div>
-	</div>
-  </section>
+			</div>
+		</section>
 	)
 }
 
