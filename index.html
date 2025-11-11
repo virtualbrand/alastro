@@ -21,26 +21,15 @@
     <link rel="preconnect" href="https://use.typekit.net" crossorigin>
     <link rel="dns-prefetch" href="https://use.typekit.net">
     
-    <!-- Preload da imagem hero crítica -->
-    <link rel="preload" href="/images/hero-bg.png" as="image" fetchpriority="high">
-    
-    <!-- 
-      IMPORTANTE: Configurar no Adobe Fonts para carregar APENAS:
-      - amplitude: Regular (400) e Bold (700)
-      Remover todos os outros weights e variantes para reduzir de ~300KB para ~80KB
-      
-      Enquanto isso, carregamento assíncrono com fallback:
-    -->
-    <link rel="preload" href="https://use.typekit.net/sip8wfz.css" as="style">
+    <!-- Adobe Fonts - carregamento assíncrono para não bloquear render -->
     <link rel="stylesheet" href="https://use.typekit.net/sip8wfz.css" media="print" onload="this.media='all'; this.onload=null;">
     <noscript><link rel="stylesheet" href="https://use.typekit.net/sip8wfz.css"></noscript>
     
     <style>
-      /* Fallback font crítico - evita layout shift */
+      /* Fallback font crítico - evita layout shift e FOIT */
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
-      /* Aplica amplitude quando carregar */
       .font-amplitude {
         font-family: amplitude, -apple-system, BlinkMacSystemFont, sans-serif;
       }
