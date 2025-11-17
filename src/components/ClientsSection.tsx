@@ -3,12 +3,12 @@ import { OptimizedImage } from "@/components/ui/optimized-image"
 
 const PERSONALIDADES = [
   { title: "Inst. Vini Jr", image: "/images/clientes/vini-jr.webp" },
-  { title: "Inst. Felipe Neto", image: "/images/clientes/felipe-neto.webp" },
   { title: "Manu Cit", image: "/images/clientes/manu-cit.webp" },
   { title: "Malvino Salvador", image: "/images/clientes/malvino-salvador.webp" },
   { title: "Kyra Gracie", image: "/images/clientes/kyra-gracie.webp" },
   { title: "Gabriela Prioli", image: "/images/clientes/gabriela-prioli.webp" },
   { title: "Natalia Guitler", image: "/images/clientes/natalia-guitler.webp" },
+  { title: "Inst. Felipe Neto", image: "/images/clientes/felipe-neto.webp" },
   { title: "Inst. Paulinho", image: "/images/clientes/instituto-paulinho.webp" },
 ];
 
