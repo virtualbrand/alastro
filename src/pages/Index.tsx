@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 const ManifestoSection = lazy(() => import("@/components/ManifestoSection"));
 const VideoHeroSection = lazy(() => import("@/components/VideoHeroSection"));
 const BastidoresSection = lazy(() => import("@/components/BastidoresSection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
 const ClientsSection = lazy(() => import("@/components/ClientsSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
@@ -43,6 +44,7 @@ const Index = () => {
         <ManifestoSection />
         <VideoHeroSection />
         <BastidoresSection />
+        <ServicesSection />
         <ClientsSection />
         <TestimonialsSection />
         <ContactSection />
