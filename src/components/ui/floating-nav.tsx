@@ -86,9 +86,6 @@ export const FloatingNav = ({
               className="h-9 w-auto"
               style={{ fill: 'currentColor' }}
             />
-            <span className="text-sm font-amplitude font-bold text-muted-foreground ml-2">
-              PRODUTORA AUDIOVISUAL
-            </span>
           </a>
 
           {/* Navigation Items */}

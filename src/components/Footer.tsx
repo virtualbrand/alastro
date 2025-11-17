@@ -78,7 +78,7 @@ function Footer() {
             </a>
           </div>
           <div className="text-center">
-            <p className="text-base text-[var(--color-text-secondary)] leading-normal">
+            <p className="text-sm text-[var(--color-text-secondary)] leading-normal">
               Agência Alastro © {new Date().getFullYear()} – Todos os direitos reservados
             </p>
           </div>

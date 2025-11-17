@@ -10,36 +10,42 @@ const PROJECTS = [
 		name: "Manu Cit - Ironman",
 		thumbnail: "/images/capas/cover-manu-cit.webp",
 		gif: "/videos/trabalhos/documentario-manu-cit-ironman.mp4",
+		gifWebm: "/videos/trabalhos/documentario-manu-cit-ironman.webm",
 	},
 	{
 		id: "oZ0T3nDdUM0",
 		name: "Instituto Vini Jr - Jantar Beneficente",
 		thumbnail: "/images/capas/cover-vinijr.webp",
 		gif: "/videos/trabalhos/instituto-vini-jr-jantar.mp4",
+		gifWebm: "/videos/trabalhos/instituto-vini-jr-jantar.webm",
 	},
 	{
 		id: "5CY-4ckG4pU",
 		name: "7 anos Gracie Kore",
 		thumbnail: "/images/capas/cover-gracie-kore.webp",
 		gif: "/videos/trabalhos/7-anos-gracie-kore.mp4",
+		gifWebm: "/videos/trabalhos/7-anos-gracie-kore.webm",
 	},
 	{
 		id: "0XbzQkktOGw",
 		name: "Guudrun SP",
 		thumbnail: "/images/capas/cover-guudrun-sp.webp",
 		gif: "/videos/trabalhos/tributo-sp-guudrun.mp4",
+		gifWebm: "/videos/trabalhos/tributo-sp-guudrun.webm",
 	},
 	{
 		id: "A8jmn_VofMA",
 		name: "Documentário Veigh",
 		thumbnail: "/images/capas/cover-veigh.webp",
 		gif: "/videos/trabalhos/documentario-veigh.mp4",
+		gifWebm: "/videos/trabalhos/documentario-veigh.webm",
 	},
 	{
 		id: "wCE9eu8HzVo",
 		name: "Documentário Xamã",
 		thumbnail: "/images/capas/cover-xama.webp",
 		gif: "/videos/trabalhos/documentario-xama.mp4",
+		gifWebm: "/videos/trabalhos/documentario-xama.webm",
 	},
 ]
 
@@ -88,13 +94,15 @@ const VideoHeroSection = () => {
 										{project.gif && (
 											<video
 												className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'}`}
-												src={project.gif}
 												autoPlay
 												muted
 												loop
 												playsInline
 												preload="none"
-											/>
+											>
+												<source src={project.gifWebm} type="video/webm" />
+												<source src={project.gif} type="video/mp4" />
+											</video>
 										)}
 										{/* Hover overlay */}
 										<div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />

@@ -10,24 +10,28 @@ const PROJECTS = [
 		name: "Alastro & Manu Cit",
 		thumbnail: "/images/capas/bastidores-ironman-manu-cit.webp",
 		gif: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.mp4",
+		gifWebm: "/videos/bastidores/bastidores-alastro-manu-cit-ironman.webm",
 	},
 	{
 		id: "QCfzASPKowo",
 		name: "Alastro & Instituto Vini Jr",
 		thumbnail: "/images/capas/bastidores-vinijr.webp",
 		gif: "/videos/bastidores/bastidores-alastro-viniday.mp4",
+		gifWebm: "/videos/bastidores/bastidores-alastro-viniday.webm",
 	},
 	{
 		id: "YBikDJ05mvM",
 		name: "Alastro & Gracie Kore",
 		thumbnail: "/images/capas/bastidores-gracie-kore.webp",
 		gif: "/videos/bastidores/bastidores-alastro-gracie-kore.mp4",
+		gifWebm: "/videos/bastidores/bastidores-alastro-gracie-kore.webm",
 	},
 	{
 		id: "XtZJCqIBz4o",
 		name: "Alastro & Guudrun SP",
 		thumbnail: "/images/capas/bastidores-guudrun.webp",
 		gif: "/videos/bastidores/bastidores-alastro-guudrun.mp4",
+		gifWebm: "/videos/bastidores/bastidores-alastro-guudrun.webm",
 	},
 ]
 
@@ -74,13 +78,15 @@ const BastidoresSection = () => {
 					{project.gif && (
 						<video
 							className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'}`}
-							src={project.gif}
 							autoPlay
 							muted
 							loop
 							playsInline
 							preload="none"
-						/>
+						>
+							<source src={project.gifWebm} type="video/webm" />
+							<source src={project.gif} type="video/mp4" />
+						</video>
 					)}
 				  {/* Hover overlay */}
 				  <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
