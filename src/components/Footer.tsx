@@ -63,6 +63,20 @@ function Footer() {
               </Button>
             </a>
             <a 
+              href="https://wa.link/n8pv4d"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-full border-[var(--color-border)] bg-[var(--color-bg-2)] text-[var(--color-text-secondary)] hover:bg-[var(--color-text-secondary)] hover:text-[var(--color-bg-2)] transition-all duration-300 focus-visible:ring-0 focus-visible:ring-offset-0 group"
+              >
+                <img src="/whatsapp-icon.svg" alt="WhatsApp" className="h-4 w-4 group-hover:brightness-0 group-hover:invert transition-all duration-300" />
+                <span className="sr-only">WhatsApp</span>
+              </Button>
+            </a>
+            <a 
               href="https://www.instagram.com/somosalastro/"
               target="_blank"
               rel="noopener noreferrer"
