@@ -2,6 +2,16 @@
 // Protect your BREVO_API_KEY in the server environment (VERCEL env vars)
 
 module.exports = async (req, res) => {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle OPTIONS request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ message: 'Method not allowed' });
@@ -24,11 +34,21 @@ module.exports = async (req, res) => {
     const apiKey = process.env.BREVO_API_KEY;
     const contactEmail = process.env.CONTACT_EMAIL;
 
+    console.log('Environment check:', {
+      hasApiKey: !!apiKey,
+      hasContactEmail: !!contactEmail,
+      formType,
+      name,
+      email
+    });
+
     if (!apiKey) {
+      console.error('Missing BREVO_API_KEY');
       return res.status(500).json({ message: 'Server not configured: missing BREVO_API_KEY' });
     }
 
     if (!contactEmail) {
+      console.error('Missing CONTACT_EMAIL');
       return res.status(500).json({ message: 'Server not configured: missing CONTACT_EMAIL' });
     }
 
@@ -90,11 +110,18 @@ module.exports = async (req, res) => {
 
     const result = await fetchRes.json();
 
+    console.log('Brevo response:', {
+      status: fetchRes.status,
+      ok: fetchRes.ok,
+      result
+    });
+
     if (!fetchRes.ok) {
       console.error('Brevo error:', result);
       return res.status(fetchRes.status).json(result);
     }
 
+    console.log('Email sent successfully:', result.messageId);
     return res.status(200).json({ messageId: result.messageId, ok: true });
   } catch (err) {
     console.error('Server error sending email:', err);
