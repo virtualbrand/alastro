@@ -43,10 +43,10 @@ const ClientsSection = () => {
       
       {/* Section Header */}
       <div className="relative z-10 container mx-auto mb-8 md:mb-12 space-y-1.5 px-8 sm:px-0">
-        <h3 className="fade-in text-3xl md:text-4xl lg:text-5xl font-amplitude font-bold text-foreground uppercase text-center">
+        <h3 className="fade-in text-3xl md:text-4xl lg:text-5xl font-amplitude font-bold text-foreground uppercase text-center" suppressHydrationWarning>
           NOSSOS <span className="font-amplitude font-bold text-foreground">CLIENTES</span>
         </h3>
-        <p className="fade-in max-w-3xl mx-auto font-amplitude text-foreground text-base sm:text-lg md:text-xl leading-normal text-center">
+        <p className="fade-in max-w-3xl mx-auto font-amplitude text-foreground text-base sm:text-lg md:text-xl leading-normal text-center" suppressHydrationWarning>
           Personalidades, Artistas e Marcas que confiam em nossa expertise para transformar suas histórias em experiências audiovisuais memoráveis.
         </p>
       </div>
@@ -57,13 +57,15 @@ const ClientsSection = () => {
           {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Personalidades</h4> */}
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {PERSONALIDADES.map((item) => (
-              <div key={item.title} className="fade-in flex flex-col items-center">
+              <div key={item.title} className="fade-in flex flex-col items-center" suppressHydrationWarning>
                 <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
                   <OptimizedImage
                     src={item.image}
                     alt={item.title}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 160px"
                     className="w-full h-full object-cover"
+                    width={160}
+                    height={160}
                   />
                 </div>
                 <span className="font-amplitude text-xs md:text-sm text-center text-foreground font-semibold uppercase">{item.title}</span>
@@ -76,13 +78,15 @@ const ClientsSection = () => {
           {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Artistas</h4> */}
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {ARTISTAS.map((item) => (
-              <div key={item.title} className="fade-in flex flex-col items-center">
+              <div key={item.title} className="fade-in flex flex-col items-center" suppressHydrationWarning>
                 <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
                   <OptimizedImage
                     src={item.image}
                     alt={item.title}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 160px"
                     className="w-full h-full object-cover"
+                    width={160}
+                    height={160}
                   />
                 </div>
                 <span className="font-amplitude text-xs md:text-sm text-center text-foreground font-bold uppercase">{item.title}</span>
@@ -95,13 +99,15 @@ const ClientsSection = () => {
           {/* <h4 className="font-amplitude text-xl md:text-2xl font-bold text-center text-[var(--color-primary)] mb-2">Marcas</h4> */}
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {MARCAS.map((item) => (
-              <div key={item.title} className="fade-in flex flex-col items-center">
+              <div key={item.title} className="fade-in flex flex-col items-center" suppressHydrationWarning>
                 <div className="aspect-square w-full max-w-[150px] sm:max-w-[130px] md:max-w-[140px] lg:max-w-[160px] rounded overflow-hidden bg-gray-800 mb-3">
                   <OptimizedImage
                     src={item.image}
                     alt={item.title}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 160px"
                     className="w-full h-full object-cover"
+                    width={160}
+                    height={160}
                   />
                 </div>
                 <span className="font-amplitude text-xs md:text-sm text-center text-foreground font-bold uppercase">{item.title}</span>

@@ -22,7 +22,6 @@ interface AppInputProps {
   register?: any;
   error?: string;
   className?: string;
-  touched?: boolean; // Added touched property
 }
 
 const AppInput = ({
@@ -295,10 +294,9 @@ const ContactSection = () => {
             >
               <AppInput
                 label="Nome *"
-                placeholder="Digite seu nome"
+                placeholder="Digite seu nome completo"
                 register={register("name", { required: "Nome é obrigatório" })}
                 error={errors.name?.message}
-                touched={touchedFields.name}
               />
 
               <AppInput
@@ -331,7 +329,6 @@ const ContactSection = () => {
                     }}
                     onBlur={field.onBlur} // <-- repasse o onBlur do RHF
                     error={fieldState.error?.message}
-                    touched={fieldState.isTouched}
                   />
                 )}
               />
@@ -341,7 +338,6 @@ const ContactSection = () => {
                 placeholder="Nome da empresa ou projeto"
                 register={register("company", { required: "Empresa/Projeto é obrigatório" })}
                 error={errors.company?.message}
-                touched={touchedFields.company}
               />
 
               <AppTextarea
@@ -350,7 +346,6 @@ const ContactSection = () => {
                 rows={4}
                 register={register("message", { required: "Mensagem é obrigatória" })}
                 error={errors.message?.message}
-                touched={touchedFields.message}
               />
 
               <button 

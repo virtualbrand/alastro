@@ -12,8 +12,11 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-[calc(100vh)] h-[calc(100vh)] bg-cover bg-center bg-no-repeat bg-[url('/images/hero-bg.png')] before:content-[''] before:block before:absolute before:inset-0 before:bg-black/10 pt-16 overflow-hidden"
-      style={{ contentVisibility: 'auto' }}
+      className="relative min-h-[calc(100vh)] h-[calc(100vh)] bg-cover bg-center bg-no-repeat before:content-[''] before:block before:absolute before:inset-0 before:bg-black/10 pt-16 overflow-hidden"
+      style={{ 
+        contentVisibility: 'auto',
+        backgroundImage: "url('/images/hero-bg.avif')"
+      }}
     >
       {/* Cursor Dither Trail Effect - Lazy loaded */}
       <Suspense fallback={null}>

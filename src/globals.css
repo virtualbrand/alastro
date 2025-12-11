@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: auto; /* Desabilita scroll nativo para dar lugar ao Lenis */
+    /* Pantone-based color palette */
+    /* Pantone 426 C - Dark Gray */
+    --background: 0 0% 100%;
+    --foreground: 204 6% 15%;
+    
+    /* Pantone Cool Gray 1 C - Light Gray */
+    --card: 60 5% 85%;
+    --card-foreground: 204 6% 15%;
+    
+    /* Pantone 6205 C - Sage Green */
+    --popover: 45 17% 59%;
+    --popover-foreground: 204 6% 15%;
+    
+    /* Pantone 372 C - Lime Green */
+    --primary: 65 100% 42%;
+    --primary-foreground: 204 6% 15%;
+    
+    --secondary: 60 5% 85%;
+    --secondary-foreground: 204 6% 15%;
+    
+    --muted: 60 5% 85%;
+    --muted-foreground: 204 6% 45%;
+    
+    --accent: 45 17% 59%;
+    --accent-foreground: 204 6% 15%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 60 5% 75%;
+    --input: 60 5% 75%;
+    --ring: 65 100% 42%;
+    
+    --radius: 0.5rem;
+    
+    --sidebar-background: 60 5% 85%;
+    --sidebar-foreground: 204 6% 15%;
+    --sidebar-primary: 65 100% 42%;
+    --sidebar-primary-foreground: 204 6% 15%;
+    --sidebar-accent: 45 17% 59%;
+    --sidebar-accent-foreground: 204 6% 15%;
+    --sidebar-border: 60 5% 75%;
+    --sidebar-ring: 65 100% 42%;
+  }
+
+  .dark {
+    /* Dark mode using same Pantone palette */
+    --background: 204 6% 15%;
+    --foreground: 60 5% 85%;
+    
+    --card: 204 6% 20%;
+    --card-foreground: 60 5% 85%;
+    
+    --popover: 204 6% 20%;
+    --popover-foreground: 60 5% 85%;
+    
+    --primary: 65 100% 42%;
+    --primary-foreground: 204 6% 15%;
+    
+    --secondary: 204 6% 25%;
+    --secondary-foreground: 60 5% 85%;
+    
+    --muted: 204 6% 25%;
+    --muted-foreground: 60 5% 65%;
+    
+    --accent: 45 17% 59%;
+    --accent-foreground: 204 6% 15%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 85% 97%;
+    
+    --border: 204 6% 25%;
+    --input: 204 6% 25%;
+    --ring: 65 100% 42%;
+    
+    --sidebar-background: 204 6% 20%;
+    --sidebar-foreground: 60 5% 85%;
+    --sidebar-primary: 65 100% 42%;
+    --sidebar-primary-foreground: 204 6% 15%;
+    --sidebar-accent: 45 17% 59%;
+    --sidebar-accent-foreground: 204 6% 15%;
+    --sidebar-border: 204 6% 25%;
+    --sidebar-ring: 65 100% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'amplitude', sans-serif;
+    font-weight: 400;
+  }
+  body {
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Amplitude font configuration */
+.font-amplitude {
+  font-family: 'amplitude', sans-serif;
+}
+
+/* Make all headings use Amplitude Extra Compressed Bold UPPERCASE */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'amplitude', sans-serif;
+  font-weight: 700;
+  font-stretch: extra-condensed;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Contact form fluorescent effect variables */
+:root {
+  --color-bg: #25282a;
+  --color-surface: #161A1D;
+  --color-muted-surface: #25282a;
+  --color-border: #25282a;
+  --color-border-form: #414140;
+  --color-text-secondary: #25282a;
+  --color-text-primary: #d9d9d6;
+  --color-heading: #d9d9d6;
+  --spacing-6: 1.5rem;
+  --rounded-lg: 0.5rem;
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --color-text-primary-rgb: 199, 209, 219;
+  --color-bg-2: #d9d9d6;
+  --color-bg-3: #999179;
+  --color-accent-green: #d4ec8e;
+  --color-menu-hover: #7f8d55;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.dark {
+  --color-bg: #25282a;
+  --color-surface: #161A1D;
+  --color-muted-surface: #25282a;
+  --color-border: #25282a;
+  --color-border-form: #414140;
+  --color-text-secondary: #25282a;
+  --color-text-primary: #d9d9d6;
+  --color-heading: #DEE4EA;
+  --color-bg-2: #d9d9d6;
+  --color-bg-3: #999179;
+  --color-text-primary-rgb: 199, 209, 219;
+  --color-accent-green: #d4ec8e;
+  --color-menu-hover: #7f8d55;
+}

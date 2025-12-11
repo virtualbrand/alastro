@@ -4,22 +4,34 @@
 
 @layer base {
   /* 
-    Override TypeKit font-display de 'auto' para 'swap'
-    Isso previne FOIT (Flash of Invisible Text) e melhora performance
+    Override Adobe Fonts font-display de 'auto' para 'swap'
+    Isso previne FOIT (Flash of Invisible Text) e melhora performance no PageSpeed
+    IMPORTANTE: Deve vir DEPOIS do carregamento do Adobe Fonts
   */
   @font-face {
     font-family: 'amplitude';
-    font-display: swap; /* Mostra fallback font imediatamente */
-    font-weight: 400;
+    font-display: swap !important;
+    font-weight: 200;
     font-style: normal;
+    font-stretch: normal;
     src: local('amplitude');
   }
   
   @font-face {
     font-family: 'amplitude';
-    font-display: swap;
+    font-display: swap !important;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: local('amplitude');
+  }
+  
+  @font-face {
+    font-family: 'amplitude';
+    font-display: swap !important;
     font-weight: 700;
     font-style: normal;
+    font-stretch: normal;
     src: local('amplitude');
   }
 

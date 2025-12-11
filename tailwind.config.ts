@@ -21,6 +21,9 @@ export default {
 			fontFamily: {
 				'amplitude': ['amplitude', 'sans-serif'],
 			},
+			fontStretch: {
+				'extra-condensed': 'extra-condensed',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

@@ -1,12 +1,15 @@
+"use client";
+
 import { Button } from "@/components/ui/button"
 import { Instagram, Youtube } from "lucide-react"
 import { useSmoothScroll } from "@/hooks/useSmoothScroll"
-import { useLocation } from "react-router-dom"
+import { usePathname } from "next/navigation"
+import Link from "next/link"
 
 function Footer() {
   const { handleAnchorClick } = useSmoothScroll();
-  const location = useLocation();
-  const isTrabalheConoscoPage = location.pathname === '/trabalhe-conosco';
+  const pathname = usePathname();
+  const isTrabalheConoscoPage = pathname === '/trabalhe-conosco';
   
   return (
     <footer className="bg-[var(--color-bg-2)] text-[var(--color-text-primary)] py-12">

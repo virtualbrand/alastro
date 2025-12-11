@@ -22,7 +22,7 @@ const ServicesSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="mx-auto">
-          <h2 className="fade-in text-3xl md:text-4xl font-amplitude font-bold text-foreground text-center mb-8 md:mb-12">
+          <h2 className="fade-in text-3xl md:text-4xl font-amplitude font-bold text-foreground text-center mb-8 md:mb-12" suppressHydrationWarning>
             Nossas Frentes de Atuação
           </h2>
           
@@ -31,6 +31,7 @@ const ServicesSection = () => {
               <div
                 key={index}
                 className="fade-in p-6 bg-white/95 rounded-lg"
+                suppressHydrationWarning
               >
                 <div className="flex items-start gap-3">
                   <span className="text-foreground/40 font-amplitude font-bold text-lg mt-0.5">

@@ -46,10 +46,10 @@ const BastidoresSection = () => {
 		>
 			{/* Section Header */}
 			<div className="container mx-auto px-4 mb-8 md:mb-12 space-y-1.5">
-				<h3 className="fade-in text-3xl md:text-4xl font-amplitude font-bold tracking-tighter text-foreground text-center">
+				<h3 className="fade-in text-3xl md:text-4xl font-amplitude font-bold tracking-tighter text-foreground text-center" suppressHydrationWarning>
 					Por trás das Câmeras
 				</h3>
-				<p className="fade-in max-w-3xl mx-auto text-foreground font-amplitude text-base sm:text-lg md:text-xl leading-normal text-center">
+				<p className="fade-in max-w-3xl mx-auto text-foreground font-amplitude text-base sm:text-lg md:text-xl leading-normal text-center" suppressHydrationWarning>
 					Descubra como transformamos ideias em experiências audiovisuais memoráveis. Veja o processo criativo e a paixão da nossa equipe em cada projeto.
 				</p>
 			</div>
@@ -62,6 +62,7 @@ const BastidoresSection = () => {
 			<DialogTrigger asChild>
 			  <div 
                 className="fade-in relative w-full h-full flex items-center justify-center"
+                suppressHydrationWarning
               >
 				<div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden transition-transform duration-500 ease-in-out"
 				  onMouseEnter={() => setHoveredProject(project.id)}
@@ -70,9 +71,11 @@ const BastidoresSection = () => {
 					<OptimizedImage
 						className={`w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105 ${hoveredProject === project.id && project.gif ? 'opacity-0' : 'opacity-100'}`}
 						src={project.thumbnail}
-						sizes="(max-width: 640px) 50vw, 50vw"
+						sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
 						alt={project.name}
 						draggable={false}
+						width={960}
+						height={640}
 					/>
 					{/* Video "gif" on hover - only if gif exists */}
 					{project.gif && (

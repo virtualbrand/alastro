@@ -1,0 +1,77 @@
+/* Critical CSS - Inline this in production for fastest FCP */
+
+/* CSS Reset e Base Critical */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Previne CLS com dimensões mínimas */
+img, video, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hero Section Critical Styles */
+.hero-section {
+  min-height: 100vh;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 4rem;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* Font Loading - Previne FOIT */
+@font-face {
+  font-family: 'amplitude-fallback';
+  size-adjust: 100%;
+  ascent-override: 90%;
+  descent-override: 20%;
+  line-gap-override: 0%;
+  src: local('Arial');
+  font-display: swap;
+}
+
+/* Skeleton Loading States */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Above the fold optimization */
+.above-fold {
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+/* Reduce paint complexity */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}

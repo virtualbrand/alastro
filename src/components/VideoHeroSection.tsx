@@ -60,10 +60,10 @@ const VideoHeroSection = () => {
 		>
 			{/* Section Header */}
 			<div className="container mx-auto px-4 mb-8 md:mb-12 space-y-1.5">
-				<h3 className="fade-in text-3xl md:text-4xl font-amplitude font-bold tracking-tighter text-foreground text-center">
+				<h3 className="fade-in text-3xl md:text-4xl font-amplitude font-bold tracking-tighter text-foreground text-center" suppressHydrationWarning>
 					Nossos trabalhos em ação
 				</h3>
-				<p className="fade-in max-w-3xl mx-auto text-foreground font-amplitude text-base sm:text-xl leading-normal text-center">
+				<p className="fade-in max-w-3xl mx-auto text-foreground font-amplitude text-base sm:text-xl leading-normal text-center" suppressHydrationWarning>
 					Confira a seleção de alguns projetos audiovisuais, desde eventos corporativos até produções cinematográficas que conectam e impactam.
 				</p>
 			</div>
@@ -76,6 +76,7 @@ const VideoHeroSection = () => {
 							<DialogTrigger asChild>
 								<div 
 									className={`relative w-full h-full flex items-center justify-center ${index % 2 === 0 ? 'scroll-left' : 'scroll-right'}`}
+									suppressHydrationWarning
 								>
 									<div 
 										className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden"
@@ -89,6 +90,8 @@ const VideoHeroSection = () => {
 											sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
 											alt={project.name}
 											draggable={false}
+											width={960}
+											height={640}
 										/>
 										{/* Video "gif" on hover - lazy load */}
 										{project.gif && (

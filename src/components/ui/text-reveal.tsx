@@ -46,7 +46,7 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
         </p>
         
         {/* Logo Alastro */}
-        <div className="fade-in mt-6 md:mt-10 flex justify-center">
+        <div className="fade-in mt-6 md:mt-10 flex justify-center" suppressHydrationWarning>
           <img 
             src="/images/logo.svg" 
             alt="Alastro" 
