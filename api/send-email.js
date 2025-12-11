@@ -1,7 +1,7 @@
 // Serverless function for Vercel (or similar) to send emails via Brevo
 // Protect your BREVO_API_KEY in the server environment (VERCEL env vars)
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
