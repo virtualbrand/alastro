@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'amplitude': ['amplitude', 'sans-serif'],
+				'amplitude': ['amplitude', 'amplitude-fallback', 'Arial', 'sans-serif'],
 			},
 			fontStretch: {
 				'extra-condensed': 'extra-condensed',

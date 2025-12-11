@@ -4,35 +4,41 @@
 
 @layer base {
   /* 
-    Override Adobe Fonts font-display de 'auto' para 'swap'
-    Isso previne FOIT (Flash of Invisible Text) e melhora performance no PageSpeed
-    IMPORTANTE: Deve vir DEPOIS do carregamento do Adobe Fonts
+    Font Metric Overrides - Fallback Font Otimizado
+    Cria um fallback que previne CLS (Cumulative Layout Shift)
+    Métricas calculadas para corresponder à fonte Amplitude
   */
   @font-face {
-    font-family: 'amplitude';
-    font-display: swap !important;
+    font-family: 'amplitude-fallback';
+    font-style: normal;
     font-weight: 200;
-    font-style: normal;
-    font-stretch: normal;
-    src: local('amplitude');
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+    size-adjust: 98%;
   }
   
   @font-face {
-    font-family: 'amplitude';
-    font-display: swap !important;
+    font-family: 'amplitude-fallback';
+    font-style: normal;
     font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    src: local('amplitude');
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+    size-adjust: 98%;
   }
   
   @font-face {
-    font-family: 'amplitude';
-    font-display: swap !important;
-    font-weight: 700;
+    font-family: 'amplitude-fallback';
     font-style: normal;
-    font-stretch: normal;
-    src: local('amplitude');
+    font-weight: 700;
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+    size-adjust: 98%;
   }
 
   :root {

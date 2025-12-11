@@ -101,7 +101,7 @@
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'amplitude', sans-serif;
+    font-family: 'amplitude', 'amplitude-fallback', 'Arial', sans-serif;
     font-weight: 400;
   }
   body {
@@ -112,12 +112,12 @@
 
 /* Amplitude font configuration */
 .font-amplitude {
-  font-family: 'amplitude', sans-serif;
+  font-family: 'amplitude', 'amplitude-fallback', 'Arial', sans-serif;
 }
 
 /* Make all headings use Amplitude Extra Compressed Bold UPPERCASE */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'amplitude', sans-serif;
+  font-family: 'amplitude', 'amplitude-fallback', 'Arial', sans-serif;
   font-weight: 700;
   font-stretch: extra-condensed;
   text-transform: uppercase;
