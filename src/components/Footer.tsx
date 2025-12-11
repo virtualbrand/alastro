@@ -25,29 +25,29 @@ function Footer() {
             <a 
               href={isTrabalheConoscoPage ? "/#sobre" : "#sobre"}
               onClick={(e) => !isTrabalheConoscoPage && handleAnchorClick(e, "#sobre")}
-              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+              className="relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
             >
-              SOBRE NÓS
+              <span className="block">SOBRE NÓS</span>
             </a>
             <a 
               href={isTrabalheConoscoPage ? "/#portfolio" : "#portfolio"}
               onClick={(e) => !isTrabalheConoscoPage && handleAnchorClick(e, "#portfolio")}
-              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+              className="relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
             >
-              PORTFÓLIO
+              <span className="block">PORTFÓLIO</span>
             </a>
             <a 
               href="/trabalhe-conosco" 
-              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+              className="relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
             >
-              TRABALHE CONOSCO
+              <span className="block">TRABALHE CONOSCO</span>
             </a>
             <a 
               href={isTrabalheConoscoPage ? "/#contato" : "#contato"}
               onClick={(e) => !isTrabalheConoscoPage && handleAnchorClick(e, "#contato")}
-              className="hover:text-[var(--color-menu-hover)] transition-colors text-[var(--color-text-secondary)] font-amplitude font-medium"
+              className="relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
             >
-              CONTATO
+              <span className="block">CONTATO</span>
             </a>
           </nav>
           <div className="mb-8 flex space-x-4">
