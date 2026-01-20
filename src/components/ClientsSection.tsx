@@ -4,12 +4,12 @@ import { OptimizedImage } from "@/components/ui/optimized-image"
 const PERSONALIDADES = [
   { title: "Inst. Vini Jr", image: "/images/clientes/vini-jr.webp" },
   { title: "Manu Cit", image: "/images/clientes/manu-cit.webp" },
+  { title: "Inst. Paulinho", image: "/images/clientes/instituto-paulinho.webp" },
+  { title: "Natalia Guitler", image: "/images/clientes/natalia-guitler.webp" },
+  { title: "Gabriela Prioli", image: "/images/clientes/gabriela-prioli.webp" },
   { title: "Malvino Salvador", image: "/images/clientes/malvino-salvador.webp" },
   { title: "Kyra Gracie", image: "/images/clientes/kyra-gracie.webp" },
-  { title: "Gabriela Prioli", image: "/images/clientes/gabriela-prioli.webp" },
-  { title: "Natalia Guitler", image: "/images/clientes/natalia-guitler.webp" },
   { title: "Inst. Felipe Neto", image: "/images/clientes/felipe-neto.webp" },
-  { title: "Inst. Paulinho", image: "/images/clientes/instituto-paulinho.webp" },
 ];
 
 const ARTISTAS = [
@@ -27,8 +27,8 @@ const MARCAS = [
   { title: "Adidas", image: "/images/clientes/adidas.webp" },
   { title: "Gocase", image: "/images/clientes/gocase.webp" },
   { title: "Nestlé", image: "/images/clientes/nestle.webp" },
-  { title: "X Coach", image: "/images/clientes/x-coach.webp" },
-  { title: "Gracie Kore", image: "/images/clientes/gracie-kore.webp" },
+  { title: "Xcoach", image: "/images/clientes/x-coach.webp" },
+  { title: "Guudrun", image: "/images/clientes/guudrun.png" },
   { title: "Allegra", image: "/images/clientes/allegra.webp" },
   { title: "Bold", image: "/images/clientes/bold.webp" },
   { title: "Dux", image: "/images/clientes/dux.webp" },
@@ -44,10 +44,10 @@ const ClientsSection = () => {
       {/* Section Header */}
       <div className="relative z-10 container mx-auto mb-8 md:mb-12 space-y-1.5 px-8 sm:px-0">
         <h3 className="fade-in text-3xl md:text-4xl lg:text-5xl font-amplitude font-bold text-foreground uppercase text-center" suppressHydrationWarning>
-          NOSSOS <span className="font-amplitude font-bold text-foreground">CLIENTES</span>
+          <span className="font-amplitude font-bold text-foreground">CLIENTES</span>
         </h3>
         <p className="fade-in max-w-3xl mx-auto font-amplitude text-foreground text-base sm:text-lg md:text-xl leading-normal text-center" suppressHydrationWarning>
-          Personalidades, Artistas e Marcas que confiam em nossa expertise para transformar suas histórias em experiências audiovisuais memoráveis.
+          Personalidades, Artistas e Marcas que confiaram em nossa expertise para transformar suas histórias em experiências audiovisuais memoráveis.
         </p>
       </div>
 
