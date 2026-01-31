@@ -69,18 +69,18 @@ const ClientsSection = () => {
       <div className="relative z-10 space-y-8">
         {/* Personalidades & Artistas - Direita para Esquerda */}
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll-right">
-            {[...PERSONALIDADES_ARTISTAS, ...PERSONALIDADES_ARTISTAS].map((item, index) => (
-              <ClientItem key={`${item.title}-${index}`} item={item} />
+          <div className="flex w-max animate-scroll-left">
+            {[...PERSONALIDADES_ARTISTAS, ...PERSONALIDADES_ARTISTAS, ...PERSONALIDADES_ARTISTAS, ...PERSONALIDADES_ARTISTAS].map((item, index) => (
+              <ClientItem key={`pa-${index}`} item={item} />
             ))}
           </div>
         </div>
 
         {/* Marcas - Esquerda para Direita */}
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll-left">
-            {[...MARCAS, ...MARCAS, ...MARCAS].map((item, index) => (
-              <ClientItem key={`${item.title}-${index}`} item={item} />
+          <div className="flex w-max animate-scroll-right">
+            {[...MARCAS, ...MARCAS, ...MARCAS, ...MARCAS, ...MARCAS, ...MARCAS, ...MARCAS, ...MARCAS].map((item, index) => (
+              <ClientItem key={`m-${index}`} item={item} />
             ))}
           </div>
         </div>
@@ -89,48 +89,28 @@ const ClientsSection = () => {
       <style jsx>{`
         @keyframes scroll-left {
           0% {
-            transform: translate3d(0, 0, 0);
+            transform: translateX(0);
           }
           100% {
-            transform: translate3d(-50%, 0, 0);
+            transform: translateX(-25%);
           }
         }
 
         @keyframes scroll-right {
           0% {
-            transform: translate3d(-50%, 0, 0);
+            transform: translateX(-25%);
           }
           100% {
-            transform: translate3d(0, 0, 0);
+            transform: translateX(0);
           }
         }
 
         .animate-scroll-left {
-          animation: scroll-left 8s linear infinite;
-          will-change: transform;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-          transform: translateZ(0);
-          -webkit-transform: translateZ(0);
+          animation: scroll-left 40s linear infinite;
         }
 
         .animate-scroll-right {
-          animation: scroll-right 8s linear infinite;
-          will-change: transform;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-          transform: translateZ(0);
-          -webkit-transform: translateZ(0);
-        }
-
-        @media (min-width: 768px) {
-          .animate-scroll-left {
-            animation-duration: 30s;
-          }
-
-          .animate-scroll-right {
-            animation-duration: 30s;
-          }
+          animation: scroll-right 40s linear infinite;
         }
       `}</style>
     </section>
