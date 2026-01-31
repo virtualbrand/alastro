@@ -106,11 +106,11 @@ const ClientsSection = () => {
         }
 
         .animate-scroll-left {
-          animation: scroll-left 40s linear infinite;
+          animation: scroll-left 50s linear infinite;
         }
 
         .animate-scroll-right {
-          animation: scroll-right 40s linear infinite;
+          animation: scroll-right 50s linear infinite;
         }
       `}</style>
     </section>
