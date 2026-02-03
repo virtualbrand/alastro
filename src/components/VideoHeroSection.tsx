@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { OptimizedImage } from "@/components/ui/optimized-image"
 import { Play } from "lucide-react"
 import { useState } from "react"
@@ -11,20 +11,15 @@ const PROJECTS = [
 		thumbnail: "/images/capas/cover-manu-cit.webp",
 		gif: "/videos/trabalhos/documentario-manu-cit-ironman.mp4",
 		gifWebm: "/videos/trabalhos/documentario-manu-cit-ironman.webm",
+		startTime: 279,
 	},
 	{
-		id: "oZ0T3nDdUM0",
-		name: "Instituto Vini Jr - Jantar Beneficente",
-		thumbnail: "/images/capas/cover-vinijr.webp",
-		gif: "/videos/trabalhos/instituto-vini-jr-jantar.mp4",
-		gifWebm: "/videos/trabalhos/instituto-vini-jr-jantar.webm",
-	},
-	{
-		id: "5CY-4ckG4pU",
-		name: "7 anos Gracie Kore",
-		thumbnail: "/images/capas/cover-gracie-kore.webp",
-		gif: "/videos/trabalhos/7-anos-gracie-kore.mp4",
-		gifWebm: "/videos/trabalhos/7-anos-gracie-kore.webm",
+		id: "oHzDwA0vzMA",
+		name: "Manu Cit - O Início da Preparação para o IronMan 70.3",
+		thumbnail: "/images/capas/preparacao-ironman-703.webp",
+		gif: "/videos/trabalhos/preparacao-manucit-ironman.mp4",
+		gifWebm: "/videos/trabalhos/preparacao-manucit-ironman.webm",
+		startTime: 279,
 	},
 	{
 		id: "0XbzQkktOGw",
@@ -32,6 +27,13 @@ const PROJECTS = [
 		thumbnail: "/images/capas/cover-guudrun-sp.webp",
 		gif: "/videos/trabalhos/tributo-sp-guudrun.mp4",
 		gifWebm: "/videos/trabalhos/tributo-sp-guudrun.webm",
+	},
+	{
+		id: "oZ0T3nDdUM0",
+		name: "Instituto Vini Jr - Jantar Beneficente",
+		thumbnail: "/images/capas/cover-vinijr.webp",
+		gif: "/videos/trabalhos/instituto-vini-jr-jantar.mp4",
+		gifWebm: "/videos/trabalhos/instituto-vini-jr-jantar.webm",
 	},
 	{
 		id: "A8jmn_VofMA",
@@ -121,11 +123,10 @@ const VideoHeroSection = () => {
 									</div>
 								</div>
 							</DialogTrigger>
-							<DialogContent className="max-w-4xl p-0">
-								<div className="aspect-video w-full">
+							<DialogContent className="max-w-4xl p-0">							<DialogTitle className="sr-only">{project.name}</DialogTitle>								<div className="aspect-video w-full">
 									<iframe
 										className="size-full rounded-lg"
-										src={`https://www.youtube.com/embed/${project.id}?autoplay=1&rel=0&modestbranding=1`}
+									src={`https://www.youtube.com/embed/${project.id}?autoplay=1&rel=0&modestbranding=1${project.startTime ? `&start=${project.startTime}` : ''}`}
 										title={project.name}
 										frameBorder="0"
 										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

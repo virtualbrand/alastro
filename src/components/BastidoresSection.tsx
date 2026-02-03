@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { OptimizedImage } from "@/components/ui/optimized-image"
 import { Play } from "lucide-react"
 import { useState } from "react"
@@ -20,11 +20,11 @@ const PROJECTS = [
 		gifWebm: "/videos/bastidores/bastidores-alastro-viniday.webm",
 	},
 	{
-		id: "YBikDJ05mvM",
-		name: "Alastro & Gracie Kore",
-		thumbnail: "/images/capas/bastidores-gracie-kore.webp",
-		gif: "/videos/bastidores/bastidores-alastro-gracie-kore.mp4",
-		gifWebm: "/videos/bastidores/bastidores-alastro-gracie-kore.webm",
+		id: "vqqPCkCpfiY",
+		name: "Alastro & Heber",
+		thumbnail: "/images/capas/bastidores-heber.webp",
+		gif: "/videos/bastidores/bts-alastro-ironman-heber.mp4",
+		gifWebm: "/videos/bastidores/bts-alastro-ironman-heber.webm",
 	},
 	{
 		id: "XtZJCqIBz4o",
@@ -106,6 +106,7 @@ const BastidoresSection = () => {
 			  </div>
 			</DialogTrigger>
 			<DialogContent className="max-w-4xl p-0">
+			  <DialogTitle className="sr-only">{project.name}</DialogTitle>
 			  <div className="aspect-video w-full">
 				<iframe
 				  className="size-full rounded-lg"
