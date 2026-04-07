@@ -30,8 +30,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://use.typekit.net" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         
-        {/* Preload da imagem hero crítica */}
-        <link rel="preload" href="/images/hero-bg.avif" as="image" type="image/avif" />
+        {/* Google Fonts - Cormorant & Playfair Display */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
         
         {/* Carregamento otimizado da fonte Adobe - Kit atualizado */}
         <link rel="preload" href="https://use.typekit.net/sip8wfz.css" as="style" />

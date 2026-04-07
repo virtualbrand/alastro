@@ -10,6 +10,7 @@ function Footer() {
   const { handleAnchorClick } = useSmoothScroll();
   const pathname = usePathname();
   const isTrabalheConoscoPage = pathname === '/trabalhe-conosco';
+  const isWeddingPage = pathname === '/wedding';
   
   return (
     <footer className="bg-[var(--color-bg-2)] text-[var(--color-text-primary)] py-12">
@@ -36,12 +37,14 @@ function Footer() {
             >
               <span className="block">PORTFÓLIO</span>
             </a>
-            <a 
-              href="/trabalhe-conosco" 
-              className="relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
-            >
-              <span className="block">TRABALHE CONOSCO</span>
-            </a>
+            {!isWeddingPage && (
+              <a 
+                href="/trabalhe-conosco" 
+                className="relative text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold"
+              >
+                <span className="block">TRABALHE CONOSCO</span>
+              </a>
+            )}
             <a 
               href={isTrabalheConoscoPage ? "/#contato" : "#contato"}
               onClick={(e) => !isTrabalheConoscoPage && handleAnchorClick(e, "#contato")}

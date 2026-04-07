@@ -4,7 +4,7 @@ interface EmailData {
   phone: string;
   company?: string;
   message: string;
-  formType: 'contact' | 'trabalhe-conosco';
+  formType: 'contact' | 'trabalhe-conosco' | 'wedding';
   portfolio?: string;
   linkedin?: string;
   area?: string;

@@ -20,6 +20,8 @@ export default {
 		extend: {
 			fontFamily: {
 				'amplitude': ['amplitude', 'amplitude-fallback', 'Arial', 'sans-serif'],
+				'cormorant': ['Cormorant', 'serif'],
+				'playfair': ['Playfair Display', 'serif'],
 			},
 			fontStretch: {
 				'extra-condensed': 'extra-condensed',
