@@ -216,7 +216,7 @@ function WeddingDocumentarySection() {
                 Filme Documental
               </h2>
               
-              <div className="space-y-4 text-[#3A2F28]/90 font-playfair text-base md:text-lg leading-relaxed">
+              <div className="space-y-4 text-[#3A2F28]/90 font-playfair text-base md:text-lg leading-relaxed text-pretty">
                 <p>
                   O filme documental é para quem deseja sentir o dia como ele realmente foi. 
                   Com as pausas antes da entrada, as risadas espontâneas, os abraços demorados, 
