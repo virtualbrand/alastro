@@ -42,9 +42,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const subject = formType === 'contact' ? 'Contato pelo site' : 'Quero fazer parte do time Alastro';
+    const subject =
+      formType === 'contact' ? 'Contato pelo site' :
+      formType === 'wedding' ? 'Solicitação de Casamento - Site Alastro' :
+      'Quero fazer parte do time Alastro';
 
-    const htmlContent = formType === 'contact'
+    const htmlContent =
+      formType === 'contact'
       ? `
         <html>
           <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -54,6 +58,23 @@ export async function POST(req: NextRequest) {
               <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
               <p><strong>Telefone:</strong> ${phone}</p>
               <p><strong>Empresa/Projeto:</strong> ${company || 'Não informado'}</p>
+              <hr style="border: 1px solid #ddd; margin: 20px 0;">
+              <p><strong>Mensagem:</strong></p>
+              <p style="background: white; padding: 15px; border-radius: 4px;">${(userMessage || '').replace(/\n/g, '<br>')}</p>
+            </div>
+          </body>
+        </html>
+      `
+      : formType === 'wedding'
+      ? `
+        <html>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+            <h2 style="color: #d4ec8e;">Novo Contato Wedding - Site Alastro</h2>
+            <div style="background: #f4f4f4; padding: 20px; border-radius: 8px;">
+              <p><strong>Nome dos Noivos:</strong> ${name}</p>
+              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+              <p><strong>Telefone:</strong> ${phone}</p>
+              <p><strong>Local e Data:</strong> ${company || 'Não informado'}</p>
               <hr style="border: 1px solid #ddd; margin: 20px 0;">
               <p><strong>Mensagem:</strong></p>
               <p style="background: white; padding: 15px; border-radius: 4px;">${(userMessage || '').replace(/\n/g, '<br>')}</p>
