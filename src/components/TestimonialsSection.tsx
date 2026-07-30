@@ -32,6 +32,45 @@ const TESTIMONIALS_ANIMATED = [
     designation: "",
     src: "/images/depoimentos/natalia.webp",
   },
+  {
+    quote: "Para mim, é um prazer ter a Alastro como parceira em todos os meus projetos. O que mais me impressiona é a capacidade deles de transitar por diferentes temas, plataformas e formatos com a mesma qualidade e consistência.Hoje, eles produzem desde documentários e podcasts até publiposts e campanhas completas. Encontrar um parceiro com essa versatilidade e capacidade de adaptação faz toda a diferença. É por isso que a Alastro está presente nos meus projetos e que eu a recomendo com confiança para todos os meus parceiros.",
+    name: "Phillipe Angeli",
+    designation: "",
+    src: "/images/depoimentos/phillipe.webp",
+  },
+  {
+    quote: `A parceria entre a ID.MIDIAS e a Alastro já dura aproximadamente 3 anos, e durante todo esse período eles se consolidaram como um dos parceiros mais confiáveis e competentes com quem já trabalhamos.
+Em um mercado onde muitas empresas prometem muito e entregam pouco, a Alastro se destaca pela capacidade de transformar ideias em projetos executados com excelência, organização e um padrão de qualidade extremamente elevado.
+Tivemos a oportunidade de desenvolver diversos projetos juntos e, em todos eles, percebemos o mesmo compromisso com o resultado final. Desde o atendimento inicial até a entrega, existe um cuidado genuíno com cada detalhe, uma comunicação clara e uma preocupação constante em superar expectativas.
+O que mais admiramos na Alastro é a combinação rara entre criatividade, profissionalismo e capacidade de execução. Não basta ter boas ideias; é preciso ter método, equipe e comprometimento para tirar os projetos do papel com consistência. E isso eles fazem de forma exemplar.
+Hoje, quando pensamos em produção audiovisual e projetos que exigem alto nível de qualidade, a Alastro é  a primeira empresa que nos vem à mente. É uma parceria construída com confiança, respeito e resultados reais ao longo dos anos.
+Sem dúvida, uma empresa que recomendamos de olhos fechados para qualquer negócio que busca elevar o nível da sua comunicação, fortalecer sua marca e produzir materiais que realmente geram impacto`,
+    name: "Cesar Machado",
+    designation: "",
+    src: "/images/depoimentos/cesar.webp",
+  },
+  {
+    quote: `Conhecer a Alastro foi muito mais do que encontrar um time de audiovisual. Foi encontrar pessoas que entendem que por trás de cada projeto existe uma história, uma visão e um propósito que merece ser contado com cuidado.
+Desde o primeiro contato, o que nos surpreendeu não foi só a qualidade técnica, foi a forma como eles nos ouviram. Ouviram o que a Viga é, o que quer ser, e o que ainda está construindo. E traduziram tudo isso em imagem, em vídeo, em narrativa.
+Com a Alastro, não contratamos um serviço. Ganhamos parceiros que vibram com as nossas conquistas, que nos desafiam a comunicar melhor e que entregam com um nível de excelência que faz a gente querer crescer para estar à altura do que eles produzem.
+São profissionais excepcionais. E, mais do que isso, são pessoas que a gente tem o privilégio de chamar de amigos.`,
+    name: "Gabriela Tanese",
+    designation: "",
+    src: "/images/depoimentos/gabi.webp",
+  },
+  {
+    quote: `Foi muito emocionante participar dessa gravação.
+Esses quatro dias, recapitulando a minha história e falando sobre cada detalhe do passado, me fizeram lembrar de tudo o que foi vivido e de tudo o que a gente está construindo.
+E, mais do que isso, o carinho da equipe da Alastro foi sensacional. Eu me senti completamente à vontade com eles. Eu tenho dificuldade em falar em público, e não tive nenhuma durante a gravação. Me senti como se estivesse com amigos.
+O profissionalismo deles é nota mil. Eu nunca participei de uma gravação com um nível tão alto de perfeccionismo em cada detalhe. Foi realmente impressionante.
+Eu recomendaria a Alastro para qualquer pessoa, até para o meu melhor amigo. E tenho certeza de que construí amigos aqui nesses quatro dias. A gente teve uma troca tão boa, tão profunda, tão leve… Foi tudo muito suave e emocionante, de verdade.
+Estou muito feliz com essa gravação. Estou com uma expectativa gigantesca e super curiosa para ver esse filme. Tenho certeza, pelo que vi aqui e pelo nível do trabalho deles, que vai ficar maravilhoso.
+Vou agradecer por ter esse filme da minha vida, até este momento, pelo resto da vida.
+Muito obrigada, Alastro. Muito obrigada, Bruno. Muito obrigada a toda a equipe. Vocês são sensacionais. Muito obrigada!`,
+    name: "Corina Godoy",
+    designation: "",
+    src: "/images/depoimentos/corina.webp",
+  },
 ];
 
 const TestimonialsSection = () => {

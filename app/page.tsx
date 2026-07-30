@@ -4,6 +4,7 @@ import { FloatingNav } from "@/components/ui/floating-nav";
 import HeroSection from "@/components/HeroSection";
 import BottomHeroSection from "@/components/BottomHeroSection";
 import { Footer } from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { useEffect, lazy, Suspense } from "react";
 
 // Lazy load de componentes abaixo da dobra (below the fold)
@@ -50,6 +51,7 @@ export default function Home() {
         <ContactSection />
       </Suspense>
       <Footer />
+      <FloatingWhatsApp message="Olá! Estou no site da Alastro e gostaria de mais informações" />
     </div>
   );
 }

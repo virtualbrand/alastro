@@ -29,6 +29,13 @@ const MARCAS = [
   { title: "Allegra", image: "/images/clientes/allegra.webp" },
   { title: "Bold", image: "/images/clientes/bold.webp" },
   { title: "Dux", image: "/images/clientes/dux.webp" },
+  { title: "Amaze", image: "/images/clientes/amaze.webp" },
+  { title: "G4", image: "/images/clientes/g4.webp" },
+  { title: "Helmanns", image: "/images/clientes/helmanns.webp" },
+  { title: "Mc Donald's", image: "/images/clientes/macdonalds.webp" },
+  { title: "Pink Cheeks", image: "/images/clientes/pink-cheeks.webp" },
+  { title: "Tim", image: "/images/clientes/tim.webp" },
+  { title: "Uber", image: "/images/clientes/uber.webp" },
 ];
 
 const ClientItem = ({ item }: { item: { title: string; image: string } }) => (
