@@ -76,8 +76,10 @@ const VideoHeroSection = () => {
 					{PROJECTS.map((project, index) => (
 						<Dialog key={index}>
 							<DialogTrigger asChild>
-								<div 
-									className={`relative w-full h-full flex items-center justify-center ${index % 2 === 0 ? 'scroll-left' : 'scroll-right'}`}
+								<button 
+									type="button"
+									aria-label={`Assistir vídeo: ${project.name}`}
+									className={`relative w-full h-full flex items-center justify-center text-left bg-transparent border-0 p-0 ${index % 2 === 0 ? 'scroll-left' : 'scroll-right'}`}
 									suppressHydrationWarning
 								>
 									<div 
@@ -121,7 +123,7 @@ const VideoHeroSection = () => {
 											</h3>
 										</div>
 									</div>
-								</div>
+								</button>
 							</DialogTrigger>
 							<DialogContent className="max-w-4xl p-0">							<DialogTitle className="sr-only">{project.name}</DialogTitle>								<div className="aspect-video w-full">
 									<iframe

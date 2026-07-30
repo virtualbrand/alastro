@@ -60,8 +60,10 @@ const BastidoresSection = () => {
 		{PROJECTS.map((project, index) => (
 		  <Dialog key={index}>
 			<DialogTrigger asChild>
-			  <div 
-                className="fade-in relative w-full h-full flex items-center justify-center"
+			  <button 
+                type="button"
+                aria-label={`Assistir vídeo: ${project.name}`}
+                className="fade-in relative w-full h-full flex items-center justify-center text-left bg-transparent border-0 p-0"
                 suppressHydrationWarning
               >
 				<div className="group relative w-full aspect-[3/2] cursor-pointer overflow-hidden transition-transform duration-500 ease-in-out"
@@ -103,7 +105,7 @@ const BastidoresSection = () => {
 					</h3>
 				  </div>
 				</div>
-			  </div>
+			  </button>
 			</DialogTrigger>
 			<DialogContent className="max-w-4xl p-0">
 			  <DialogTitle className="sr-only">{project.name}</DialogTitle>
