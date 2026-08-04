@@ -327,20 +327,26 @@ function WeddingTestimonialsSection() {
   
   const testimonials = [
     {
+      names: "Lucas e Marina",
+      // date: "Casamento em Outubro/2025",
+      text: "Ter o time da Alastro no nosso casamento foi com certeza um dos grandes acertos para o nosso grande dia. Ja conhecia o time de outro trabalho e a entrega deles sempre é excepcional! Foram atensiosos conosco do inicio ao fim, cuidando do pre wedding, fotos com todos os padrinhos e madrinhas, familia, fotos da festa e muitos videos inesqueciveis! Inclusive video em realtime da cerimonia do casamento que com certeza foi a cereja do bolo! Com um time completo e experiente, sem sombra de duvidas eu indicaria a Alastro para eternizar as memorias do seu casamento!",
+      rating: 5
+    },
+    {
       names: "Camila & André",
-      date: "Casamento em Outubro/2025",
+      // date: "Casamento em Outubro/2025",
       text: "A equipe da Alastro superou todas as nossas expectativas! O vídeo ficou emocionante, capturaram cada momento especial. Revivemos nosso casamento a cada vez que assistimos.",
       rating: 5
     },
     {
       names: "Beatriz & Thiago",
-      date: "Casamento em Junho/2025",
+      // date: "Casamento em Junho/2025",
       text: "Profissionalismo impecável! Foram discretos durante a cerimônia mas não perderam nenhum detalhe. O filme ficou cinematográfico, parece um filme de Hollywood! Recomendamos demais.",
       rating: 5
     },
     {
       names: "Fernanda & Rodrigo",
-      date: "Casamento em Março/2025",
+      // date: "Casamento em Março/2025",
       text: "Escolhemos a Alastro depois de ver o trabalho deles e não nos arrependemos nem um segundo. Sensíveis, criativos e extremamente profissionais. Nosso álbum e vídeo são obras de arte!",
       rating: 5
     }
