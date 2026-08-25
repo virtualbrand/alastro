@@ -49,6 +49,20 @@ const PROJECTS = [
 		gif: "/videos/trabalhos/documentario-xama.mp4",
 		gifWebm: "/videos/trabalhos/documentario-xama.webm",
 	},
+	{
+		id: "fuR2wWBfUC0",
+		name: "99 Food",
+		thumbnail: "/images/capas/99food.webp",
+		gif: "/videos/trabalhos/99food.mp4",
+		gifWebm: "/videos/trabalhos/99food.webm",
+	},
+	{
+		id: "hMvgD-olweY",
+		name: "Documentário Corina",
+		thumbnail: "/images/capas/corina.webp",
+		gif: "/videos/trabalhos/documentario-corina.mp4",
+		gifWebm: "/videos/trabalhos/documentario-corina.webm",
+	},
 ]
 
 const VideoHeroSection = () => {
@@ -72,7 +86,7 @@ const VideoHeroSection = () => {
 
 			{/* Projects Grid */}
 			<div className="w-screen max-w-full overflow-hidden">
-				<div className="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 w-full">
+				<div className="grid grid-cols-2 grid-rows-4 lg:grid-cols-4 lg:grid-rows-2 w-full">
 					{PROJECTS.map((project, index) => (
 						<Dialog key={index}>
 							<DialogTrigger asChild>
@@ -115,10 +129,10 @@ const VideoHeroSection = () => {
 										<div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
 										{/* Play button and project name */}
 										<div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100">
-											<div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30">
-												<Play className="h-8 w-8 fill-white text-white" />
+											<div className="mb-4 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30">
+												<Play className="h-6 w-6 md:h-8 md:w-8 fill-white text-white" />
 											</div>
-											<h3 className="text-base font-amplitude font-semibold text-white leading-normal">
+											<h3 className="text-sm md:text-base font-amplitude font-semibold text-white leading-normal text-center">
 												{project.name}
 											</h3>
 										</div>

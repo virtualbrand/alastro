@@ -33,6 +33,20 @@ const PROJECTS = [
 		gif: "/videos/bastidores/bastidores-alastro-guudrun.mp4",
 		gifWebm: "/videos/bastidores/bastidores-alastro-guudrun.webm",
 	},
+	{
+		id: "uRp_ysoHd58",
+		name: "Alastro & Corina",
+		thumbnail: "/images/capas/bastidores-corina.webp",
+		gif: "/videos/bastidores/bastidores-corina.mp4",
+		gifWebm: "/videos/bastidores/bastidores-corina.webm",
+	},
+	{
+		id: "Ag5NYgbnIg8",
+		name: "Alastro & Amaze",
+		thumbnail: "/images/capas/bastidores-amaze.webp",
+		gif: "/videos/bastidores/bastidores-alastro-amaze.mp4",
+		gifWebm: "/videos/bastidores/bastidores-alastro-amaze.webm",
+	},
 ]
 
 const BastidoresSection = () => {
@@ -56,7 +70,7 @@ const BastidoresSection = () => {
 
 			{/* Projects Grid */}
 			<div className="w-screen max-w-full overflow-hidden">
-				<div className="grid grid-cols-2 grid-rows-2 w-full">
+				<div className="grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 w-full">
 		{PROJECTS.map((project, index) => (
 		  <Dialog key={index}>
 			<DialogTrigger asChild>

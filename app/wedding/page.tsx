@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, lazy, Suspense, useState } from "react";
+import { useEffect, lazy, Suspense, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, Video, Camera, Users, Sparkles, Play, CheckCircle2, AlertCircle } from "lucide-react";
 import Link from "next/link";
@@ -258,6 +258,76 @@ function WeddingDocumentarySection() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Seção de Vídeo (mesmo estilo da Home)
+function WeddingVideoSection() {
+  useScrollAnimation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  return (
+    <section className="py-24 bg-[var(--color-bg-2)]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button
+                type="button"
+                aria-label="Assistir vídeo: Documentário de Casamento"
+                className="fade-in group relative block w-full aspect-video cursor-pointer overflow-hidden rounded-2xl bg-transparent border-0 p-0"
+                onMouseEnter={() => videoRef.current?.play()}
+                onMouseLeave={() => videoRef.current?.pause()}
+              >
+                <OptimizedImage
+                  className="absolute inset-0 w-full h-full object-cover object-center opacity-100 transition-all duration-300 group-hover:opacity-0"
+                  src="/images/capas/casamento.webp"
+                  sizes="(max-width: 1024px) 100vw, 900px"
+                  alt="Documentário de Casamento"
+                  draggable={false}
+                  width={1600}
+                  height={900}
+                />
+                <video
+                  ref={videoRef}
+                  className="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-all duration-300 group-hover:opacity-100"
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                >
+                  <source src="/videos/trabalhos/documentario-casamento.webm" type="video/webm" />
+                  <source src="/videos/trabalhos/documentario-casamento.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="mb-4 flex h-14 w-14 md:h-20 md:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/30">
+                    <Play className="h-7 w-7 md:h-10 md:w-10 fill-white text-white" />
+                  </div>
+                  <h3 className="text-base md:text-xl font-amplitude font-semibold text-white leading-normal text-center opacity-0 transition-all duration-300 group-hover:opacity-100">
+                    Casamento - Lucas & Marina
+                  </h3>
+                </div>
+              </button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl p-0">
+              <DialogTitle className="sr-only">Casamento - Lucas & Marina</DialogTitle>
+              <div className="aspect-video w-full">
+                <iframe
+                  className="size-full rounded-lg"
+                  src="https://www.youtube.com/embed/FKWEgJcASrA?autoplay=1&rel=0&modestbranding=1"
+                  title="Casamento"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>
@@ -774,6 +844,7 @@ export default function WeddingPage() {
       <WeddingManifestoSection />
       <WeddingGallerySection />
       <WeddingDocumentarySection />
+      <WeddingVideoSection />
       <Suspense fallback={<div className="min-h-screen" />}>
         <WeddingServicesSection />
         <WeddingTestimonialsSection />
