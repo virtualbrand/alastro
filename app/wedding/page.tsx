@@ -451,7 +451,6 @@ function WeddingTestimonialsSection() {
               </p>
               <div className="border-t border-gray-300 pt-4">
                 <p className="text-foreground font-playfair font-semibold">{testimonial.names}</p>
-                <p className="text-foreground/60 text-sm font-playfair">{testimonial.date}</p>
               </div>
             </div>
           ))}
