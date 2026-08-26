@@ -105,6 +105,8 @@ export const AnimatedTestimonials = ({
                     src={testimonial.src}
                     alt={testimonial.name}
                     draggable={false}
+                    loading="lazy"
+                    decoding="async"
                     className={cn(
                       "col-span-2 rounded-2xl object-cover shadow-xl grayscale-[0.2] brightness-110 w-[500px] h-[500px]",
                       className

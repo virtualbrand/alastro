@@ -20,7 +20,7 @@ function Footer() {
             href="/" 
             className="mb-8 rounded-full p-8 w-40 h-40 flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer"
           >
-            <img src="/images/icon-footer.svg" alt="Logo Alastro" className="w-full h-full object-contain" />
+            <img src="/images/icon-footer.svg" alt="Logo Alastro" loading="lazy" className="w-full h-full object-contain" />
           </a>
           <nav className="mb-8 flex flex-wrap justify-center gap-8">
             <a 
@@ -78,7 +78,7 @@ function Footer() {
                 size="icon" 
                 className="rounded-full border-[var(--color-border)] bg-[var(--color-bg-2)] text-[var(--color-text-secondary)] hover:bg-[var(--color-text-secondary)] hover:text-[var(--color-bg-2)] transition-all duration-300 focus-visible:ring-0 focus-visible:ring-offset-0 group"
               >
-                <img src="/whatsapp-icon.svg" alt="WhatsApp" className="h-4 w-4 group-hover:brightness-0 group-hover:invert transition-all duration-300" />
+                <img src="/whatsapp-icon.svg" alt="WhatsApp" loading="lazy" className="h-4 w-4 group-hover:brightness-0 group-hover:invert transition-all duration-300" />
                 <span className="sr-only">WhatsApp</span>
               </Button>
             </a>
