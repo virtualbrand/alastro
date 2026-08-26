@@ -49,20 +49,20 @@ const PROJECTS = [
 		gif: "/videos/trabalhos/documentario-xama.mp4",
 		gifWebm: "/videos/trabalhos/documentario-xama.webm",
 	},
-	{
-		id: "fuR2wWBfUC0",
-		name: "99 Food",
-		thumbnail: "/images/capas/99food.webp",
-		gif: "/videos/trabalhos/99food.mp4",
-		gifWebm: "/videos/trabalhos/99food.webm",
-	},
-	{
-		id: "hMvgD-olweY",
-		name: "Documentário Corina",
-		thumbnail: "/images/capas/corina.webp",
-		gif: "/videos/trabalhos/documentario-corina.mp4",
-		gifWebm: "/videos/trabalhos/documentario-corina.webm",
-	},
+	// {
+	// 	id: "fuR2wWBfUC0",
+	// 	name: "99 Food",
+	// 	thumbnail: "/images/capas/99food.webp",
+	// 	gif: "/videos/trabalhos/99food.mp4",
+	// 	gifWebm: "/videos/trabalhos/99food.webm",
+	// },
+	// {
+	// 	id: "hMvgD-olweY",
+	// 	name: "Documentário Corina",
+	// 	thumbnail: "/images/capas/corina.webp",
+	// 	gif: "/videos/trabalhos/documentario-corina.mp4",
+	// 	gifWebm: "/videos/trabalhos/documentario-corina.webm",
+	// },
 ]
 
 const VideoHeroSection = () => {
@@ -86,7 +86,7 @@ const VideoHeroSection = () => {
 
 			{/* Projects Grid */}
 			<div className="w-screen max-w-full overflow-hidden">
-				<div className="grid grid-cols-2 grid-rows-4 lg:grid-cols-4 lg:grid-rows-2 w-full">
+				<div className="grid grid-cols-2 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 w-full">
 					{PROJECTS.map((project, index) => (
 						<Dialog key={index}>
 							<DialogTrigger asChild>
