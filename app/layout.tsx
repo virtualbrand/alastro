@@ -25,19 +25,28 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {/* Preconnect para Adobe Fonts */}
+        {/* Preconnect para Adobe Fonts (use.typekit.net serve o CSS, p.typekit.net é referenciado por ele) */}
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://use.typekit.net" />
+        <link rel="dns-prefetch" href="https://p.typekit.net" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
-        
-        {/* Google Fonts - Cormorant & Playfair Display */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-        
-        {/* Carregamento otimizado da fonte Adobe - Kit atualizado */}
-        <link rel="preload" href="https://use.typekit.net/sip8wfz.css" as="style" />
-        <link rel="stylesheet" href="https://use.typekit.net/sip8wfz.css" />
+
+        {/* Adobe Fonts (Amplitude): carregado via media=print + swap para não bloquear o render */}
+        <Script id="adobe-fonts-loader" strategy="beforeInteractive">
+          {`
+            (function () {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://use.typekit.net/sip8wfz.css';
+              link.media = 'print';
+              link.onload = function () { this.media = 'all'; };
+              document.head.appendChild(link);
+            })();
+          `}
+        </Script>
+        <noscript>
+          <link rel="stylesheet" href="https://use.typekit.net/sip8wfz.css" />
+        </noscript>
 
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">

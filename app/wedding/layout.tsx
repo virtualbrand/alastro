@@ -1,4 +1,19 @@
 import type { Metadata } from "next";
+import { Cormorant, Playfair_Display } from "next/font/google";
+
+const cormorant = Cormorant({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+  variable: "--font-cormorant",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-playfair",
+});
 
 export const metadata: Metadata = {
   title: "Casamento | Alastro - Cobertura Audiovisual para Casamentos",
@@ -62,5 +77,9 @@ export default function WeddingLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <div className={`${cormorant.variable} ${playfair.variable}`} style={{ display: "contents" }}>
+      {children}
+    </div>
+  );
 }

@@ -3,6 +3,44 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+    Font Metric Overrides - Fallback Font Otimizado
+    Cria um fallback que previne CLS (Cumulative Layout Shift)
+    Métricas calculadas para corresponder à fonte Amplitude
+  */
+  @font-face {
+    font-family: 'amplitude-fallback';
+    font-style: normal;
+    font-weight: 200;
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+    size-adjust: 98%;
+  }
+
+  @font-face {
+    font-family: 'amplitude-fallback';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+    size-adjust: 98%;
+  }
+
+  @font-face {
+    font-family: 'amplitude-fallback';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+    size-adjust: 98%;
+  }
+
   :root {
     scroll-behavior: auto; /* Desabilita scroll nativo para dar lugar ao Lenis */
     /* Pantone-based color palette */
