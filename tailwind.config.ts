@@ -75,6 +75,32 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+				/*
+				 * Fade puro: mexe só em opacity. O `animate-in` do
+				 * tailwindcss-animate reescreve `transform` no keyframe, o que
+				 * anula a centralização de um elemento posicionado com
+				 * -translate-x-1/2 -translate-y-1/2 e produz um slide diagonal.
+				 */
+				'fade-in': {
+					from: { opacity: '0' },
+					to: { opacity: '1' }
+				},
+				'fade-out': {
+					from: { opacity: '1' },
+					to: { opacity: '0' }
+				},
+				'toast-in': {
+					from: { transform: 'translateX(1rem)', opacity: '0' },
+					to: { transform: 'translateX(0)', opacity: '1' }
+				},
+				'drawer-in': {
+					from: { transform: 'translateX(100%)' },
+					to: { transform: 'translateX(0)' }
+				},
+				'drawer-out': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(100%)' }
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -93,6 +119,11 @@ export default {
 				}
 			},
 			animation: {
+				'fade-in': 'fade-in 200ms ease-out',
+				'fade-out': 'fade-out 150ms ease-in',
+				'toast-in': 'toast-in 250ms cubic-bezier(0.32, 0.72, 0.4, 1)',
+				'drawer-in': 'drawer-in 300ms cubic-bezier(0.32, 0.72, 0, 1)',
+				'drawer-out': 'drawer-out 200ms ease-in',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			}

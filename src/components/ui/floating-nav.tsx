@@ -9,6 +9,7 @@ import { throttle } from "@/lib/debounce";
 export const FloatingNav = ({
   navItems,
   className,
+  wide = false,
 }: {
   navItems: {
     name: string;
@@ -16,6 +17,12 @@ export const FloatingNav = ({
     icon?: JSX.Element;
   }[];
   className?: string;
+  /**
+   * Alinha o conteúdo do header aos gutters das seções de largura total
+   * (home e /servicos). Sem isso, mantém o contêiner de 1400px das páginas
+   * de conteúdo (blog, cases).
+   */
+  wide?: boolean;
 }) => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -41,6 +48,16 @@ export const FloatingNav = ({
     window.addEventListener("scroll", throttledScroll);
     return () => window.removeEventListener("scroll", throttledScroll);
   }, [lastScrollY]);
+
+  // Fechar menu mobile com Esc
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileMenuOpen]);
 
   // Fechar menu mobile ao clicar fora
   useEffect(() => {
@@ -72,12 +89,15 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-full fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur-md border-b border-border/30",
+          "flex flex-col max-w-full fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur-md border-b border-border/30",
           className
         )}
         data-mobile-menu
       >
-        <div className="flex justify-between items-center w-full px-2 md:px-8 py-4 max-w-[1400px] mx-auto">
+        <div className={cn(
+            "flex justify-between items-center w-full py-4",
+            wide ? "px-6 md:px-12 lg:px-20 xl:px-24" : "px-2 md:px-8 max-w-[1400px] mx-auto"
+          )}>
           {/* Logo */}
           <a href="/" className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
             <img 
@@ -107,7 +127,7 @@ export const FloatingNav = ({
           {/* Mobile Menu Button */}
           <button 
             type="button"
-            className="md:hidden text-foreground"
+            className="md:hidden -mr-2 flex h-11 w-11 items-center justify-center rounded-md text-foreground transition-colors active:bg-black/5"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={mobileMenuOpen}
@@ -139,9 +159,9 @@ export const FloatingNav = ({
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden bg-white/95 backdrop-blur-md border-t border-border/30"
+              className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-border/30"
             >
-              <nav className="flex flex-col py-4">
+              <nav className="flex flex-col px-2 pb-4 pt-2">
                 {navItems.map((navItem, idx) => (
                   <a
                     key={`mobile-link-${idx}`}
@@ -150,7 +170,7 @@ export const FloatingNav = ({
                       handleAnchorClick(e, navItem.link);
                       setMobileMenuOpen(false);
                     }}
-                    className="px-8 py-3 text-foreground hover:text-[var(--color-menu-hover)] transition-colors duration-200 text-base font-amplitude font-bold hover:bg-gray-50/50"
+                    className="flex min-h-12 items-center border-b border-border/20 px-2 text-foreground transition-colors duration-200 text-lg font-amplitude font-bold last:border-b-0 hover:text-[var(--color-menu-hover)] active:bg-black/5"
                   >
                     {navItem.name}
                   </a>

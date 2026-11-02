@@ -158,7 +158,8 @@ export default function TrabalheConoscoPage() {
 
   const navItems = [
     { name: "SOBRE NÓS", link: "/#sobre" },
-    { name: "PORTFÓLIO", link: "/#portfolio" },
+    { name: "CASES", link: "/#cases" },
+    { name: "SERVIÇOS", link: "/#servicos" },
     { name: "CONTATO", link: "/#contato" },
   ];
 
@@ -254,7 +255,9 @@ export default function TrabalheConoscoPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <FloatingNav navItems={navItems} />
+      {/* Mesma largura da home e fundo equivalente ao do header da home (branco a 70% sobre a hero, que dá
+          praticamente o cinza --color-bg-2): aqui o header fica sobre o fundo branco da página. */}
+      <FloatingNav navItems={navItems} wide className="bg-[var(--color-bg-2)]" />
       
       <section
         className="min-h-screen flex flex-col md:flex-row-reverse relative overflow-hidden pt-16"
@@ -293,7 +296,7 @@ export default function TrabalheConoscoPage() {
               <h1 className="text-3xl lg:text-4xl font-amplitude font-bold text-[var(--color-heading)]">
                 Trabalhe Conosco
               </h1>
-              <p className="text-[var(--color-text-primary)] font-amplitude sm:text-lg md:text-xl leading-normal">
+              <p className="text-[var(--color-text-primary)] font-amplitude text-paragraph">
                 Faça parte do nosso time! Estamos sempre em busca de talentos criativos e 
                 apaixonados por audiovisual para criar histórias incríveis juntos.
               </p>

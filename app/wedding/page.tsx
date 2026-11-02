@@ -10,7 +10,6 @@ import { useForm, Controller } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import { sendEmail } from "@/services/emailService";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 // Hero Section específica para casamentos
 function WeddingHeroSection() {
@@ -849,7 +848,6 @@ export default function WeddingPage() {
         <WeddingTestimonialsSection />
         <WeddingContactSection />
       </Suspense>
-      <FloatingWhatsApp message="Olá! Estou na site da Alastro e gostaria de mais informações sobre Wedding" />
     </div>
   );
 }

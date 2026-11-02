@@ -19,7 +19,7 @@
       }
     </style>
   </defs>
-  <rect class="cls-3" x="0" y="0" width="505" height="505" rx="250" ry="250"/>
+  <rect class="cls-3" x="0" y="0" width="505" height="505" rx="90" ry="90"/>
   <g id="Camada_1-2" data-name="Camada 1-2">
     <polygon class="cls-1" points="245.14 206.1 235.21 299.14 258.11 299.14 248.47 206.06 245.14 206.1"/>
     <polygon class="cls-4" points="151.28 142.2 107.5 362.78 153.59 362.78 197.49 142.2 151.28 142.2"/>

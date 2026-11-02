@@ -32,8 +32,11 @@ export const useScrollAnimation = () => {
               ease: "power2.out",
               scrollTrigger: {
                 trigger: element,
-                start: "top 90%",
-                end: "top 65%",
+                // Padrão do site; um elemento pode sobrescrever com
+                // data-fade-start / data-fade-end (ex.: a marca do rodapé, que
+                // fica no fim da página e nunca chega a "top 65%").
+                start: (element as HTMLElement).dataset.fadeStart ?? "top 90%",
+                end: (element as HTMLElement).dataset.fadeEnd ?? "top 65%",
                 scrub: 1,
                 toggleActions: "play reverse play reverse",
               }

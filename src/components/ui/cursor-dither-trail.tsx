@@ -59,42 +59,50 @@ export function CursorDitherTrail({
     const g = (int >> 8) & 255;
     const b = int & 255;
 
-    const paintDot = (x: number, y: number) => {
-      // For debug: always paint a fully opaque square so we can verify
-      ctx.fillStyle = `rgba(${r},${g},${b},1)`;
-      ctx.fillRect(x, y, dotSize, dotSize);
+    // Cada ponto guarda o instante em que foi pintado e o quadro redesenha o
+    // canvas inteiro com o alfa calculado pela idade. Apagar com
+    // "destination-out" a cada quadro deixava um resíduo: o canal alfa tem 8
+    // bits e valores baixos arredondam de volta para si mesmos, então o rastro
+    // nunca sumia por completo.
+    const dots = new Map<number, { x: number; y: number; t: number }>();
+    let frame = 0;
+
+    const draw = (now: number) => {
+      ctx.clearRect(0, 0, width, height);
+      dots.forEach((dot, key) => {
+        const alpha = 1 - (now - dot.t) / fadeDuration;
+        if (alpha <= 0) {
+          dots.delete(key);
+          return;
+        }
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+        ctx.fillRect(dot.x, dot.y, dotSize, dotSize);
+      });
+      // Sem pontos restantes o canvas já está limpo: para o loop.
+      frame = dots.size > 0 ? requestAnimationFrame(draw) : 0;
     };
 
-    let lastTime = performance.now();
-    const fadeStep = () => {
-      const now = performance.now();
-      const delta = now - lastTime;
-      lastTime = now;
-      // Clear with low alpha to fade previous dots
-      const fadeAlpha = delta / fadeDuration;
-      ctx.fillStyle = `rgba(0,0,0,${fadeAlpha})`;
-      ctx.globalCompositeOperation = "destination-out";
-      ctx.fillRect(0, 0, width, height);
-      ctx.globalCompositeOperation = "source-over";
-      requestAnimationFrame(fadeStep);
+    const paintDot = (x: number, y: number) => {
+      dots.set(y * 100000 + x, { x, y, t: performance.now() });
+      if (!frame) frame = requestAnimationFrame(draw);
     };
-    requestAnimationFrame(fadeStep);
 
     const onMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       const x = Math.floor((e.clientX - rect.left) / dotSize) * dotSize;
       const y = Math.floor((e.clientY - rect.top) / dotSize) * dotSize;
-      
+
       // Only paint if mouse is within canvas bounds
       if (x >= 0 && x < width && y >= 0 && y < height) {
         paintDot(x, y);
       }
     };
-    
+
     const target = containerRef?.current || canvas;
     target.addEventListener("mousemove", onMove);
 
     return () => {
+      cancelAnimationFrame(frame);
       target.removeEventListener("mousemove", onMove);
       window.removeEventListener("resize", onResize);
     };

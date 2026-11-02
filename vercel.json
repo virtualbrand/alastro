@@ -1,4 +1,10 @@
 {
+  "crons": [
+    {
+      "path": "/api/keep-alive",
+      "schedule": "0 9 * * *"
+    }
+  ],
   "functions": {
     "api/send-email.js": {
       "maxDuration": 10
@@ -23,6 +29,15 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/proposta/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
         }
       ]
     },

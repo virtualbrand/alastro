@@ -4,41 +4,52 @@
 
 @layer base {
   /*
-    Font Metric Overrides - Fallback Font Otimizado
-    Cria um fallback que previne CLS (Cumulative Layout Shift)
-    Métricas calculadas para corresponder à fonte Amplitude
+    Font Metric Overrides - Fallback calibrado para a Amplitude
+
+    Enquanto a Amplitude (Adobe Fonts) não chega, o navegador usa estas faces.
+    Os overrides fazem a Arial ocupar o mesmo espaço da Amplitude, então a
+    troca de fonte quase não move o layout. Valores medidos nos arquivos da
+    própria fonte (largura média ponderada pelo português, comparada à Arial):
+      400, texto corrido: size-adjust 91%, ascent 97%, descent 26%
+      700, títulos em caixa alta: size-adjust 85%, ascent 105%, descent 29%
+    Se a Adobe publicar outra versão da fonte, meça de novo.
+
+    O peso 700 usa Arial Bold de verdade: com local('Arial') o navegador
+    mostraria a Arial regular com cara de negrito, e o título "pularia" de
+    peso quando a Amplitude chegasse. Liberation Sans/Arimo cobrem Linux e
+    Android, onde a Arial não existe.
   */
   @font-face {
     font-family: 'amplitude-fallback';
     font-style: normal;
     font-weight: 200;
-    src: local('Arial');
-    ascent-override: 95%;
-    descent-override: 25%;
+    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+    ascent-override: 97%;
+    descent-override: 26%;
     line-gap-override: 0%;
-    size-adjust: 98%;
+    size-adjust: 91%;
   }
 
   @font-face {
     font-family: 'amplitude-fallback';
     font-style: normal;
     font-weight: 400;
-    src: local('Arial');
-    ascent-override: 95%;
-    descent-override: 25%;
+    src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+    ascent-override: 97%;
+    descent-override: 26%;
     line-gap-override: 0%;
-    size-adjust: 98%;
+    size-adjust: 91%;
   }
 
   @font-face {
     font-family: 'amplitude-fallback';
     font-style: normal;
     font-weight: 700;
-    src: local('Arial');
-    ascent-override: 95%;
-    descent-override: 25%;
+    src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Arimo Bold');
+    ascent-override: 105%;
+    descent-override: 29%;
     line-gap-override: 0%;
-    size-adjust: 98%;
+    size-adjust: 85%;
   }
 
   :root {
@@ -69,14 +80,23 @@
     --accent: 45 17% 59%;
     --accent-foreground: 204 6% 15%;
     
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    /* Tijolo: vermelho terroso e fechado, na família quente da paleta (areia, oliva, grafite). */
+    --destructive: 8 55% 40%;
+    --destructive-foreground: 60 5% 96%;
     
     --border: 60 5% 75%;
     --input: 60 5% 75%;
     --ring: 65 100% 42%;
     
     --radius: 0.5rem;
+
+    /* Verde da marca como texto/borda: precisa de contraste, então no tema claro é um oliva escuro. */
+    --primary-ink: 74 70% 33%;
+
+    /* Painel: campos e interruptor claros; blocos laterais na cor areia do site. */
+    --field: 0 0% 100%;
+    --panel: 60 2% 85%;
+    --switch-off: 60 2% 60%;
     
     --sidebar-background: 60 5% 85%;
     --sidebar-foreground: 204 6% 15%;
@@ -89,6 +109,11 @@
   }
 
   .dark {
+    --primary-ink: 65 100% 42%;
+    --field: 204 6% 15%;
+    --panel: 204 6% 20%;
+    --switch-off: 204 6% 38%;
+
     /* Dark mode using same Pantone palette */
     --background: 204 6% 15%;
     --foreground: 60 5% 85%;
@@ -111,8 +136,8 @@
     --accent: 45 17% 59%;
     --accent-foreground: 204 6% 15%;
     
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 85% 97%;
+    --destructive: 8 55% 52%;
+    --destructive-foreground: 60 5% 96%;
     
     --border: 204 6% 25%;
     --input: 204 6% 25%;
@@ -141,6 +166,17 @@
     height: 100%;
     font-family: 'amplitude', 'amplitude-fallback', 'Arial', sans-serif;
     font-weight: 400;
+    /* Sem negrito falso: se um peso faltar, usa o mais próximo. O itálico sintético
+       continua permitido, porque a Amplitude não tem itálico e o blog usa <em>. */
+    font-synthesis-weight: none;
+  }
+  /* Evita palavras órfãs: títulos equilibrados, texto corrido com quebra "bonita".
+     Em @layer base, então classes utilitárias (text-wrap, whitespace-nowrap) ainda sobrescrevem. */
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  p, li, blockquote, figcaption, dd {
+    text-wrap: pretty;
   }
   body {
     position: relative;
@@ -153,11 +189,20 @@
   font-family: 'amplitude', 'amplitude-fallback', 'Arial', sans-serif;
 }
 
+/* Títulos ocultos (mantendo o espaço) até a Amplitude carregar; ver o loader em layout.tsx. */
+.fonts-loading h1,
+.fonts-loading h2,
+.fonts-loading h3,
+.fonts-loading h4,
+.fonts-loading h5,
+.fonts-loading h6 {
+  visibility: hidden;
+}
+
 /* Make all headings use Amplitude Extra Compressed Bold UPPERCASE */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'amplitude', 'amplitude-fallback', 'Arial', sans-serif;
   font-weight: 700;
-  font-stretch: extra-condensed;
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
@@ -217,4 +262,103 @@ html.lenis, html.lenis body {
   --color-text-primary-rgb: 199, 209, 219;
   --color-accent-green: #d4ec8e;
   --color-menu-hover: #7f8d55;
+}
+
+/*
+  Tipografia de textos (descrições e parágrafos)
+
+  Escala responsiva única do site, a mesma da seção "Somos uma produtora
+  audiovisual": 16px no mobile, 18px a partir de sm e 20px a partir de md.
+  Use as classes no lugar de repetir "text-base sm:text-lg md:text-xl":
+    .text-paragraph     texto padrão
+    .text-paragraph-sm  um degrau abaixo (14px → 16px → 18px), para textos
+                        secundários onde o padrão ficaria grande demais
+  Cor, peso e família ficam por conta de quem usa.
+*/
+@layer components {
+  /*
+    Sombra padrão das divisas entre seções: mesma intensidade e blur nas duas direções, só o
+    deslocamento muda. A seção precisa de fundo próprio e de z-index acima da vizinha.
+      .shadow-section-top     projeta para cima, sobre a seção anterior
+      .shadow-section-bottom  projeta para baixo, sobre a seção seguinte
+  */
+  /*
+    O clip-path deixa a sombra aparecer só no lado em que ela deve cair. O blur de 30px
+    "vaza" um pouco para o lado oposto e desenhava uma linha tênue na divisa com a seção
+    vizinha (ex.: entre "Nossos trabalhos em ação" e "Por trás das câmeras").
+  */
+  .shadow-section-top {
+    box-shadow: 0 -10px 30px -5px rgba(0, 0, 0, 0.2);
+    /*
+      O recorte para 1px antes da borda de baixo e a sobreposição de 1px sobre a seção
+      seguinte (margin-bottom) eliminam a linha escura que ficava na divisa: com a borda
+      em posição fracionária de pixel, uma fatia da sombra que vaza para baixo aparecia.
+    */
+    clip-path: inset(-60px 0 1px 0);
+    margin-bottom: -1px;
+  }
+
+  .shadow-section-bottom {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+    clip-path: inset(1px 0 -60px 0);
+    margin-top: -1px;
+  }
+
+  .text-paragraph {
+    @apply text-base leading-relaxed sm:text-lg md:text-xl;
+  }
+
+  .text-paragraph-sm {
+    @apply text-sm leading-relaxed sm:text-base md:text-lg;
+  }
+}
+
+/*
+  Sem contorno de foco em links e botões (a borda azul do navegador e os anéis do Tailwind).
+  Campos de formulário (input, textarea, select) continuam com o foco deles.
+  Obs.: isso tira a indicação visual de foco de quem navega pelo teclado; o hover de cada
+  componente continua funcionando.
+*/
+:is(a, button, [role="button"], [role="tab"], [role="menuitem"], summary, [tabindex]):not([role="combobox"]):focus,
+:is(a, button, [role="button"], [role="tab"], [role="menuitem"], summary, [tabindex]):not([role="combobox"]):focus-visible {
+  outline: none !important;
+  /* Os anéis do Tailwind são box-shadows montados com estas variáveis. */
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+
+a,
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/*
+  Painel (/dashboard) no tema claro: fundo areia, o mesmo do site, e cartões quase brancos, como os
+  cards de serviços. O escopo é a classe .painel (e não :root) porque o site público usa os
+  mesmos tokens para outras coisas. No tema escuro nada muda.
+*/
+html:not(.dark) .painel {
+  --background: 60 2% 85%;
+  --foreground: 204 6% 15%;
+
+  --card: 0 0% 99%;
+  --card-foreground: 204 6% 15%;
+
+  --muted: 60 4% 93%;
+  --muted-foreground: 204 6% 38%;
+
+  --secondary: 60 4% 93%;
+  --secondary-foreground: 204 6% 15%;
+
+  --accent: 60 4% 91%;
+  --accent-foreground: 204 6% 15%;
+
+  --border: 60 3% 80%;
+  --input: 60 3% 78%;
+
+  /* Verde de acento do site (#d4ec8e) nos botões; o texto sobre ele é grafite. */
+  --primary: 75 71% 74%;
+  --primary-foreground: 204 6% 15%;
 }

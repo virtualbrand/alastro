@@ -279,7 +279,7 @@ const ContactSection = () => {
             <h2 className="text-3xl lg:text-4xl font-amplitude font-bold text-[var(--color-heading)]">
               Vamos construir algo incrível juntos?
             </h2>
-            <p className="text-[var(--color-text-primary)] font-amplitude sm:text-lg md:text-xl leading-normal">
+            <p className="text-[var(--color-text-primary)] font-amplitude text-paragraph">
               Toda grande história começa com uma conversa. Estamos ansiosos para conhecer seus
               sonhos e descobrir como podemos fazer parte da sua jornada.
             </p>
