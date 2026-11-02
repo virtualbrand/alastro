@@ -5,11 +5,6 @@
       "schedule": "0 9 * * *"
     }
   ],
-  "functions": {
-    "api/send-email.js": {
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -68,6 +63,5 @@
         }
       ]
     }
-
   ]
 }
